@@ -1460,8 +1460,8 @@ MonoBehaviour:
   orientation: {fileID: 339894930}
   sensX: 400
   sensY: 400
-  minCameraClamp: -90
-  maxCameraClamp: 90
+  minCameraClamp: 0
+  maxCameraClamp: 0
 --- !u!1 &1556224069
 GameObject:
   m_ObjectHideFlags: 0
