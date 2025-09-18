@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Art
   - Mirrror
+  - Enemy
   layers:
   - Default
   - TransparentFX
