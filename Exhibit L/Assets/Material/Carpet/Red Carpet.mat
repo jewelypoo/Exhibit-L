@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: desert5
+  m_Name: Red Carpet
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -28,11 +28,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 872da15c48de50c43899da26d3a9d09c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7a193229387e6014b9370db8dd07d6e2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: bfb8e16a9ec945e4db408b9d51232d3c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9599b1545c99dcc48a1ecda25bdd7b3a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -52,11 +52,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 872da15c48de50c43899da26d3a9d09c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7a193229387e6014b9370db8dd07d6e2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 8c39bc06f994e9c46a16ee9740c7b474, type: 3}
+        m_Texture: {fileID: 2800000, guid: 52f6f8d7964e6604abfdf1f44f1e9332, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -123,7 +123,7 @@ Material:
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &8819564897071215922
+--- !u!114 &971542933505135690
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
