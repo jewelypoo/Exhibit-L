@@ -56,6 +56,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chandelier
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cd15db19be8abaa41b6ee427b171d10b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3585610984503439638, guid: cd15db19be8abaa41b6ee427b171d10b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762910469028723318, guid: cd15db19be8abaa41b6ee427b171d10b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 6831743376294613526, guid: cd15db19be8abaa41b6ee427b171d10b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 

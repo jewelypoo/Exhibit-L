@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5436463101914666946, guid: 898bcb56552b67840912efe04ffb40a8, type: 3}
       propertyPath: m_Name
-      value: pictureframe Variant
+      value: pictureframe 5
       objectReference: {fileID: 0}
     - target: {fileID: 5796922251623003671, guid: 898bcb56552b67840912efe04ffb40a8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

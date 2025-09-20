@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2583026111850266347, guid: 866fc2f912a34b94094a3e3715b22fd5, type: 3}
       propertyPath: m_Name
-      value: pictureframe Variant
+      value: pictureframe 4
       objectReference: {fileID: 0}
     - target: {fileID: 2923698435810190417, guid: 866fc2f912a34b94094a3e3715b22fd5, type: 3}
       propertyPath: m_LocalPosition.x
