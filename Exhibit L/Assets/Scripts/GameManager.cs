@@ -1,0 +1,36 @@
+using UnityEngine;
+
+public class GameManager : MonoBehaviour
+{
+    public static GameManager Instance;
+
+    [SerializeField] private int enemyCount;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public int GetEnemyCount()
+    {
+        return enemyCount;
+    }
+
+    public void ReduceEnemyCount(int amount)
+    {
+        enemyCount -= amount;
+    }
+}

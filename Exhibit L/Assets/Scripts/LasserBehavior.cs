@@ -17,10 +17,12 @@ public class LasserBehavior : MonoBehaviour
     private GameObject laser;
 
     private Vector3 laserBounceDir;
+    private PlayerData playerData;
 
     private void Awake()
     {
         laser.SetActive(false);
+        playerData = GetComponent<PlayerData>();
     }
 
 
@@ -46,9 +48,41 @@ public class LasserBehavior : MonoBehaviour
                     {
                         Destroy(bounceHit.collider.gameObject);
                     }
+                    if (bounceHit.transform.CompareTag("Player"))
+                    {
+                        playerData.GameOver();
+                    }
+                    if (bounceHit.transform.CompareTag("Enemy"))
+                    {
+                        if (GameManager.Instance.GetEnemyCount() > 0)
+                        {
+                            GameManager.Instance.ReduceEnemyCount(1);
+                        }
+                        if (GameManager.Instance.GetEnemyCount() <= 0)
+                        {
+                            playerData.LevelComplete();
+                        }
+                        Debug.Log("Enemy Hit");
+                    }
+                    Debug.Log("Object hit: " + bounceHit.collider.tag);
                 }
+               
             }
-            else
+            else if (hit.transform.CompareTag("Enemy"))
+            {
+                Destroy(hit.collider.gameObject);
+
+                if (GameManager.Instance.GetEnemyCount() > 0)
+                {
+                    GameManager.Instance.ReduceEnemyCount(1);
+                }
+                if (GameManager.Instance.GetEnemyCount() <= 0)
+                {
+                    playerData.LevelComplete();
+                }
+                Debug.Log("Enemy Hit");
+            }
+            else if (hit.transform.CompareTag("Art"))
             {
                 Destroy(hit.collider.gameObject);
             }
