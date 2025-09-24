@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [SerializeField] private int enemyCount;
+    [SerializeField] private int artDestroyed = 0;
 
     private void Awake()
     {
@@ -32,5 +33,15 @@ public class GameManager : MonoBehaviour
     public void ReduceEnemyCount(int amount)
     {
         enemyCount -= amount;
+    }
+
+    public int GetArtDestroyed()
+    {
+        return artDestroyed;
+    }
+
+    public void SetArtDestroyed(int amountToAdd)
+    {
+        artDestroyed += amountToAdd;
     }
 }

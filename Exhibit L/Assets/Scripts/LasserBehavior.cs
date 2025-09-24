@@ -85,6 +85,7 @@ public class LasserBehavior : MonoBehaviour
             else if (hit.transform.CompareTag("Art"))
             {
                 Destroy(hit.collider.gameObject);
+                GameManager.Instance.SetArtDestroyed(1);
             }
             
         }
