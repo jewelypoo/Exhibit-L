@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 1346378717942739138}
   - component: {fileID: 9133175496034612767}
   - component: {fileID: 6022275287386916276}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ MonoBehaviour:
   maxDistance: 100
   hitObjects:
     serializedVersion: 2
-    m_Bits: 6144
+    m_Bits: 30720
   laser: {fileID: 8442078304596905082}
 --- !u!114 &6022275287386916276
 MonoBehaviour:
@@ -334,7 +334,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35ba55075c9f6b544b41ad46cfa87409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  endScreen: {fileID: 0}
+  levelCompleteScreen: {fileID: 0}
 --- !u!1 &1049066613889534702
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +564,7 @@ GameObject:
   - component: {fileID: 2072264903386222628}
   m_Layer: 0
   m_Name: Player Holder
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
