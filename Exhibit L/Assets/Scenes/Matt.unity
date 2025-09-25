@@ -15895,9 +15895,21 @@ PrefabInstance:
       propertyPath: speed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3965137974709355102, guid: 9813dd1b6f54b694d9c33651c2d54be0, type: 3}
+      propertyPath: sensX
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965137974709355102, guid: 9813dd1b6f54b694d9c33651c2d54be0, type: 3}
+      propertyPath: sensY
+      value: 800
+      objectReference: {fileID: 0}
     - target: {fileID: 5201022947726003232, guid: 9813dd1b6f54b694d9c33651c2d54be0, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.313
+      objectReference: {fileID: 0}
+    - target: {fileID: 5354966613149059758, guid: 9813dd1b6f54b694d9c33651c2d54be0, type: 3}
+      propertyPath: near clip plane
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 6022275287386916276, guid: 9813dd1b6f54b694d9c33651c2d54be0, type: 3}
       propertyPath: endScreen
