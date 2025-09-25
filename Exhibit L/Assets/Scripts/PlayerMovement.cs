@@ -1,4 +1,3 @@
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -34,9 +33,11 @@ public class PlayerMovementHandler : MonoBehaviour
     public void Awake()
     {
         playerControls = new PlayerMovement();
+        playerControls.Enable();
+
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        playerControls.Enable();
+        
     }
 
     private void Update()

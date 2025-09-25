@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text endScreenTimer;
     [SerializeField] private TMP_Text artDestroyed;
     [SerializeField] private TMP_Text artDestroyedCounter;
+    [SerializeField] private GameObject crosshair;
 
     private float timerTime;
     private float roundedTimer;
@@ -43,6 +44,7 @@ public class UIManager : MonoBehaviour
                 artDestroyed.text = "Art destroyed: " + GameManager.Instance.GetArtDestroyed();
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                crosshair.SetActive(false);
             }
             else
             {
