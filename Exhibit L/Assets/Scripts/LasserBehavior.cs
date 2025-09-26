@@ -87,6 +87,11 @@ public class LasserBehavior : MonoBehaviour
                 Destroy(hit.collider.gameObject);
                 GameManager.Instance.SetArtDestroyed(1);
             }
+            else if (hit.transform.CompareTag("ChandelierChain"))
+            {
+                hit.transform.parent.GetComponent<ChandelierBehavior>().DestroyChandelier();
+                Debug.Log("Chains hit!");
+            }
             
         }
         else

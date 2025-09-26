@@ -7,6 +7,8 @@ TagManager:
   - Art
   - Mirrror
   - Enemy
+  - Chandelier
+  - ChandelierChain
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - Mirror
   - Enemy
   - Player
-  - 
+  - Chandelier
   - 
   - 
   - 
