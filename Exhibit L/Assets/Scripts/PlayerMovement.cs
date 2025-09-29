@@ -35,8 +35,8 @@ public class PlayerMovementHandler : MonoBehaviour
         playerControls = new PlayerMovement();
         playerControls.Enable();
 
-        rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
+        //rb = GetComponent<Rigidbody>();
+        //rb.freezeRotation = true;
         
     }
 
