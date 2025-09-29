@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyTest : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
