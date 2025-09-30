@@ -10,15 +10,20 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text artDestroyed;
     [SerializeField] private TMP_Text artDestroyedCounter;
     [SerializeField] private GameObject crosshair;
+    [SerializeField] private GameObject pauseScreen;
 
     private float timerTime;
     private float roundedTimer;
+
+    private bool isPaused = false;
 
     private void Awake()
     {
         timerTime = 0;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        crosshair.SetActive(true);
+        pauseScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -52,7 +57,19 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        
+        if (GameManager.Instance.paused == true)
+        {
+            if (!isPaused)
+            {
+                isPaused = true;
+                PauseScreen(GameManager.Instance.paused);
+            }
+        }
+        else
+        {
+            isPaused = false;
+            PauseScreen(GameManager.Instance.paused);
+        }
         
 
     }
@@ -65,5 +82,13 @@ public class UIManager : MonoBehaviour
     public void Retry(int sceneIndex)
     {
         SceneManager.LoadScene(sceneIndex);
+    }
+
+    public void PauseScreen(bool activation)
+    {
+        pauseScreen.SetActive(activation);
+        if (activation) Cursor.lockState = CursorLockMode.None;
+        else Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = activation;
     }
 }
