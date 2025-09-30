@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int enemyCount;
     [SerializeField] private int artDestroyed = 0;
 
+    private int currentLevel = 0;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -43,5 +45,11 @@ public class GameManager : MonoBehaviour
     public void SetArtDestroyed(int amountToAdd)
     {
         artDestroyed += amountToAdd;
+    }
+
+    public void SetLevelData(int currentLvl, int enemyAmt)
+    {
+        currentLevel = currentLvl;
+        enemyCount = enemyAmt;
     }
 }
