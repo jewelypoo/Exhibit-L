@@ -23,18 +23,20 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Get mouse inputs
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
+        if (!GameManager.Instance.paused)
+        {
+            //Get mouse inputs
+            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
+            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
-        yRotation += mouseX;
-        xRotation -= mouseY;
+            yRotation += mouseX;
+            xRotation -= mouseY;
 
-        //Clamp camera rotation
-        xRotation = Mathf.Clamp(xRotation, minCameraClamp, maxCameraClamp);
+            //Clamp camera rotation
+            xRotation = Mathf.Clamp(xRotation, minCameraClamp, maxCameraClamp);
 
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
-
+            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+        }
     }
 }

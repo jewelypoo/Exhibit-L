@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 12f;
     [SerializeField] private float acceleration = 20f;
     [SerializeField] private float gravity = -30f;
-    [SerializeField] private float airControlMultiplier = 0.2f;
 
     [Header("Camera References")]
     public Transform orientation;
@@ -23,12 +22,11 @@ public class PlayerController : MonoBehaviour
     private float verticalInput;
     private Vector3 moveDirection;
     private PlayerMovement playerControls;
-    private bool hasPogoed = false;
     private Vector3 currentMoveVelocity;
     private Vector3 velocity;
-    private bool canPogo = true;
 
     public float currentSpeed;
+    public bool paused = false;
 
     private void Awake()
     {
@@ -43,7 +41,7 @@ public class PlayerController : MonoBehaviour
     {
         grounded = characterController.isGrounded;
         MovePlayer();
-        ApplyGravityAndJump();
+        ApplyGravity();
         DampenHorizontalVelocityIfGrounded();
 
         characterController.Move(currentMoveVelocity * Time.deltaTime);
@@ -62,9 +60,7 @@ public class PlayerController : MonoBehaviour
     {
         moveDirection = (orientation.forward * verticalInput + orientation.right * horizontalInput).normalized;
 
-        float control = (!grounded && hasPogoed) ? airControlMultiplier : 1f;
-
-        currentMoveVelocity = Vector3.Lerp(currentMoveVelocity, moveDirection * moveSpeed * control, acceleration * Time.deltaTime);
+        currentMoveVelocity = Vector3.Lerp(currentMoveVelocity, moveDirection * moveSpeed, acceleration * Time.deltaTime);
 
     }
 
@@ -80,7 +76,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //NOTE - split this function up into 2 seperate things later
-    private void ApplyGravityAndJump()
+    private void ApplyGravity()
     {
         if (!grounded)
         {
@@ -88,13 +84,28 @@ public class PlayerController : MonoBehaviour
         }
         else if (velocity.y < 0f)
         {
-            hasPogoed = false;
             velocity.y = -2f;
         }
     }
 
-
-  
-
- 
+    public void Pause()
+    {
+        switch (paused)
+        {
+            case true:
+                paused = false;
+                GameManager.Instance.Pause(paused);
+                playerControls.Enable();
+                Time.timeScale = 1f;
+                break;
+            case false:
+                paused = true;
+                GameManager.Instance.Pause(paused);
+                playerControls.Disable();
+                Time.timeScale = 0f;
+                break;
+        }
+            
+        
+    }
 }

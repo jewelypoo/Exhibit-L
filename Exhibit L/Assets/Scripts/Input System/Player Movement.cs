@@ -100,6 +100,15 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""PauseButton"",
+                    ""type"": ""Button"",
+                    ""id"": ""beff48b5-88e2-4646-8106-43a28a6c408d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -157,6 +166,17 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
                     ""action"": ""WASD Input"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b84a80a6-c2c0-40b6-83f9-4aff28e7b3b4"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseButton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -166,6 +186,7 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         // PlayerMove
         m_PlayerMove = asset.FindActionMap("PlayerMove", throwIfNotFound: true);
         m_PlayerMove_WASDInput = m_PlayerMove.FindAction("WASD Input", throwIfNotFound: true);
+        m_PlayerMove_PauseButton = m_PlayerMove.FindAction("PauseButton", throwIfNotFound: true);
     }
 
     ~@PlayerMovement()
@@ -247,6 +268,7 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerMove;
     private List<IPlayerMoveActions> m_PlayerMoveActionsCallbackInterfaces = new List<IPlayerMoveActions>();
     private readonly InputAction m_PlayerMove_WASDInput;
+    private readonly InputAction m_PlayerMove_PauseButton;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerMove".
     /// </summary>
@@ -262,6 +284,10 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerMove/WASDInput".
         /// </summary>
         public InputAction @WASDInput => m_Wrapper.m_PlayerMove_WASDInput;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerMove/PauseButton".
+        /// </summary>
+        public InputAction @PauseButton => m_Wrapper.m_PlayerMove_PauseButton;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -291,6 +317,9 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
             @WASDInput.started += instance.OnWASDInput;
             @WASDInput.performed += instance.OnWASDInput;
             @WASDInput.canceled += instance.OnWASDInput;
+            @PauseButton.started += instance.OnPauseButton;
+            @PauseButton.performed += instance.OnPauseButton;
+            @PauseButton.canceled += instance.OnPauseButton;
         }
 
         /// <summary>
@@ -305,6 +334,9 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
             @WASDInput.started -= instance.OnWASDInput;
             @WASDInput.performed -= instance.OnWASDInput;
             @WASDInput.canceled -= instance.OnWASDInput;
+            @PauseButton.started -= instance.OnPauseButton;
+            @PauseButton.performed -= instance.OnPauseButton;
+            @PauseButton.canceled -= instance.OnPauseButton;
         }
 
         /// <summary>
@@ -352,5 +384,12 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnWASDInput(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "PauseButton" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPauseButton(InputAction.CallbackContext context);
     }
 }

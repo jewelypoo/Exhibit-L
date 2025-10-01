@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -6,6 +7,10 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int enemyCount;
     [SerializeField] private int artDestroyed = 0;
+
+    private int currentLevel = 0;
+
+    public bool paused = false;
 
     private void Awake()
     {
@@ -43,5 +48,16 @@ public class GameManager : MonoBehaviour
     public void SetArtDestroyed(int amountToAdd)
     {
         artDestroyed += amountToAdd;
+    }
+
+    public void SetLevelData(int currentLvl, int enemyAmt)
+    {
+        currentLevel = currentLvl;
+        enemyCount = enemyAmt;
+    }
+
+    public void Pause(bool result)
+    {
+        paused = result;
     }
 }
