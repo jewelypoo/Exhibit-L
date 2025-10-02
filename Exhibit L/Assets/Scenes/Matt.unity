@@ -3095,7 +3095,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8158759286072910754, guid: 96365e8ccfb3a0b4182ac05aa0a59d37, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4
+      value: -4.005
       objectReference: {fileID: 0}
     - target: {fileID: 8158759286072910754, guid: 96365e8ccfb3a0b4182ac05aa0a59d37, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10232,7 +10232,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8158759286072910754, guid: 96365e8ccfb3a0b4182ac05aa0a59d37, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.000009
+      value: -11.998
       objectReference: {fileID: 0}
     - target: {fileID: 8158759286072910754, guid: 96365e8ccfb3a0b4182ac05aa0a59d37, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11538,6 +11538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCount: 0
   artDestroyed: 0
+  paused: 0
 --- !u!4 &1206169529
 Transform:
   m_ObjectHideFlags: 0
