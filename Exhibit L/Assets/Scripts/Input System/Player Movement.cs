@@ -109,6 +109,15 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Area Scan"",
+                    ""type"": ""Button"",
+                    ""id"": ""a198f9e2-d853-423a-ad61-e780286890f6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -177,6 +186,17 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
                     ""action"": ""PauseButton"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""769cdc0e-690f-4601-a0a2-2d0d941b81f7"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Area Scan"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -187,6 +207,7 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         m_PlayerMove = asset.FindActionMap("PlayerMove", throwIfNotFound: true);
         m_PlayerMove_WASDInput = m_PlayerMove.FindAction("WASD Input", throwIfNotFound: true);
         m_PlayerMove_PauseButton = m_PlayerMove.FindAction("PauseButton", throwIfNotFound: true);
+        m_PlayerMove_AreaScan = m_PlayerMove.FindAction("Area Scan", throwIfNotFound: true);
     }
 
     ~@PlayerMovement()
@@ -269,6 +290,7 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
     private List<IPlayerMoveActions> m_PlayerMoveActionsCallbackInterfaces = new List<IPlayerMoveActions>();
     private readonly InputAction m_PlayerMove_WASDInput;
     private readonly InputAction m_PlayerMove_PauseButton;
+    private readonly InputAction m_PlayerMove_AreaScan;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerMove".
     /// </summary>
@@ -288,6 +310,10 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerMove/PauseButton".
         /// </summary>
         public InputAction @PauseButton => m_Wrapper.m_PlayerMove_PauseButton;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerMove/AreaScan".
+        /// </summary>
+        public InputAction @AreaScan => m_Wrapper.m_PlayerMove_AreaScan;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -320,6 +346,9 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
             @PauseButton.started += instance.OnPauseButton;
             @PauseButton.performed += instance.OnPauseButton;
             @PauseButton.canceled += instance.OnPauseButton;
+            @AreaScan.started += instance.OnAreaScan;
+            @AreaScan.performed += instance.OnAreaScan;
+            @AreaScan.canceled += instance.OnAreaScan;
         }
 
         /// <summary>
@@ -337,6 +366,9 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
             @PauseButton.started -= instance.OnPauseButton;
             @PauseButton.performed -= instance.OnPauseButton;
             @PauseButton.canceled -= instance.OnPauseButton;
+            @AreaScan.started -= instance.OnAreaScan;
+            @AreaScan.performed -= instance.OnAreaScan;
+            @AreaScan.canceled -= instance.OnAreaScan;
         }
 
         /// <summary>
@@ -391,5 +423,12 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPauseButton(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Area Scan" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnAreaScan(InputAction.CallbackContext context);
     }
 }
