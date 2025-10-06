@@ -7,14 +7,11 @@ using UnityEngine;
 
 public class LasserBehavior : MonoBehaviour
 {
-    [SerializeField]
-    private Transform cameraPos;
-    [SerializeField]
-    private float maxDistance = 100f;
-    [SerializeField]
-    private LayerMask hitObjects;
-    [SerializeField]
-    private GameObject laser;
+    [SerializeField] private Transform cameraPos;
+    [SerializeField] private float maxDistance = 100f;
+    [SerializeField] private LayerMask hitObjects;
+    [SerializeField] private GameObject laser;
+    [SerializeField] private GameObject laserChecker;
 
     private Vector3 laserBounceDir;
     private PlayerData playerData;
