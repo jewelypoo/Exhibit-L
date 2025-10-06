@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 currentMoveVelocity;
     private Vector3 velocity;
 
+    private AreaScan areaScan;
+
     public float currentSpeed;
     public bool paused = false;
 
@@ -33,6 +35,7 @@ public class PlayerController : MonoBehaviour
         playerControls = new PlayerMovement();
         playerControls.Enable();
         characterController = GetComponent<CharacterController>();
+        areaScan = GetComponent<AreaScan>();
     }
 
 
@@ -44,8 +47,11 @@ public class PlayerController : MonoBehaviour
         ApplyGravity();
         DampenHorizontalVelocityIfGrounded();
 
-        characterController.Move(currentMoveVelocity * Time.deltaTime);
-        characterController.Move(velocity * Time.deltaTime);
+        if (!areaScan.toggle)
+        {
+            characterController.Move(currentMoveVelocity * Time.deltaTime);
+            characterController.Move(velocity * Time.deltaTime);
+        }
 
         currentSpeed = currentMoveVelocity.magnitude;
     }
@@ -61,7 +67,6 @@ public class PlayerController : MonoBehaviour
         moveDirection = (orientation.forward * verticalInput + orientation.right * horizontalInput).normalized;
 
         currentMoveVelocity = Vector3.Lerp(currentMoveVelocity, moveDirection * moveSpeed, acceleration * Time.deltaTime);
-
     }
 
     private void DampenHorizontalVelocityIfGrounded()
