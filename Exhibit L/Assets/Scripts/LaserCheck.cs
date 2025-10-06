@@ -12,14 +12,12 @@ public class LaserCheck : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.tag);
+
         if (other.CompareTag("Enemy") || other.CompareTag("Art"))
         {
-            LaserTriggered(other.gameObject);
+            lasserBehavior.Laser();
         }
     }
 
-    public GameObject LaserTriggered(GameObject obj)
-    {
-        return obj;
-    }
 }
