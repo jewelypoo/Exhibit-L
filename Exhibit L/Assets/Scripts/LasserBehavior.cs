@@ -11,7 +11,7 @@ public class LasserBehavior : MonoBehaviour
     [SerializeField] private float maxDistance = 100f;
     [SerializeField] private LayerMask hitObjects;
     [SerializeField] private GameObject laser;
-    [SerializeField] private GameObject laserChecker;
+    //[SerializeField] private GameObject laserChecker;
 
     private Vector3 laserBounceDir;
     private PlayerData playerData;
@@ -24,7 +24,7 @@ public class LasserBehavior : MonoBehaviour
 
     public void Laser()
     {
-        //transform.rotation = cameraPos.rotation * Quaternion.Euler(90f, 0, 0);
+        
 
         // Adjust scale based on raycast
         if (Physics.Raycast(cameraPos.position, cameraPos.forward, out RaycastHit hit, maxDistance, hitObjects))
