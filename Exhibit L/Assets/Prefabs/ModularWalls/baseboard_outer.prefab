@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7147302885126497760}
   - component: {fileID: 2463861592926621159}
   - component: {fileID: 5948172165119585856}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: baseboard_outer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,6 +163,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ceiling_trim_corner
       objectReference: {fileID: 0}
+    - target: {fileID: 5480850585674832005, guid: 556393ae6c85a0c40b360778cc75d94f, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -184,6 +188,10 @@ PrefabInstance:
     - target: {fileID: 2409944937523571646, guid: 0be54485637d51a48ac4acb4c4584d73, type: 3}
       propertyPath: m_Name
       value: wall_outer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409944937523571646, guid: 0be54485637d51a48ac4acb4c4584d73, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4824016611994266039, guid: 0be54485637d51a48ac4acb4c4584d73, type: 3}
       propertyPath: m_LocalPosition.x
@@ -316,6 +324,10 @@ PrefabInstance:
     - target: {fileID: 2063707016088588495, guid: 4c8962265abd2f94481208c964a7d4d6, type: 3}
       propertyPath: m_Name
       value: upper_wall_outer
+      objectReference: {fileID: 0}
+    - target: {fileID: 2063707016088588495, guid: 4c8962265abd2f94481208c964a7d4d6, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
