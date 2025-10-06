@@ -22,7 +22,7 @@ public class LasserBehavior : MonoBehaviour
         playerData = GetComponent<PlayerData>();
     }
 
-    public void LaserCheck()
+    public void Laser()
     {
         //transform.rotation = cameraPos.rotation * Quaternion.Euler(90f, 0, 0);
 
@@ -55,9 +55,9 @@ public class LasserBehavior : MonoBehaviour
                         {
                             playerData.LevelComplete();
                         }
-                        Debug.Log("Enemy Hit");
+                        //Debug.Log("Enemy Hit");
                     }
-                    Debug.Log("Object hit: " + bounceHit.collider.tag);
+                    //Debug.Log("Object hit: " + bounceHit.collider.tag);
                 }
 
             }
@@ -73,7 +73,7 @@ public class LasserBehavior : MonoBehaviour
                 {
                     playerData.LevelComplete();
                 }
-                Debug.Log("Enemy Hit");
+                //Debug.Log("Enemy Hit");
             }
             else if (hit.transform.CompareTag("Art"))
             {
@@ -83,7 +83,7 @@ public class LasserBehavior : MonoBehaviour
             else if (hit.transform.CompareTag("ChandelierChain"))
             {
                 hit.transform.parent.GetComponent<ChandelierBehavior>().DestroyChandelier();
-                Debug.Log("Chains hit!");
+                //Debug.Log("Chains hit!");
             }
 
         }
@@ -95,7 +95,7 @@ public class LasserBehavior : MonoBehaviour
 
     private void FixedUpdate()
     {
-        LaserCheck();
+        Laser();
     }
 
 }
