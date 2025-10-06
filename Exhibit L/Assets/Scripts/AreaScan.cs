@@ -29,7 +29,6 @@ public class AreaScan : MonoBehaviour
 
     }
 
-
     public void ToggleAreaScan()
     {
         toggle = !toggle;
