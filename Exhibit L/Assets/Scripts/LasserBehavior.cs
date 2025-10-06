@@ -25,11 +25,7 @@ public class LasserBehavior : MonoBehaviour
         playerData = GetComponent<PlayerData>();
     }
 
-
-
-
-    // Update is called once per frame
-    void Update()
+    public void LaserCheck()
     {
         //transform.rotation = cameraPos.rotation * Quaternion.Euler(90f, 0, 0);
 
@@ -66,7 +62,7 @@ public class LasserBehavior : MonoBehaviour
                     }
                     Debug.Log("Object hit: " + bounceHit.collider.tag);
                 }
-               
+
             }
             else if (hit.transform.CompareTag("Enemy"))
             {
@@ -92,11 +88,17 @@ public class LasserBehavior : MonoBehaviour
                 hit.transform.parent.GetComponent<ChandelierBehavior>().DestroyChandelier();
                 Debug.Log("Chains hit!");
             }
-            
+
         }
         else
         {
             laser.SetActive(false);
         }
     }
+
+    private void FixedUpdate()
+    {
+        LaserCheck();
+    }
+
 }
