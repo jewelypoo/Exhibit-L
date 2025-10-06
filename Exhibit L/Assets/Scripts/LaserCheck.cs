@@ -7,7 +7,7 @@ public class LaserCheck : MonoBehaviour
 
     private void Awake()
     {
-        
+        lasserBehavior = playerRef.GetComponent<LasserBehavior>();
     }
 
     private void OnTriggerEnter(Collider other)
