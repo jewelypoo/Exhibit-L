@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Chandelier
   - ChandelierChain
+  - ShieldEnemy
   layers:
   - Default
   - TransparentFX
