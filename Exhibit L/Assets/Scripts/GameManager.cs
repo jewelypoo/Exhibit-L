@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int enemyCount;
     [SerializeField] private int artDestroyed = 0;
+    [SerializeField] private int goldTime, silverTimer, bronzeTime;
 
     private int currentLevel = 0;
 
@@ -58,5 +59,28 @@ public class GameManager : MonoBehaviour
     public void Pause(bool result)
     {
         paused = result;
+    }
+
+    public void SetTimeGoals(int gold, int silver, int bronze)
+    {
+        goldTime = gold; silverTimer = silver; bronzeTime = bronze;
+    }
+
+    public int GetTimeGoals(int place)
+    {
+        switch (place)
+        {
+            case 1:
+                return goldTime;
+                
+            case 2:
+                return silverTimer;
+                
+            case 3:
+                return bronzeTime;
+                
+            default:
+                return 0;
+        }
     }
 }

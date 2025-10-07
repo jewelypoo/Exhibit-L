@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text endScreenTimer;
     [SerializeField] private TMP_Text artDestroyed;
     [SerializeField] private TMP_Text artDestroyedCounter;
+    [SerializeField] private TMP_Text endScreenGrade;
     [SerializeField] private GameObject crosshair;
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private Image hitmarker;
@@ -19,6 +20,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Button resumeButton;
 
     private bool showHitmarker = false;
+    private bool gradeCalculated = false;
 
     private float timerTime;
     private float roundedTimer;
@@ -33,6 +35,8 @@ public class UIManager : MonoBehaviour
         crosshair.SetActive(true);
         pauseScreen.SetActive(false);
         hitmarker.gameObject.SetActive(false);
+        endScreenGrade.text = "";
+        gradeCalculated = false;
     }
 
     // Update is called once per frame
@@ -81,7 +85,11 @@ public class UIManager : MonoBehaviour
         artDestroyedCounter.text = " ";
         enemyCount.text = " ";
         timer.text = " ";
-
+        if (!gradeCalculated)
+        {
+            endScreenGrade.text = "Grade: " + CalculateGrade();
+            gradeCalculated = true;
+        }
         endScreenTimer.text = "Final time: " + roundedTimer;
         artDestroyed.text = "Art destroyed: " + GameManager.Instance.GetArtDestroyed();
         Cursor.lockState = CursorLockMode.None;
@@ -105,6 +113,7 @@ public class UIManager : MonoBehaviour
         pauseScreen.SetActive(activation);
         resumeButton.enabled = activation;
         resumeButton.interactable = activation;
+        
         if (activation) Cursor.lockState = CursorLockMode.None;
         else Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = activation;
@@ -125,5 +134,49 @@ public class UIManager : MonoBehaviour
             hitmarker.gameObject.SetActive(false);
         }
         yield return null;
+    }
+
+    private string CalculateGrade()
+    {
+        int score = 0;
+
+        if (roundedTimer < GameManager.Instance.GetTimeGoals(1))
+        {
+            Debug.Log("Earned Gold");
+        }
+        else if (roundedTimer < GameManager.Instance.GetTimeGoals(2))
+        {
+            Debug.Log("Earned Silver");
+            score++;
+        }
+        else
+        {
+            Debug.Log("Earned Bronze");
+            score += 2;
+        }
+
+        score += GameManager.Instance.GetArtDestroyed();
+
+        Debug.Log("Score" + score + ", Time: " + roundedTimer + "Art Destroyed: " + GameManager.Instance.GetArtDestroyed());
+
+        switch (score)
+        {
+            case 0:
+                return "S";
+            case 1:
+                return "A";
+            case 2:
+                return "A-";
+            case 3:
+                return "B+";
+            case 4:
+                return "B";
+            case 5:
+                return "C";
+            case 6:
+                return "D";
+            default:
+                return "F";
+        }
     }
 }
