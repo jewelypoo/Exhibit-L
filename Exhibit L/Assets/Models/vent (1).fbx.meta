@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3d559bcee8b5a2c408a947382ca0da21
+guid: e381891223c3c1d4a9fb9404749ad492
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: standardSurface2
-    second: {fileID: 2100000, guid: 1b555515adcb2154ba0493638180296f, type: 2}
+      name: standardSurface1
+    second: {fileID: 2100000, guid: ab923ca4b3eb9db45828dd51f555fba5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -51,7 +51,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
