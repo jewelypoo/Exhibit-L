@@ -118,6 +118,15 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Hitmarkers"",
+                    ""type"": ""Button"",
+                    ""id"": ""678c7509-2ba9-4136-a6d6-ec930c208a11"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -197,6 +206,17 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
                     ""action"": ""Area Scan"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab3d7281-dd2a-49ab-861f-35f1b83a5148"",
+                    ""path"": ""<Keyboard>/7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hitmarkers"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -208,6 +228,7 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         m_PlayerMove_WASDInput = m_PlayerMove.FindAction("WASD Input", throwIfNotFound: true);
         m_PlayerMove_PauseButton = m_PlayerMove.FindAction("PauseButton", throwIfNotFound: true);
         m_PlayerMove_AreaScan = m_PlayerMove.FindAction("Area Scan", throwIfNotFound: true);
+        m_PlayerMove_Hitmarkers = m_PlayerMove.FindAction("Hitmarkers", throwIfNotFound: true);
     }
 
     ~@PlayerMovement()
@@ -291,6 +312,7 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMove_WASDInput;
     private readonly InputAction m_PlayerMove_PauseButton;
     private readonly InputAction m_PlayerMove_AreaScan;
+    private readonly InputAction m_PlayerMove_Hitmarkers;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerMove".
     /// </summary>
@@ -314,6 +336,10 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerMove/AreaScan".
         /// </summary>
         public InputAction @AreaScan => m_Wrapper.m_PlayerMove_AreaScan;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerMove/Hitmarkers".
+        /// </summary>
+        public InputAction @Hitmarkers => m_Wrapper.m_PlayerMove_Hitmarkers;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -349,6 +375,9 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
             @AreaScan.started += instance.OnAreaScan;
             @AreaScan.performed += instance.OnAreaScan;
             @AreaScan.canceled += instance.OnAreaScan;
+            @Hitmarkers.started += instance.OnHitmarkers;
+            @Hitmarkers.performed += instance.OnHitmarkers;
+            @Hitmarkers.canceled += instance.OnHitmarkers;
         }
 
         /// <summary>
@@ -369,6 +398,9 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
             @AreaScan.started -= instance.OnAreaScan;
             @AreaScan.performed -= instance.OnAreaScan;
             @AreaScan.canceled -= instance.OnAreaScan;
+            @Hitmarkers.started -= instance.OnHitmarkers;
+            @Hitmarkers.performed -= instance.OnHitmarkers;
+            @Hitmarkers.canceled -= instance.OnHitmarkers;
         }
 
         /// <summary>
@@ -430,5 +462,12 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAreaScan(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Hitmarkers" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHitmarkers(InputAction.CallbackContext context);
     }
 }

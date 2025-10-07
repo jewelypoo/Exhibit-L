@@ -17,11 +17,13 @@ public class LasserBehavior : MonoBehaviour
 
     private Vector3 laserBounceDir;
     private PlayerData playerData;
+    private UIManager uiManager;
 
     private void Awake()
     {
         laser.SetActive(false);
         playerData = GetComponent<PlayerData>();
+        uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
     }
 
     public void Laser()
@@ -41,10 +43,11 @@ public class LasserBehavior : MonoBehaviour
                 {
                     if (bounceHit.transform.CompareTag("Art"))
                     {
-                        fireParticle.transform.position = hit.point;
+                        /*fireParticle.transform.position = hit.point;
                         smokeParticle.transform.position = hit.point;
                         fireParticle.Play();
-                        smokeParticle.Play();
+                        smokeParticle.Play();*/
+                        StartCoroutine(uiManager.ShowHitmarker());
                         Destroy(bounceHit.collider.gameObject);
                     }
                     if (bounceHit.transform.CompareTag("Player"))
@@ -56,6 +59,7 @@ public class LasserBehavior : MonoBehaviour
                         if (GameManager.Instance.GetEnemyCount() > 0)
                         {
                             GameManager.Instance.ReduceEnemyCount(1);
+                            StartCoroutine(uiManager.ShowHitmarker());
                         }
                         if (GameManager.Instance.GetEnemyCount() <= 0)
                         {
@@ -74,6 +78,7 @@ public class LasserBehavior : MonoBehaviour
                 if (GameManager.Instance.GetEnemyCount() > 0)
                 {
                     GameManager.Instance.ReduceEnemyCount(1);
+                    StartCoroutine(uiManager.ShowHitmarker());
                 }
                 if (GameManager.Instance.GetEnemyCount() <= 0)
                 {
@@ -85,6 +90,7 @@ public class LasserBehavior : MonoBehaviour
             {
                 Destroy(hit.collider.gameObject);
                 GameManager.Instance.AddArtDestroyed(1);
+                StartCoroutine(uiManager.ShowHitmarker());
             }
             else if (hit.transform.CompareTag("ChandelierChain"))
             {

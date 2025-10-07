@@ -31,6 +31,7 @@ public class UIManager : MonoBehaviour
         Cursor.visible = false;
         crosshair.SetActive(true);
         pauseScreen.SetActive(false);
+        hitmarker.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -118,7 +119,7 @@ public class UIManager : MonoBehaviour
         if (showHitmarker)
         {
             hitmarker.gameObject.SetActive(true);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
             hitmarker.gameObject.SetActive(false);
         }
         yield return null;
