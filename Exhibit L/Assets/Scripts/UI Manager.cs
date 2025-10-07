@@ -139,7 +139,13 @@ public class UIManager : MonoBehaviour
     private string CalculateGrade()
     {
         int score = 0;
-
+        if (GameManager.Instance.GetArtDestroyed() >= 3)
+        {
+            return "F";
+        }
+        Debug.Log(GameManager.Instance.GetTimeGoals(1) + " > " + roundedTimer + "?");
+        Debug.Log(GameManager.Instance.GetTimeGoals(2) + " > " + roundedTimer + "?");
+        Debug.Log(GameManager.Instance.GetTimeGoals(2) + " > " + roundedTimer + "?");
         if (roundedTimer < GameManager.Instance.GetTimeGoals(1))
         {
             Debug.Log("Earned Gold");
@@ -166,15 +172,13 @@ public class UIManager : MonoBehaviour
             case 1:
                 return "A";
             case 2:
-                return "A-";
-            case 3:
-                return "B+";
-            case 4:
                 return "B";
-            case 5:
+            case 3:
                 return "C";
-            case 6:
+            case 4:
                 return "D";
+            case 5:
+                return "F";
             default:
                 return "F";
         }

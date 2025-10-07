@@ -11,7 +11,7 @@ public class LevelData : MonoBehaviour
     private void Start()
     {
         GameManager.Instance.SetLevelData(level, enemies);
-
+        GameManager.Instance.SetTimeGoals(goldTime, silverTimer, bronzeTime);
     }
 
 }
