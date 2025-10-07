@@ -32,10 +32,22 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        playerControls = new PlayerMovement();
-        playerControls.Enable();
+        
+        
         characterController = GetComponent<CharacterController>();
         areaScan = GetComponent<AreaScan>();
+    }
+    private void OnEnable()
+    {
+        if (playerControls == null)
+        {
+            playerControls = new PlayerMovement();
+            playerControls.Enable();
+        }
+        else
+        {
+            playerControls.Enable();
+        }
     }
 
 
@@ -112,5 +124,10 @@ public class PlayerController : MonoBehaviour
         }
             
         
+    }
+
+    private void OnDisable()
+    {
+        playerControls.Disable();
     }
 }

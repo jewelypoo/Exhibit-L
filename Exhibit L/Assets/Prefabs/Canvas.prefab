@@ -439,6 +439,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1413949371501186092}
   - {fileID: 8198889380777652816}
   - {fileID: 7228794906102162182}
   - {fileID: 9215711885360276503}
@@ -448,7 +449,6 @@ RectTransform:
   - {fileID: 3171990189834879988}
   - {fileID: 5431246556336348818}
   - {fileID: 3427303648365324005}
-  - {fileID: 1413949371501186092}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -538,6 +538,7 @@ MonoBehaviour:
   artDestroyedCounter: {fileID: 3464106155933248007}
   crosshair: {fileID: 6757972569146560028}
   pauseScreen: {fileID: 5883799006810601414}
+  resumeButton: {fileID: 0}
 --- !u!1 &2732801017066022774
 GameObject:
   m_ObjectHideFlags: 0

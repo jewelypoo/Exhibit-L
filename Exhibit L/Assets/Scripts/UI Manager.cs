@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,10 +13,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject crosshair;
     [SerializeField] private GameObject pauseScreen;
 
+    [SerializeField] private Button resumeButton;
+
     private float timerTime;
     private float roundedTimer;
 
-    private bool isPaused = false;
+    public bool isPaused = false;
 
     private void Awake()
     {
@@ -41,15 +44,7 @@ public class UIManager : MonoBehaviour
             enemyCount.text = "Enemies alive: " + GameManager.Instance.GetEnemyCount();
             if (GameManager.Instance.GetEnemyCount() <= 0)
             {
-                artDestroyedCounter.text = " ";
-                enemyCount.text = " ";
-                timer.text = " ";
-
-                endScreenTimer.text = "Final time: " + roundedTimer;
-                artDestroyed.text = "Art destroyed: " + GameManager.Instance.GetArtDestroyed();
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                crosshair.SetActive(false);
+                EndLevel();
             }
             else
             {
@@ -65,13 +60,27 @@ public class UIManager : MonoBehaviour
                 PauseScreen(GameManager.Instance.paused);
             }
         }
-        else
+        else if (GameManager.Instance.paused == false && GameManager.Instance.GetEnemyCount() > 0)
         {
+            //Debug.Log("Game is unpaused and this is running");
             isPaused = false;
             PauseScreen(GameManager.Instance.paused);
         }
         
 
+    }
+
+    public void EndLevel()
+    {
+        artDestroyedCounter.text = " ";
+        enemyCount.text = " ";
+        timer.text = " ";
+
+        endScreenTimer.text = "Final time: " + roundedTimer;
+        artDestroyed.text = "Art destroyed: " + GameManager.Instance.GetArtDestroyed();
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        crosshair.SetActive(false);
     }
 
     public void QuitGame()
@@ -81,12 +90,15 @@ public class UIManager : MonoBehaviour
 
     public void Retry(int sceneIndex)
     {
+        GameManager.Instance.ResetArtDestroyed();
         SceneManager.LoadScene(sceneIndex);
     }
 
     public void PauseScreen(bool activation)
     {
         pauseScreen.SetActive(activation);
+        resumeButton.enabled = activation;
+        resumeButton.interactable = activation;
         if (activation) Cursor.lockState = CursorLockMode.None;
         else Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = activation;

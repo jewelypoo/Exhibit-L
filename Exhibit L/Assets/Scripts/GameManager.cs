@@ -24,12 +24,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public int GetEnemyCount()
     {
         return enemyCount;
@@ -45,9 +39,14 @@ public class GameManager : MonoBehaviour
         return artDestroyed;
     }
 
-    public void SetArtDestroyed(int amountToAdd)
+    public void AddArtDestroyed(int amountToAdd)
     {
         artDestroyed += amountToAdd;
+    }
+
+    public void ResetArtDestroyed()
+    {
+        artDestroyed = 0;
     }
 
     public void SetLevelData(int currentLvl, int enemyAmt)

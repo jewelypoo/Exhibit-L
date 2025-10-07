@@ -9,8 +9,6 @@ public class AreaScan : MonoBehaviour
     private float currentAlpha = 0, fadeSpeed = 2f, targetAlpha = 0f;
     public float maxAlpha;
 
-
-
     public bool toggle = false;
 
     private void Awake()
@@ -31,7 +29,10 @@ public class AreaScan : MonoBehaviour
 
     public void ToggleAreaScan()
     {
-        toggle = !toggle;
+        if (!GameManager.Instance.paused)
+        {
+            toggle = !toggle;
+        }
     }
 
 }

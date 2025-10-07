@@ -3458,6 +3458,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dd94af90a8a6024e8c00d7c0ad330db, type: 3}
+--- !u!114 &248824134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 375113607929533203, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+  m_PrefabInstance: {fileID: 1769262153}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbce665c4883ced42961946562eb28ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &250711251 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5430226167084740202, guid: 6cac2ec634fc3fe4fb7333035098a2cb, type: 3}
@@ -11420,6 +11431,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f721250a05796b642916d82c73ef3ba4, type: 3}
+--- !u!114 &1191544048 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 888502971874938137, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
+  m_PrefabInstance: {fileID: 1489063598}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1196915773 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5430226167084740202, guid: 6cac2ec634fc3fe4fb7333035098a2cb, type: 3}
@@ -14400,6 +14422,26 @@ PrefabInstance:
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 815443211}
+    - target: {fileID: 358432841354387377, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
+      propertyPath: resumeButton
+      value: 
+      objectReference: {fileID: 1191544048}
+    - target: {fileID: 888502971874938137, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 888502971874938137, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 248824134}
+    - target: {fileID: 888502971874938137, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 888502971874938137, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerController, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1219272865061792304, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -14524,6 +14566,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6176176896196741163, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6302838326142648733, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.02
@@ -14543,6 +14589,14 @@ PrefabInstance:
     - target: {fileID: 6302838326142648733, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -161.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7979772562441710580, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184260024202108836, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9215711885360276503, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
       propertyPath: m_LocalScale.x
