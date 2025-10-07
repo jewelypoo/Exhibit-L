@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,8 +13,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text artDestroyedCounter;
     [SerializeField] private GameObject crosshair;
     [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private Image hitmarker;
 
     [SerializeField] private Button resumeButton;
+
+    private bool showHitmarker = false;
 
     private float timerTime;
     private float roundedTimer;
@@ -102,5 +106,21 @@ public class UIManager : MonoBehaviour
         if (activation) Cursor.lockState = CursorLockMode.None;
         else Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = activation;
+    }
+
+    public void ToggleHitmarkers()
+    {
+        showHitmarker = !showHitmarker;
+    }
+
+    public IEnumerator ShowHitmarker()
+    {
+        if (showHitmarker)
+        {
+            hitmarker.gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            hitmarker.gameObject.SetActive(false);
+        }
+        yield return null;
     }
 }
