@@ -14402,6 +14402,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 358432841354387377, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
+      propertyPath: hitmarkerSound
+      value: 
+      objectReference: {fileID: 1769262154}
     - target: {fileID: 888502971874938137, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -17330,6 +17334,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+--- !u!82 &1769262154 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8000506906658170457, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+  m_PrefabInstance: {fileID: 1769262153}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1774684379 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1127876377439012716, guid: ac0ed2c3d1821b24a8ddfe044d5043d4, type: 3}

@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject crosshair;
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private Image hitmarker;
+    [SerializeField] private AudioSource hitmarkerSound;
 
     [SerializeField] private Button resumeButton;
 
@@ -118,6 +119,7 @@ public class UIManager : MonoBehaviour
     {
         if (showHitmarker)
         {
+            hitmarkerSound.Play();
             hitmarker.gameObject.SetActive(true);
             yield return new WaitForSeconds(0.1f);
             hitmarker.gameObject.SetActive(false);

@@ -14,7 +14,6 @@ public class LasserBehavior : MonoBehaviour
     //[SerializeField] private GameObject laserChecker;
     [SerializeField] private ParticleSystem fireParticle;
     [SerializeField] private ParticleSystem smokeParticle;
-    [SerializeField] private AudioSource hitmarkerSound;
 
     private Vector3 laserBounceDir;
     private PlayerData playerData;
@@ -46,7 +45,6 @@ public class LasserBehavior : MonoBehaviour
                         smokeParticle.transform.position = hit.point;
                         fireParticle.Play();
                         smokeParticle.Play();*/
-                        hitmarkerSound.Play();
                         StartCoroutine(uiManager.ShowHitmarker());
                         Destroy(bounceHit.collider.gameObject);
                     }
@@ -59,7 +57,7 @@ public class LasserBehavior : MonoBehaviour
                         if (GameManager.Instance.GetEnemyCount() > 0)
                         {
                             GameManager.Instance.ReduceEnemyCount(1);
-                            hitmarkerSound.Play();
+
                             StartCoroutine(uiManager.ShowHitmarker());
                         }
                         if (GameManager.Instance.GetEnemyCount() <= 0)
@@ -79,7 +77,7 @@ public class LasserBehavior : MonoBehaviour
                 if (GameManager.Instance.GetEnemyCount() > 0)
                 {
                     GameManager.Instance.ReduceEnemyCount(1);
-                    hitmarkerSound.Play();
+
                     StartCoroutine(uiManager.ShowHitmarker());
                 }
                 if (GameManager.Instance.GetEnemyCount() <= 0)
@@ -91,7 +89,7 @@ public class LasserBehavior : MonoBehaviour
             else if (hit.transform.CompareTag("Art"))
             {
                 Destroy(hit.collider.gameObject);
-                hitmarkerSound.Play();
+
                 GameManager.Instance.AddArtDestroyed(1);
                 StartCoroutine(uiManager.ShowHitmarker());
             }
