@@ -539,7 +539,7 @@ MonoBehaviour:
   artDestroyedCounter: {fileID: 3464106155933248007}
   crosshair: {fileID: 6757972569146560028}
   pauseScreen: {fileID: 5883799006810601414}
-  hitmarker: {fileID: 0}
+  hitmarker: {fileID: 3099220121049538545}
   resumeButton: {fileID: 888502971874938137}
   isPaused: 0
 --- !u!1 &2732801017066022774
