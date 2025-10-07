@@ -12,6 +12,8 @@ public class LasserBehavior : MonoBehaviour
     [SerializeField] private LayerMask hitObjects;
     [SerializeField] private GameObject laser;
     //[SerializeField] private GameObject laserChecker;
+    [SerializeField] private ParticleSystem fireParticle;
+    [SerializeField] private ParticleSystem smokeParticle;
 
     private Vector3 laserBounceDir;
     private PlayerData playerData;
@@ -39,6 +41,10 @@ public class LasserBehavior : MonoBehaviour
                 {
                     if (bounceHit.transform.CompareTag("Art"))
                     {
+                        fireParticle.transform.position = hit.point;
+                        smokeParticle.transform.position = hit.point;
+                        fireParticle.Play();
+                        smokeParticle.Play();
                         Destroy(bounceHit.collider.gameObject);
                     }
                     if (bounceHit.transform.CompareTag("Player"))
