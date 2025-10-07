@@ -143,27 +143,23 @@ public class UIManager : MonoBehaviour
         {
             return "F";
         }
-        Debug.Log(GameManager.Instance.GetTimeGoals(1) + " > " + roundedTimer + "?");
-        Debug.Log(GameManager.Instance.GetTimeGoals(2) + " > " + roundedTimer + "?");
-        Debug.Log(GameManager.Instance.GetTimeGoals(2) + " > " + roundedTimer + "?");
+
         if (roundedTimer < GameManager.Instance.GetTimeGoals(1))
         {
-            Debug.Log("Earned Gold");
+            //Debug.Log("Earned Gold");
         }
         else if (roundedTimer < GameManager.Instance.GetTimeGoals(2))
         {
-            Debug.Log("Earned Silver");
+            //Debug.Log("Earned Silver");
             score++;
         }
         else
         {
-            Debug.Log("Earned Bronze");
+            //Debug.Log("Earned Bronze");
             score += 2;
         }
 
         score += GameManager.Instance.GetArtDestroyed();
-
-        Debug.Log("Score" + score + ", Time: " + roundedTimer + "Art Destroyed: " + GameManager.Instance.GetArtDestroyed());
 
         switch (score)
         {
