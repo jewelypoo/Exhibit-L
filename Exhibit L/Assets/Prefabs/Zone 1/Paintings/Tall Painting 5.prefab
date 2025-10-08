@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 42c8df6822631094aa4fba4012c84920, type: 2}
     - target: {fileID: 1482760464610451238, guid: 735bfd1674ea7aa4f89a665327010c09, type: 3}
       propertyPath: m_Name
-      value: Tall Painting Variant 1
+      value: Tall Painting 5
       objectReference: {fileID: 0}
     - target: {fileID: 2294586646293185948, guid: 735bfd1674ea7aa4f89a665327010c09, type: 3}
       propertyPath: m_LocalPosition.x
@@ -56,7 +56,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: -2140676287971428528, guid: 735bfd1674ea7aa4f89a665327010c09, type: 3}
+    - {fileID: 2604078276713350674, guid: 735bfd1674ea7aa4f89a665327010c09, type: 3}
+    - {fileID: 1657998295914531057, guid: 735bfd1674ea7aa4f89a665327010c09, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

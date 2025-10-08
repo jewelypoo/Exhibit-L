@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2e0b720b55ff13344a10fa62a2324994, type: 2}
     - target: {fileID: 3474488660308874057, guid: eaac96c3c18febc42821138c38628aee, type: 3}
       propertyPath: m_Name
-      value: carpet Variant
+      value: blue carpet
       objectReference: {fileID: 0}
     - target: {fileID: 4286315976651508211, guid: eaac96c3c18febc42821138c38628aee, type: 3}
       propertyPath: m_LocalPosition.x
