@@ -127,6 +127,15 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""b5773990-a3c2-4231-b2dd-e31910332c67"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -217,6 +226,17 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
                     ""action"": ""Hitmarkers"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b582cc01-41b8-48ac-bf64-d5d887bd755a"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -229,6 +249,7 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         m_PlayerMove_PauseButton = m_PlayerMove.FindAction("PauseButton", throwIfNotFound: true);
         m_PlayerMove_AreaScan = m_PlayerMove.FindAction("Area Scan", throwIfNotFound: true);
         m_PlayerMove_Hitmarkers = m_PlayerMove.FindAction("Hitmarkers", throwIfNotFound: true);
+        m_PlayerMove_Restart = m_PlayerMove.FindAction("Restart", throwIfNotFound: true);
     }
 
     ~@PlayerMovement()
@@ -313,6 +334,7 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMove_PauseButton;
     private readonly InputAction m_PlayerMove_AreaScan;
     private readonly InputAction m_PlayerMove_Hitmarkers;
+    private readonly InputAction m_PlayerMove_Restart;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerMove".
     /// </summary>
@@ -340,6 +362,10 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerMove/Hitmarkers".
         /// </summary>
         public InputAction @Hitmarkers => m_Wrapper.m_PlayerMove_Hitmarkers;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerMove/Restart".
+        /// </summary>
+        public InputAction @Restart => m_Wrapper.m_PlayerMove_Restart;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -378,6 +404,9 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
             @Hitmarkers.started += instance.OnHitmarkers;
             @Hitmarkers.performed += instance.OnHitmarkers;
             @Hitmarkers.canceled += instance.OnHitmarkers;
+            @Restart.started += instance.OnRestart;
+            @Restart.performed += instance.OnRestart;
+            @Restart.canceled += instance.OnRestart;
         }
 
         /// <summary>
@@ -401,6 +430,9 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
             @Hitmarkers.started -= instance.OnHitmarkers;
             @Hitmarkers.performed -= instance.OnHitmarkers;
             @Hitmarkers.canceled -= instance.OnHitmarkers;
+            @Restart.started -= instance.OnRestart;
+            @Restart.performed -= instance.OnRestart;
+            @Restart.canceled -= instance.OnRestart;
         }
 
         /// <summary>
@@ -469,5 +501,12 @@ public partial class @PlayerMovement: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnHitmarkers(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Restart" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRestart(InputAction.CallbackContext context);
     }
 }
