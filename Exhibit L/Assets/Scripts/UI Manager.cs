@@ -186,6 +186,7 @@ public class UIManager : MonoBehaviour
     public void NextLevel()
     {
         SceneManager.LoadScene(GameManager.Instance.GetLevelNumber());
+        //Debug.Log("loading scene" + GameManager.Instance.GetLevelNumber());
     }
 
 
