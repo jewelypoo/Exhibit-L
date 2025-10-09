@@ -25512,6 +25512,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5546278312830643051, guid: 9db0da0d95eb26c4dbe76cb7134f4f2a, type: 3}
   m_PrefabInstance: {fileID: 1358152486}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1361061057 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8000506906658170457, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+  m_PrefabInstance: {fileID: 1606634902}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1361714779
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27247,6 +27252,10 @@ PrefabInstance:
       propertyPath: crosshair
       value: 
       objectReference: {fileID: 815443211}
+    - target: {fileID: 358432841354387377, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
+      propertyPath: hitmarkerSound
+      value: 
+      objectReference: {fileID: 1361061057}
     - target: {fileID: 1219272865061792304, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
       propertyPath: m_LocalScale.x
       value: 4.04
