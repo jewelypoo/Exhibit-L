@@ -21596,9 +21596,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 2
   enemies: 5
-  goldTime: 20
-  silverTimer: 25
-  bronzeTime: 30
+  goldTime: 16
+  silverTimer: 21
+  bronzeTime: 26
 --- !u!4 &1164441048
 Transform:
   m_ObjectHideFlags: 0
