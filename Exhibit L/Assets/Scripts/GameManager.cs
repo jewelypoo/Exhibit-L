@@ -56,6 +56,11 @@ public class GameManager : MonoBehaviour
         enemyCount = enemyAmt;
     }
 
+    public int GetLevelNumber()
+    {
+        return currentLevel;
+    }
+
     public void Pause(bool result)
     {
         paused = result;

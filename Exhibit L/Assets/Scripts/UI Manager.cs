@@ -90,7 +90,7 @@ public class UIManager : MonoBehaviour
             endScreenGrade.text = "Grade: " + CalculateGrade();
             gradeCalculated = true;
         }
-        endScreenTimer.text = "Final time: " + roundedTimer;
+        endScreenTimer.text = "Final time: " + roundedTimer + " seconds";
         artDestroyed.text = "Art destroyed: " + GameManager.Instance.GetArtDestroyed();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -102,10 +102,10 @@ public class UIManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void Retry(int sceneIndex)
+    public void Retry()
     {
         GameManager.Instance.ResetArtDestroyed();
-        SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadScene(GameManager.Instance.GetLevelNumber() - 1);
     }
 
     public void PauseScreen(bool activation)
@@ -179,4 +179,15 @@ public class UIManager : MonoBehaviour
                 return "F";
         }
     }
+
+    /// <summary>
+    /// Probably temporary, just need something for now until we have a level select
+    /// </summary>
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(GameManager.Instance.GetLevelNumber());
+    }
+
+
+
 }

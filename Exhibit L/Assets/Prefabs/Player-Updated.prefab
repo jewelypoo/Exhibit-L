@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowDebugText: 0
-  ShowCameraFrustum: 1
+  ShowCameraFrustum: 0
   IgnoreTimeScale: 0
   WorldUpOverride: {fileID: 0}
   ChannelMask: -1
@@ -755,7 +755,6 @@ MonoBehaviour:
   laser: {fileID: 8336225729181661434}
   fireParticle: {fileID: 0}
   smokeParticle: {fileID: 0}
-  hitmarkerSound: {fileID: 8000506906658170457}
 --- !u!114 &5752932330989252847
 MonoBehaviour:
   m_ObjectHideFlags: 0
