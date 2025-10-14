@@ -32,8 +32,6 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        
-        
         characterController = GetComponent<CharacterController>();
         areaScan = GetComponent<AreaScan>();
     }

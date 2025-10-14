@@ -8,10 +8,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int enemyCount;
     [SerializeField] private int artDestroyed = 0;
     [SerializeField] private int goldTime, silverTimer, bronzeTime;
+    [SerializeField] private int fov;
+    [SerializeField] private int sens;
 
     private int currentLevel = 0;
 
     public bool paused = false;
+    public bool launched = false;
 
     private void Awake()
     {
@@ -86,6 +89,29 @@ public class GameManager : MonoBehaviour
                 
             default:
                 return 0;
+        }
+    }
+
+    public int GetFOV()
+    {
+        return fov;
+    }
+
+    public void SetFOV(int newFOV)
+    {
+        fov = newFOV;
+    }
+
+    public float GetSensitivity()
+    {
+        return sens;
+    }
+
+    public void SetSensitivity(float input)
+    {
+        if (input > 1 ||  input < 0.01)
+        {
+            Debug.LogError("Sensitivity is set out of bounds");
         }
     }
 }

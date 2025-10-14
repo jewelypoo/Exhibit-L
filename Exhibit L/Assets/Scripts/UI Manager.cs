@@ -1,8 +1,10 @@
 using System.Collections;
 using TMPro;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+//using static UnityEngine.Rendering.DebugUI;
 
 public class UIManager : MonoBehaviour
 {
@@ -14,10 +16,22 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text endScreenGrade;
     [SerializeField] private GameObject crosshair;
     [SerializeField] private GameObject pauseScreen;
+    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject settingMenu;
+    [SerializeField] private GameObject levelSelect;
     [SerializeField] private Image hitmarker;
     [SerializeField] private AudioSource hitmarkerSound;
 
+    [SerializeField] private TMP_Text fovSliderNumber;
+    [SerializeField] private Slider fovSlider;
+    [SerializeField] private TMP_Text sensNumber;
+    [SerializeField] private Slider sensSlider;
+
     [SerializeField] private Button resumeButton;
+
+    [SerializeField] private CinemachineCamera cam;
+    [SerializeField] private CinemachineBrain camBrain;
+    [SerializeField] private CinemachineInputAxisController cineAxisController;
 
     private bool showHitmarker = false;
     private bool gradeCalculated = false;
@@ -32,12 +46,48 @@ public class UIManager : MonoBehaviour
         timerTime = 0;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
         crosshair.SetActive(true);
         pauseScreen.SetActive(false);
         hitmarker.gameObject.SetActive(false);
+
         endScreenGrade.text = "";
         gradeCalculated = false;
+        cineAxisController = cam.GetComponent<CinemachineInputAxisController>();
+
+        if (!GameManager.Instance.launched)
+        {
+            crosshair.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            OpenMainMenu();
+            GameManager.Instance.launched = true;
+            camBrain.enabled = false;
+            GameManager.Instance.paused = true;
+        }
+        fovSliderNumber.text = GameManager.Instance.GetFOV().ToString();
+        fovSlider.value = GameManager.Instance.GetFOV();
+        if (cam.Lens.FieldOfView != GameManager.Instance.GetFOV())
+        {
+            cam.Lens.FieldOfView = GameManager.Instance.GetFOV();
+        }
+        SetSensitivity();
     }
+
+    public void SetSensitivity()
+    {
+        foreach (var axis in cineAxisController.Controllers)
+        {
+            if (axis.Name == "Look X (Pan)")
+                axis.Input.Gain = sensSlider.value;
+            else if (axis.Name == "Look Y (Tilt)")
+                axis.Input.Gain = -sensSlider.value;
+        }
+        GameManager.Instance.SetSensitivity(sensSlider.value);
+
+        sensNumber.text = (Mathf.Round(sensSlider.value * 100f) / 100f).ToString();
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -77,6 +127,11 @@ public class UIManager : MonoBehaviour
             PauseScreen(GameManager.Instance.paused);
         }
         
+        if (fovSlider.value != GameManager.Instance.GetFOV())
+        {
+            GameManager.Instance.SetFOV((int)fovSlider.value);
+            fovSliderNumber.text = fovSlider.value.ToString();
+        }
 
     }
 
@@ -189,6 +244,28 @@ public class UIManager : MonoBehaviour
         //Debug.Log("loading scene" + GameManager.Instance.GetLevelNumber());
     }
 
+    public void OpenMainMenu()
+    {
+        mainMenu.SetActive(true);
+        if (settingMenu.activeSelf)
+        {
+            settingMenu.SetActive(false);
+        }
+    }
+
+    public void OpenSettings()
+    {
+        settingMenu.SetActive(true);
+        if (mainMenu.activeSelf)
+        {
+            mainMenu.SetActive(false);
+        }
+    }
+
+    public void OpenLevelSelect()
+    {
+
+    }
 
 
 }
