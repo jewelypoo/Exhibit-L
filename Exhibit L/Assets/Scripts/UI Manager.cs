@@ -66,6 +66,11 @@ public class UIManager : MonoBehaviour
             GameManager.Instance.launched = true;
             camBrain.enabled = false;
             GameManager.Instance.paused = true;
+            if (fovSlider.value != GameManager.Instance.GetFOV())
+            {
+                fovSlider.value = 90;
+                GameManager.Instance.SetFOV((int)fovSlider.value);
+            }
         }
         fovSliderNumber.text = GameManager.Instance.GetFOV().ToString();
         fovSlider.value = GameManager.Instance.GetFOV();
