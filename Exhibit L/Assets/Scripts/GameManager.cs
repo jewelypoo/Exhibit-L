@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int goldTime, silverTimer, bronzeTime;
     [SerializeField] private int fov;
     [SerializeField] private int sens;
+    [SerializeField] private bool[] levelsComplete;
 
     private int currentLevel = 0;
 
@@ -113,5 +114,15 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("Sensitivity is set out of bounds");
         }
+    }
+
+    public void SetLevelComplete(int levelIndex)
+    {
+        levelsComplete[levelIndex] = true;
+    }
+
+    public bool[] GetLevelsComplete()
+    {
+        return levelsComplete;
     }
 }

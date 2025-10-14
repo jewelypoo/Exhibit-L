@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject settingMenu;
     [SerializeField] private GameObject levelSelect;
+    [SerializeField] private GameObject levelCompleteScreen;
     [SerializeField] private Image hitmarker;
     [SerializeField] private AudioSource hitmarkerSound;
 
@@ -32,6 +33,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private CinemachineCamera cam;
     [SerializeField] private CinemachineBrain camBrain;
     [SerializeField] private CinemachineInputAxisController cineAxisController;
+    [SerializeField] private Button[] levelButtons;
 
     private bool showHitmarker = false;
     private bool gradeCalculated = false;
@@ -251,6 +253,10 @@ public class UIManager : MonoBehaviour
         {
             settingMenu.SetActive(false);
         }
+        else if (levelSelect.activeSelf)
+        {
+            levelSelect.SetActive(false);
+        }
     }
 
     public void OpenSettings()
@@ -264,7 +270,40 @@ public class UIManager : MonoBehaviour
 
     public void OpenLevelSelect()
     {
+        levelSelect.SetActive(true);
+        if (mainMenu.activeSelf)
+        {
+            mainMenu.SetActive(false);
+        }
+        else if (levelCompleteScreen.activeSelf)
+        {
+            levelCompleteScreen.SetActive(false);
+            GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber());
+        }
 
+            bool[] turnButtonsOn = GameManager.Instance.GetLevelsComplete();
+        for (int index = 0; index < levelButtons.Length; ++index)
+        {
+            levelButtons[index].interactable = turnButtonsOn[index];
+        }
+    }
+
+    public void LoadScene(int levelNumber)
+    {
+        if (levelNumber == GameManager.Instance.GetLevelNumber())
+        {
+            levelSelect.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            GameManager.Instance.paused = false;
+            crosshair.SetActive(true);
+            camBrain.enabled = true;
+        }
+        else
+        {
+            SceneManager.LoadScene(levelNumber - 1);
+        } 
+            
     }
 
 
