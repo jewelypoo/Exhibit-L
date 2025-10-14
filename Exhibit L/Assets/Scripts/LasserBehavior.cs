@@ -15,6 +15,12 @@ public class LasserBehavior : MonoBehaviour
     [SerializeField] private ParticleSystem fireParticle;
     [SerializeField] private ParticleSystem smokeParticle;
 
+    private float cameraMagnitude;
+    private Quaternion lastCameraRotation;
+    private Quaternion cameraRoation;
+
+    [SerializeField] private float minCamDoubleCheckDistance;
+
     private Vector3 laserBounceDir;
     private PlayerData playerData;
     private UIManager uiManager;
@@ -26,7 +32,103 @@ public class LasserBehavior : MonoBehaviour
         uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
     }
 
+    private void LateUpdate()
+    {
+        cameraRoation = cameraPos.rotation;
+        cameraMagnitude = Quaternion.Angle(lastCameraRotation, cameraRoation);
+
+        if (cameraMagnitude > minCamDoubleCheckDistance)
+        {
+            Debug.Log("Camera moved too fast:" + cameraMagnitude);
+        }
+    }
+
+    private void Update()
+    {
+        lastCameraRotation = cameraRoation;
+    }
+
     public void Laser()
+    {
+        // Adjust scale based on raycast
+        if (Physics.Raycast(cameraPos.position, cameraPos.forward, out RaycastHit hit, maxDistance, hitObjects))
+        {
+            if (hit.transform.CompareTag("Mirrror"))
+            {
+                laserBounceDir = Vector3.Reflect(cameraPos.forward, hit.transform.forward);
+                laser.SetActive(true);
+                laser.transform.position = hit.point;
+                laser.transform.forward = -laserBounceDir;
+                if (Physics.Raycast(hit.point, -laserBounceDir, out RaycastHit bounceHit, maxDistance, hitObjects))
+                {
+                    if (bounceHit.transform.CompareTag("Art"))
+                    {
+                        /*fireParticle.transform.position = hit.point;
+                        smokeParticle.transform.position = hit.point;
+                        fireParticle.Play();
+                        smokeParticle.Play();*/
+                        StartCoroutine(uiManager.ShowHitmarker());
+                        Destroy(bounceHit.collider.gameObject);
+                    }
+                    if (bounceHit.transform.CompareTag("Player"))
+                    {
+                        playerData.GameOver();
+                    }
+                    if (bounceHit.transform.CompareTag("Enemy"))
+                    {
+                        if (GameManager.Instance.GetEnemyCount() > 0)
+                        {
+                            GameManager.Instance.ReduceEnemyCount(1);
+
+                            StartCoroutine(uiManager.ShowHitmarker());
+                        }
+                        if (GameManager.Instance.GetEnemyCount() <= 0)
+                        {
+                            playerData.LevelComplete();
+                        }
+                        //Debug.Log("Enemy Hit");
+                    }
+                    //Debug.Log("Object hit: " + bounceHit.collider.tag);
+                }
+
+            }
+            else if (hit.transform.CompareTag("Enemy"))
+            {
+                Destroy(hit.collider.gameObject);
+
+                if (GameManager.Instance.GetEnemyCount() > 0)
+                {
+                    GameManager.Instance.ReduceEnemyCount(1);
+
+                    StartCoroutine(uiManager.ShowHitmarker());
+                }
+                if (GameManager.Instance.GetEnemyCount() <= 0)
+                {
+                    playerData.LevelComplete();
+                }
+                //Debug.Log("Enemy Hit");
+            }
+            else if (hit.transform.CompareTag("Art"))
+            {
+                Destroy(hit.collider.gameObject);
+
+                GameManager.Instance.AddArtDestroyed(1);
+                StartCoroutine(uiManager.ShowHitmarker());
+            }
+            else if (hit.transform.CompareTag("ChandelierChain"))
+            {
+                hit.transform.parent.GetComponent<ChandelierBehavior>().DestroyChandelier();
+                //Debug.Log("Chains hit!");
+            }
+
+        }
+        else
+        {
+            laser.SetActive(false);
+        }
+    }
+
+    private void LaserDoubleCheck()
     {
         // Adjust scale based on raycast
         if (Physics.Raycast(cameraPos.position, cameraPos.forward, out RaycastHit hit, maxDistance, hitObjects))
