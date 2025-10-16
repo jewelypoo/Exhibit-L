@@ -79,6 +79,12 @@ public class UIManager : MonoBehaviour
             cam.Lens.FieldOfView = GameManager.Instance.GetFOV();
         }
         SetSensitivity();
+        if (levelSelect.activeSelf)
+        {
+            levelSelect.SetActive(false);
+        }
+
+        GameManager.Instance.ResetArtDestroyed();
     }
 
     public void SetSensitivity()
