@@ -12179,10 +12179,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 248824134}
-    - target: {fileID: 1375471270866963482, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2726686037460088841, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -14923,8 +14919,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1991813510438668601, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: degreesDoubleCheckSteps
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1991813510438668601, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
       propertyPath: minCamDoubleCheckDistance
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3042499552967795045, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target

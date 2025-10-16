@@ -14,6 +14,7 @@ public class LasserBehavior : MonoBehaviour
     //[SerializeField] private GameObject laserChecker;
     [SerializeField] private ParticleSystem fireParticle;
     [SerializeField] private ParticleSystem smokeParticle;
+    [SerializeField] private float degreesDoubleCheckSteps = 2f;
 
     private float cameraMagnitude;
     private Quaternion lastCameraRotation;
@@ -37,9 +38,30 @@ public class LasserBehavior : MonoBehaviour
         cameraRoation = cameraPos.rotation;
         cameraMagnitude = Quaternion.Angle(lastCameraRotation, cameraRoation);
 
+        float steps = Mathf.CeilToInt(cameraMagnitude / degreesDoubleCheckSteps);
+
         if (cameraMagnitude > minCamDoubleCheckDistance)
         {
             //Debug.Log("Camera moved too fast:" + cameraMagnitude);
+
+            for (int index = 0; index <= steps; ++index)
+            {
+                float time = (float) index / steps;
+
+                Quaternion stepRotation = Quaternion.Slerp(lastCameraRotation, cameraRoation, time);
+
+                Vector3 rayDir = stepRotation * Vector3.forward;
+                //Debug.Log("Double Checking: " + rayDir);
+                GameObject hitObj = LaserDoubleCheck(rayDir);
+                if (hitObj != null)
+                {
+                    Destroy(hitObj);
+                    break;
+                }
+
+            }
+
+
         }
     }
 
@@ -76,6 +98,8 @@ public class LasserBehavior : MonoBehaviour
                     }
                     if (bounceHit.transform.CompareTag("Enemy"))
                     {
+                        Destroy(hit.collider.gameObject);
+
                         if (GameManager.Instance.GetEnemyCount() > 0)
                         {
                             GameManager.Instance.ReduceEnemyCount(1);
@@ -128,14 +152,14 @@ public class LasserBehavior : MonoBehaviour
         }
     }
 
-    private void LaserDoubleCheck()
+    private GameObject LaserDoubleCheck(Vector3 direction)
     {
         // Adjust scale based on raycast
-        if (Physics.Raycast(cameraPos.position, cameraPos.forward, out RaycastHit hit, maxDistance, hitObjects))
+        if (Physics.Raycast(cameraPos.position, direction, out RaycastHit hit, maxDistance, hitObjects))
         {
             if (hit.transform.CompareTag("Mirrror"))
             {
-                laserBounceDir = Vector3.Reflect(cameraPos.forward, hit.transform.forward);
+                laserBounceDir = Vector3.Reflect(direction, hit.transform.forward);
                 laser.SetActive(true);
                 laser.transform.position = hit.point;
                 laser.transform.forward = -laserBounceDir;
@@ -174,8 +198,6 @@ public class LasserBehavior : MonoBehaviour
             }
             else if (hit.transform.CompareTag("Enemy"))
             {
-                Destroy(hit.collider.gameObject);
-
                 if (GameManager.Instance.GetEnemyCount() > 0)
                 {
                     GameManager.Instance.ReduceEnemyCount(1);
@@ -186,18 +208,19 @@ public class LasserBehavior : MonoBehaviour
                 {
                     playerData.LevelComplete();
                 }
+                return hit.collider.gameObject;
                 //Debug.Log("Enemy Hit");
             }
             else if (hit.transform.CompareTag("Art"))
             {
-                Destroy(hit.collider.gameObject);
-
                 GameManager.Instance.AddArtDestroyed(1);
                 StartCoroutine(uiManager.ShowHitmarker());
+                return hit.collider.gameObject;
             }
             else if (hit.transform.CompareTag("ChandelierChain"))
             {
                 hit.transform.parent.GetComponent<ChandelierBehavior>().DestroyChandelier();
+                return hit.collider.gameObject;
                 //Debug.Log("Chains hit!");
             }
 
@@ -205,7 +228,9 @@ public class LasserBehavior : MonoBehaviour
         else
         {
             laser.SetActive(false);
+            return null;
         }
+        return null;
     }
 
     private void FixedUpdate()
