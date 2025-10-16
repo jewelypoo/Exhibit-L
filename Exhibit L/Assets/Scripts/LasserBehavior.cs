@@ -39,7 +39,7 @@ public class LasserBehavior : MonoBehaviour
 
         if (cameraMagnitude > minCamDoubleCheckDistance)
         {
-            Debug.Log("Camera moved too fast:" + cameraMagnitude);
+            //Debug.Log("Camera moved too fast:" + cameraMagnitude);
         }
     }
 
