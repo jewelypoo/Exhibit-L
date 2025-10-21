@@ -85,7 +85,7 @@ public class UIManager : MonoBehaviour
         fovSlider.value = GameManager.Instance.GetFOV();
         sensSlider.value = GameManager.Instance.GetSensitivity();
 
-        Time.timeScale = 0f;
+        
 
         if (!GameManager.Instance.launched)
         {
@@ -114,6 +114,8 @@ public class UIManager : MonoBehaviour
             SetMasterVolume();
             SetSFXVolume();
             SetMusicVolume();
+
+            Time.timeScale = 0f;
         }
         fovSliderNumber.text = GameManager.Instance.GetFOV().ToString();
         fovSlider.value = GameManager.Instance.GetFOV();
@@ -182,12 +184,6 @@ public class UIManager : MonoBehaviour
             isPaused = false;
             PauseScreen(GameManager.Instance.paused);
         }
-        
-        /*if (fovSlider.value != GameManager.Instance.GetFOV())
-        {
-            GameManager.Instance.SetFOV((int)fovSlider.value);
-            fovSliderNumber.text = fovSlider.value.ToString();
-        }*/
 
         if (areaScanCDStarted)
         {
