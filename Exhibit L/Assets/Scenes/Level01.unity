@@ -10280,6 +10280,9 @@ MonoBehaviour:
   bronzeTime: 0
   fov: 120
   sens: 0
+  masterVolume: 0
+  musicVolume: 0
+  sfxVolume: 0
   levelsComplete: 01000000
   paused: 0
   launched: 0
