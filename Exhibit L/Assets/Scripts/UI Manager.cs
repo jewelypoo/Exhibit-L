@@ -2,9 +2,10 @@ using System.Collections;
 using TMPro;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-//using static UnityEngine.Rendering.DebugUI;
+
 
 public class UIManager : MonoBehaviour
 {
@@ -30,7 +31,16 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text sensNumber;
     [SerializeField] private Slider sensSlider;
 
+    [SerializeField] private TMP_Text masterSliderNumber;
+    [SerializeField] private TMP_Text sfxSliderNumber;
+    [SerializeField] private TMP_Text musicSliderNumber;
+    [SerializeField] private Slider masterSlider;
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider sfxSlider;
+
     [SerializeField] private Button resumeButton;
+
+    [SerializeField] private AudioMixer mixer;
 
     [SerializeField] private CinemachineCamera cam;
     [SerializeField] private CinemachineBrain camBrain;
@@ -65,6 +75,18 @@ public class UIManager : MonoBehaviour
         areaScanBackground.gameObject.SetActive(true);
         areaScanCD.text = "";
 
+        masterSlider.value = GameManager.Instance.GetMasterVolume();
+        sfxSlider.value = GameManager.Instance.GetSFXVolume();
+        musicSlider.value = GameManager.Instance.GetMusicVolume();
+        SetMasterVolume();
+        SetSFXVolume();
+        SetMusicVolume();
+
+        fovSlider.value = GameManager.Instance.GetFOV();
+        sensSlider.value = GameManager.Instance.GetSensitivity();
+
+        Time.timeScale = 0f;
+
         if (!GameManager.Instance.launched)
         {
             crosshair.SetActive(false);
@@ -79,11 +101,19 @@ public class UIManager : MonoBehaviour
             areaScanBackground.gameObject.SetActive(false);
             areaScanCD.text = "";
 
-            if (fovSlider.value != GameManager.Instance.GetFOV())
-            {
-                fovSlider.value = 90;
-                GameManager.Instance.SetFOV((int)fovSlider.value);
-            }
+            fovSlider.value = 90;
+            SetFOV();
+
+            sensSlider.value = 1;
+            SetSensitivity();
+
+            masterSlider.value = 80f;
+            sfxSlider.value = 80f;
+            musicSlider.value = 80f;
+
+            SetMasterVolume();
+            SetSFXVolume();
+            SetMusicVolume();
         }
         fovSliderNumber.text = GameManager.Instance.GetFOV().ToString();
         fovSlider.value = GameManager.Instance.GetFOV();
@@ -153,11 +183,11 @@ public class UIManager : MonoBehaviour
             PauseScreen(GameManager.Instance.paused);
         }
         
-        if (fovSlider.value != GameManager.Instance.GetFOV())
+        /*if (fovSlider.value != GameManager.Instance.GetFOV())
         {
             GameManager.Instance.SetFOV((int)fovSlider.value);
             fovSliderNumber.text = fovSlider.value.ToString();
-        }
+        }*/
 
         if (areaScanCDStarted)
         {
@@ -328,6 +358,8 @@ public class UIManager : MonoBehaviour
 
     public void LoadScene(int levelNumber)
     {
+        Time.timeScale = 1f;
+
         if (levelNumber == GameManager.Instance.GetLevelNumber())
         {
             levelSelect.SetActive(false);
@@ -351,5 +383,34 @@ public class UIManager : MonoBehaviour
         areaScanCDStarted = true;
         areaScanBackground.color = Color.gray;
     }
+
+    public void SetMasterVolume()
+    {
+        masterSliderNumber.text = masterSlider.value.ToString();
+        mixer.SetFloat("Master", masterSlider.value);
+        GameManager.Instance.SetMasterVolume((int)masterSlider.value);
+    }
+
+    public void SetSFXVolume()
+    {
+        sfxSliderNumber.text = sfxSlider.value.ToString();
+        mixer.SetFloat("SFX", sfxSlider.value);
+        GameManager.Instance.SetSFXVolume((int)sfxSlider.value);
+    }
+
+    public void SetMusicVolume()
+    {
+        musicSliderNumber.text = musicSlider.value.ToString();
+        mixer.SetFloat("Music", musicSlider.value);
+        GameManager.Instance.SetMusicVolume((int)musicSlider.value);
+    }
+
+    public void SetFOV()
+    {
+        fovSliderNumber.text = fovSlider.value.ToString();
+        cam.Lens.FieldOfView = fovSlider.value;
+        GameManager.Instance.SetFOV((int)fovSlider.value);
+    }
+
 
 }

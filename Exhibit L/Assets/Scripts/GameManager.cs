@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int goldTime, silverTimer, bronzeTime;
     [SerializeField] private int fov;
     [SerializeField] private int sens;
+    [SerializeField] private int masterVolume;
+    [SerializeField] private int musicVolume;
+    [SerializeField] private int sfxVolume;
     [SerializeField] private bool[] levelsComplete;
 
     private int currentLevel = 0;
@@ -124,5 +127,35 @@ public class GameManager : MonoBehaviour
     public bool[] GetLevelsComplete()
     {
         return levelsComplete;
+    }
+
+    public void SetMasterVolume(int value)
+    {
+        masterVolume = value;
+    }
+
+    public void SetSFXVolume(int value)
+    {
+        sfxVolume = value;
+    }
+
+    public void SetMusicVolume(int value)
+    {
+        musicVolume = value;
+    }
+
+    public int GetMasterVolume()
+    {
+        return masterVolume;
+    }
+
+    public int GetSFXVolume()
+    {
+        return sfxVolume;
+    }
+
+    public int GetMusicVolume()
+    {
+        return musicVolume;
     }
 }
