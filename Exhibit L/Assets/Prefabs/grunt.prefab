@@ -48,9 +48,73 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7842949738397571514, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -5030167447162214476, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -4819223349682164798, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -4615986849728910481, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -3317748655635603097, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -2533699122350530639, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -2107840825348978238, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -1938739698864007457, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -176351348264114841, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 710772331683357415, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
       propertyPath: m_Name
-      value: grunt
+      value: Grunt
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007453928535299615, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057321542620313954, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788943703175087018, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238488448613115114, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8449996119470504636, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
