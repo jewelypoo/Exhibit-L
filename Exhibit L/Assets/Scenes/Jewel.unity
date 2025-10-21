@@ -2717,6 +2717,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f7a6593a9d083f49ad370c90e614820, type: 3}
+--- !u!1001 &8134293475280822735
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6946483835282389880, guid: 6392d420686c4274e9ed1941ebaae29d, type: 3}
+      propertyPath: m_Name
+      value: Lawnmower Statue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722844960085483970, guid: 6392d420686c4274e9ed1941ebaae29d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722844960085483970, guid: 6392d420686c4274e9ed1941ebaae29d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722844960085483970, guid: 6392d420686c4274e9ed1941ebaae29d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722844960085483970, guid: 6392d420686c4274e9ed1941ebaae29d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722844960085483970, guid: 6392d420686c4274e9ed1941ebaae29d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722844960085483970, guid: 6392d420686c4274e9ed1941ebaae29d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722844960085483970, guid: 6392d420686c4274e9ed1941ebaae29d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722844960085483970, guid: 6392d420686c4274e9ed1941ebaae29d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722844960085483970, guid: 6392d420686c4274e9ed1941ebaae29d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722844960085483970, guid: 6392d420686c4274e9ed1941ebaae29d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6392d420686c4274e9ed1941ebaae29d, type: 3}
 --- !u!1001 &8208527703399745331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2951,3 +3008,4 @@ SceneRoots:
   - {fileID: 7464469304993009143}
   - {fileID: 5880770489061233576}
   - {fileID: 6664770773123135768}
+  - {fileID: 8134293475280822735}
