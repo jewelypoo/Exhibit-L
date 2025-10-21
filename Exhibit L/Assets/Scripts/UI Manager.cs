@@ -387,21 +387,22 @@ public class UIManager : MonoBehaviour
     public void SetMasterVolume()
     {
         masterSliderNumber.text = masterSlider.value.ToString();
-        mixer.SetFloat("Master", masterSlider.value);
+        mixer.SetFloat("MasterVol", masterSlider.value - 80);
         GameManager.Instance.SetMasterVolume((int)masterSlider.value);
     }
 
     public void SetSFXVolume()
     {
         sfxSliderNumber.text = sfxSlider.value.ToString();
-        mixer.SetFloat("SFX", sfxSlider.value);
+        mixer.SetFloat("SFXVol", sfxSlider.value - 80);
         GameManager.Instance.SetSFXVolume((int)sfxSlider.value);
     }
 
     public void SetMusicVolume()
     {
         musicSliderNumber.text = musicSlider.value.ToString();
-        mixer.SetFloat("Music", musicSlider.value);
+        mixer.SetFloat("MusicVol", musicSlider.value - 80);
+        
         GameManager.Instance.SetMusicVolume((int)musicSlider.value);
     }
 
