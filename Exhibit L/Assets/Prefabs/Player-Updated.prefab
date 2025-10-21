@@ -751,6 +751,9 @@ MonoBehaviour:
   highlightEnemies: {fileID: 2100000, guid: 371fd3ac9852ac54c98b0e09c1e4d604, type: 2}
   maxAlpha: 0.7
   toggle: 0
+  canToggle: 0
+  areaScanActiveTime: 2
+  toggleDelay: 1
 --- !u!114 &1991813510438668601
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -57,11 +57,14 @@ public class PlayerController : MonoBehaviour
         ApplyGravity();
         DampenHorizontalVelocityIfGrounded();
 
-        if (!areaScan.toggle)
+        /*if (!areaScan.toggle)
         {
-            characterController.Move(currentMoveVelocity * Time.deltaTime);
-            characterController.Move(velocity * Time.deltaTime);
-        }
+            //characterController.Move(currentMoveVelocity * Time.deltaTime);
+            //characterController.Move(velocity * Time.deltaTime);
+        }*/
+
+        characterController.Move(currentMoveVelocity * Time.deltaTime);
+        characterController.Move(velocity * Time.deltaTime);
 
         currentSpeed = currentMoveVelocity.magnitude;
     }

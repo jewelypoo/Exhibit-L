@@ -22,6 +22,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject levelCompleteScreen;
     [SerializeField] private Image hitmarker;
     [SerializeField] private AudioSource hitmarkerSound;
+    [SerializeField] private Image areaScanBackground;
+    [SerializeField] private TMP_Text areaScanCD;
 
     [SerializeField] private TMP_Text fovSliderNumber;
     [SerializeField] private Slider fovSlider;
@@ -37,6 +39,8 @@ public class UIManager : MonoBehaviour
 
     private bool showHitmarker = false;
     private bool gradeCalculated = false;
+    private bool areaScanCDStarted = false;
+    private float areaScanCDSeconds = 0f;
 
     private float timerTime;
     private float roundedTimer;
@@ -57,6 +61,10 @@ public class UIManager : MonoBehaviour
         gradeCalculated = false;
         cineAxisController = cam.GetComponent<CinemachineInputAxisController>();
 
+        areaScanBackground.color = Color.white;
+        areaScanBackground.gameObject.SetActive(true);
+        areaScanCD.text = "";
+
         if (!GameManager.Instance.launched)
         {
             crosshair.SetActive(false);
@@ -66,6 +74,11 @@ public class UIManager : MonoBehaviour
             GameManager.Instance.launched = true;
             camBrain.enabled = false;
             GameManager.Instance.paused = true;
+
+            areaScanBackground.color = Color.white;
+            areaScanBackground.gameObject.SetActive(false);
+            areaScanCD.text = "";
+
             if (fovSlider.value != GameManager.Instance.GetFOV())
             {
                 fovSlider.value = 90;
@@ -146,6 +159,18 @@ public class UIManager : MonoBehaviour
             fovSliderNumber.text = fovSlider.value.ToString();
         }
 
+        if (areaScanCDStarted)
+        {
+            areaScanCD.text = ((int)areaScanCDSeconds).ToString();
+            areaScanCDSeconds -= Time.deltaTime;
+            if (areaScanCDSeconds <= 1)
+            {
+                areaScanCDStarted = false;
+                areaScanBackground.color = Color.white;
+                areaScanCD.text = "";
+            }
+        }
+
     }
 
     public void EndLevel()
@@ -163,6 +188,8 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         crosshair.SetActive(false);
+        areaScanBackground.gameObject.SetActive(false);
+        areaScanCD.text = "";
     }
 
     public void QuitGame()
@@ -309,6 +336,7 @@ public class UIManager : MonoBehaviour
             GameManager.Instance.paused = false;
             crosshair.SetActive(true);
             camBrain.enabled = true;
+            areaScanBackground.gameObject.SetActive(true);
         }
         else
         {
@@ -317,5 +345,11 @@ public class UIManager : MonoBehaviour
             
     }
 
+    public void BeginAreaScanCD(float seconds)
+    {
+        areaScanCDSeconds = seconds;
+        areaScanCDStarted = true;
+        areaScanBackground.color = Color.gray;
+    }
 
 }
