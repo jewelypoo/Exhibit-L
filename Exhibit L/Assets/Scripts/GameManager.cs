@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int artDestroyed = 0;
     [SerializeField] private int goldTime, silverTimer, bronzeTime;
     [SerializeField] private int fov;
-    [SerializeField] private int sens;
+    [SerializeField] private float sens;
     [SerializeField] private int masterVolume;
     [SerializeField] private int musicVolume;
     [SerializeField] private int sfxVolume;
@@ -113,10 +113,7 @@ public class GameManager : MonoBehaviour
 
     public void SetSensitivity(float input)
     {
-        if (input > 1 ||  input < 0.01)
-        {
-            Debug.LogError("Sensitivity is set out of bounds");
-        }
+        sens = input;
     }
 
     public void SetLevelComplete(int levelIndex)
