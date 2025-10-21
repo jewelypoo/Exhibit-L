@@ -771,6 +771,8 @@ MonoBehaviour:
   laser: {fileID: 8336225729181661434}
   fireParticle: {fileID: 0}
   smokeParticle: {fileID: 0}
+  degreesDoubleCheckSteps: 3
+  minCamDoubleCheckDistance: 10
 --- !u!114 &5752932330989252847
 MonoBehaviour:
   m_ObjectHideFlags: 0
