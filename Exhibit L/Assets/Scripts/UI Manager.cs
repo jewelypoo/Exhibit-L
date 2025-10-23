@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using Unity.Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -21,6 +22,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject settingMenu;
     [SerializeField] private GameObject levelSelect;
     [SerializeField] private GameObject levelCompleteScreen;
+    [SerializeField] private GameObject endScreen;
     [SerializeField] private Image hitmarker;
     [SerializeField] private AudioSource hitmarkerSound;
     [SerializeField] private Image areaScanBackground;
@@ -218,6 +220,27 @@ public class UIManager : MonoBehaviour
         areaScanCD.text = "";
     }
 
+    public void GameOver()
+    {
+        Debug.Log("Game Over");
+        artDestroyedCounter.text = " ";
+        enemyCount.text = " ";
+        timer.text = " ";
+
+        endScreen.SetActive(true);
+        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Debug.Log("Cursor Visible");
+
+        crosshair.SetActive(false);
+        areaScanBackground.gameObject.SetActive(false);
+        areaScanCD.text = "";
+        Time.timeScale = 0f;
+
+        Debug.Log("GameOver() is done running");
+    }
+
     public void QuitGame()
     {
         Application.Quit();
@@ -225,19 +248,26 @@ public class UIManager : MonoBehaviour
 
     public void Retry()
     {
+        if (Time.timeScale <= 0f)
+        {
+            Time.timeScale = 1f;
+        }
         GameManager.Instance.ResetArtDestroyed();
         SceneManager.LoadScene(GameManager.Instance.GetLevelNumber() - 1);
     }
 
     public void PauseScreen(bool activation)
     {
-        pauseScreen.SetActive(activation);
-        resumeButton.enabled = activation;
-        resumeButton.interactable = activation;
-        
-        if (activation) Cursor.lockState = CursorLockMode.None;
-        else Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = activation;
+        if (!endScreen.activeSelf && !endScreen.activeSelf && !levelSelect.activeSelf)
+        {
+            pauseScreen.SetActive(activation);
+            resumeButton.enabled = activation;
+            resumeButton.interactable = activation;
+
+            if (activation) Cursor.lockState = CursorLockMode.None;
+            else Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = activation;
+        }
     }
 
     public void ToggleHitmarkers()

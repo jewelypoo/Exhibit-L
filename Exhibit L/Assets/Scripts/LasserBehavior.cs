@@ -94,7 +94,7 @@ public class LasserBehavior : MonoBehaviour
                     }
                     if (bounceHit.transform.CompareTag("Player"))
                     {
-                        playerData.GameOver();
+                        uiManager.GameOver();
                     }
                     if (bounceHit.transform.CompareTag("Enemy"))
                     {
@@ -176,7 +176,7 @@ public class LasserBehavior : MonoBehaviour
                     }
                     if (bounceHit.transform.CompareTag("Player"))
                     {
-                        playerData.GameOver();
+                        uiManager.GameOver();
                     }
                     if (bounceHit.transform.CompareTag("Enemy"))
                     {
