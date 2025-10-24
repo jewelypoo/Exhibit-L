@@ -52,6 +52,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.Instance.mainMenuActive)
+        {
+            playerControls.Enable();
+        }
+        else
+        {
+            playerControls.Disable();
+        }
+        
+
         grounded = characterController.isGrounded;
         MovePlayer();
         ApplyGravity();
@@ -114,13 +124,13 @@ public class PlayerController : MonoBehaviour
                 paused = false;
                 GameManager.Instance.Pause(paused);
                 playerControls.Enable();
-                Time.timeScale = 1f;
+                //Time.timeScale = 1f;
                 break;
             case false:
                 paused = true;
                 GameManager.Instance.Pause(paused);
                 playerControls.Disable();
-                Time.timeScale = 0f;
+                //Time.timeScale = 0f;
                 break;
         }
             

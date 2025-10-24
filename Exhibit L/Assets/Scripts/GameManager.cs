@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     public bool paused = false;
     public bool launched = false;
-
+    public bool mainMenuActive = true;
     private void Awake()
     {
         if (Instance != null && Instance != this)

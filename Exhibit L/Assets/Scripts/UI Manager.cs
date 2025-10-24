@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject crosshair;
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject mainMenuBackground;
     [SerializeField] private GameObject settingMenu;
     [SerializeField] private GameObject levelSelect;
     [SerializeField] private GameObject levelCompleteScreen;
@@ -117,7 +118,7 @@ public class UIManager : MonoBehaviour
             SetSFXVolume();
             SetMusicVolume();
 
-            Time.timeScale = 0f;
+            //Time.timeScale = 0f;
         }
         fovSliderNumber.text = GameManager.Instance.GetFOV().ToString();
         fovSlider.value = GameManager.Instance.GetFOV();
@@ -136,16 +137,46 @@ public class UIManager : MonoBehaviour
 
     public void SetSensitivity()
     {
-        foreach (var axis in cineAxisController.Controllers)
+        /*if (mainMenu.activeSelf)
         {
-            if (axis.Name == "Look X (Pan)")
-                axis.Input.Gain = sensSlider.value;
-            else if (axis.Name == "Look Y (Tilt)")
-                axis.Input.Gain = -sensSlider.value;
-        }
-        GameManager.Instance.SetSensitivity(sensSlider.value);
+            foreach (var axis in cineAxisController.Controllers)
+            {
+                if (axis.Name == "Look X (Pan)")
+                {
+                    axis.Input.Gain = 0;
+                    print("sensSlider.value should be zero, it is " + axis.Input.Gain);
+                }
+                   
+                else if (axis.Name == "Look Y (Tilt)")
+                {
+                    axis.Input.Gain = 0;
+                    print("sensSlider.value should be zero, it is " + axis.Input.Gain);
+                }
+                  
 
-        sensNumber.text = (Mathf.Round(sensSlider.value * 100f) / 100f).ToString();
+            }
+        }
+        else*/
+        {
+            foreach (var axis in cineAxisController.Controllers)
+            {
+                if (axis.Name == "Look X (Pan)")
+                {
+                    axis.Input.Gain = sensSlider.value;
+                    print("sensSlider.value is" + axis.Input.Gain);
+                }
+                   
+                else if (axis.Name == "Look Y (Tilt)")
+                {
+                    axis.Input.Gain = -sensSlider.value;
+                   print("sensSlider.value is" + axis.Input.Gain);
+                }
+                    
+            }
+            GameManager.Instance.SetSensitivity(sensSlider.value);
+
+            sensNumber.text = (Mathf.Round(sensSlider.value * 100f) / 100f).ToString();
+        } 
     }
 
 
@@ -343,6 +374,7 @@ public class UIManager : MonoBehaviour
     public void OpenMainMenu()
     {
         mainMenu.SetActive(true);
+        GameManager.Instance.mainMenuActive = true;
         if (settingMenu.activeSelf)
         {
             settingMenu.SetActive(false);
@@ -359,6 +391,7 @@ public class UIManager : MonoBehaviour
         if (mainMenu.activeSelf)
         {
             mainMenu.SetActive(false);
+            GameManager.Instance.mainMenuActive = false;
         }
     }
 
@@ -368,6 +401,7 @@ public class UIManager : MonoBehaviour
         if (mainMenu.activeSelf)
         {
             mainMenu.SetActive(false);
+            GameManager.Instance.mainMenuActive = false;
         }
         else if (levelCompleteScreen.activeSelf)
         {
