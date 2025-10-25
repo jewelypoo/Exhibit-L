@@ -52,31 +52,26 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance.mainMenuActive)
+        if (!GameManager.Instance.mainMenuActive && !GameManager.Instance.paused)
         {
-            playerControls.Enable();
+            print("player can move");
+            grounded = characterController.isGrounded;
+            MovePlayer();
+            ApplyGravity();
+            DampenHorizontalVelocityIfGrounded();
+
+            /*if (!areaScan.toggle)
+            {
+                //characterController.Move(currentMoveVelocity * Time.deltaTime);
+                //characterController.Move(velocity * Time.deltaTime);
+            }*/
+
+            characterController.Move(currentMoveVelocity * Time.deltaTime);
+            characterController.Move(velocity * Time.deltaTime);
+
+            currentSpeed = currentMoveVelocity.magnitude;
         }
-        else
-        {
-            playerControls.Disable();
-        }
-        
-
-        grounded = characterController.isGrounded;
-        MovePlayer();
-        ApplyGravity();
-        DampenHorizontalVelocityIfGrounded();
-
-        /*if (!areaScan.toggle)
-        {
-            //characterController.Move(currentMoveVelocity * Time.deltaTime);
-            //characterController.Move(velocity * Time.deltaTime);
-        }*/
-
-        characterController.Move(currentMoveVelocity * Time.deltaTime);
-        characterController.Move(velocity * Time.deltaTime);
-
-        currentSpeed = currentMoveVelocity.magnitude;
+      
     }
 
     public void OnWASDInput(InputAction.CallbackContext context)
@@ -122,15 +117,17 @@ public class PlayerController : MonoBehaviour
         {
             case true:
                 paused = false;
+                print("not paused");
                 GameManager.Instance.Pause(paused);
                 playerControls.Enable();
-                //Time.timeScale = 1f;
+                Time.timeScale = 1f;
                 break;
             case false:
                 paused = true;
+                print("paused");
                 GameManager.Instance.Pause(paused);
                 playerControls.Disable();
-                //Time.timeScale = 0f;
+                Time.timeScale = 0f;
                 break;
         }
             

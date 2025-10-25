@@ -137,7 +137,7 @@ public class UIManager : MonoBehaviour
 
     public void SetSensitivity()
     {
-        /*if (mainMenu.activeSelf)
+        if (mainMenu.activeSelf)
         {
             foreach (var axis in cineAxisController.Controllers)
             {
@@ -156,7 +156,7 @@ public class UIManager : MonoBehaviour
 
             }
         }
-        else*/
+        else
         {
             foreach (var axis in cineAxisController.Controllers)
             {

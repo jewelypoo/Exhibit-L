@@ -7,10 +7,8 @@ controls the main menu camera turn
 */
 public class MainMenuCamera : MonoBehaviour
 {
-    [SerializeField] private GameObject securityCamera;
     [SerializeField] private float cameraSpeed;
     [SerializeField] private bool turnAround;
-    [SerializeField] private float rotationSpeed;
     [SerializeField] private float maxRotation;
     [SerializeField] private float cameraPauseTime;
     [SerializeField] private float defaultRotation;
@@ -19,22 +17,22 @@ public class MainMenuCamera : MonoBehaviour
     {
         
         //resets to center camera when setting active
-        Vector3 tempRotation = securityCamera.transform.eulerAngles;
-        tempRotation.x = defaultRotation;
-        securityCamera.transform.eulerAngles = tempRotation;
+        Vector3 tempRotation = this.transform.eulerAngles;
+        tempRotation.y = defaultRotation;
+        this.transform.eulerAngles = tempRotation;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("timer at" + Time.deltaTime);
+        //print(this.transform.rotation.y);
         //checks if max rotation is hit
-        if (Mathf.Abs(securityCamera.transform.rotation.x) >= maxRotation)
+        if (Mathf.Abs(this.transform.rotation.y) >= maxRotation)
         {
             FlipCamera();
         }
         //rotates the camera
-        securityCamera.transform.Rotate(Vector3.right * rotationSpeed * Time.deltaTime);       
+        this.transform.Rotate(Vector3.up * cameraSpeed * Time.deltaTime);       
     }
 
     /// <summary>
