@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         areaScan = GetComponent<AreaScan>();
+           
     }
     private void OnEnable()
     {
@@ -52,9 +53,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance.mainMenuActive && !GameManager.Instance.paused)
+        if (!GameManager.Instance.mainMenuActive && !GameManager.Instance.levelSelectActive)
         {
-            print("player can move");
+            playerControls.Enable();
             grounded = characterController.isGrounded;
             MovePlayer();
             ApplyGravity();
@@ -70,6 +71,10 @@ public class PlayerController : MonoBehaviour
             characterController.Move(velocity * Time.deltaTime);
 
             currentSpeed = currentMoveVelocity.magnitude;
+        }
+        else
+        {
+            playerControls.Disable();
         }
       
     }

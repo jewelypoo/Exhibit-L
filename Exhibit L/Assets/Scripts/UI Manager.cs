@@ -130,6 +130,7 @@ public class UIManager : MonoBehaviour
         if (levelSelect.activeSelf)
         {
             levelSelect.SetActive(false);
+            GameManager.Instance.levelSelectActive = false;
         }
 
         GameManager.Instance.ResetArtDestroyed();
@@ -137,39 +138,19 @@ public class UIManager : MonoBehaviour
 
     public void SetSensitivity()
     {
-        if (mainMenu.activeSelf)
-        {
-            foreach (var axis in cineAxisController.Controllers)
-            {
-                if (axis.Name == "Look X (Pan)")
-                {
-                    axis.Input.Gain = 0;
-                    print("sensSlider.value should be zero, it is " + axis.Input.Gain);
-                }
-                   
-                else if (axis.Name == "Look Y (Tilt)")
-                {
-                    axis.Input.Gain = 0;
-                    print("sensSlider.value should be zero, it is " + axis.Input.Gain);
-                }
-                  
-
-            }
-        }
-        else
         {
             foreach (var axis in cineAxisController.Controllers)
             {
                 if (axis.Name == "Look X (Pan)")
                 {
                     axis.Input.Gain = sensSlider.value;
-                    print("sensSlider.value is" + axis.Input.Gain);
+                    //print("sensSlider.value is" + axis.Input.Gain);
                 }
                    
                 else if (axis.Name == "Look Y (Tilt)")
                 {
                     axis.Input.Gain = -sensSlider.value;
-                   print("sensSlider.value is" + axis.Input.Gain);
+                   //print("sensSlider.value is" + axis.Input.Gain);
                 }
                     
             }
@@ -283,8 +264,11 @@ public class UIManager : MonoBehaviour
         {
             Time.timeScale = 1f;
         }
+        GameManager.Instance.levelSelectActive = false;
+        GameManager.Instance.mainMenuActive = false;
         GameManager.Instance.ResetArtDestroyed();
         SceneManager.LoadScene(GameManager.Instance.GetLevelNumber() - 1);
+        
     }
 
     public void PauseScreen(bool activation)
@@ -367,6 +351,8 @@ public class UIManager : MonoBehaviour
     /// </summary>
     public void NextLevel()
     {
+        GameManager.Instance.mainMenuActive = false;
+        GameManager.Instance.levelSelectActive = false;
         SceneManager.LoadScene(GameManager.Instance.GetLevelNumber());
         //Debug.Log("loading scene" + GameManager.Instance.GetLevelNumber());
     }
@@ -382,6 +368,7 @@ public class UIManager : MonoBehaviour
         else if (levelSelect.activeSelf)
         {
             levelSelect.SetActive(false);
+            GameManager.Instance.levelSelectActive = false;
         }
     }
 
@@ -391,13 +378,13 @@ public class UIManager : MonoBehaviour
         if (mainMenu.activeSelf)
         {
             mainMenu.SetActive(false);
-            GameManager.Instance.mainMenuActive = false;
         }
     }
 
     public void OpenLevelSelect()
     {
         levelSelect.SetActive(true);
+        GameManager.Instance.levelSelectActive = true;
         if (mainMenu.activeSelf)
         {
             mainMenu.SetActive(false);
@@ -419,10 +406,12 @@ public class UIManager : MonoBehaviour
     public void LoadScene(int levelNumber)
     {
         Time.timeScale = 1f;
-
+        GameManager.Instance.mainMenuActive = false;
+        GameManager.Instance.levelSelectActive = false;
         if (levelNumber == GameManager.Instance.GetLevelNumber())
         {
             levelSelect.SetActive(false);
+            GameManager.Instance.levelSelectActive = false;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             GameManager.Instance.paused = false;
