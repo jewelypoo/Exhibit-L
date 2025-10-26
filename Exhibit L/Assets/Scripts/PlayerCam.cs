@@ -23,8 +23,6 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (!GameManager.Instance.paused)
-        {
             //Get mouse inputs
             float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
             float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
@@ -37,6 +35,6 @@ public class PlayerCam : MonoBehaviour
 
             transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
             orientation.rotation = Quaternion.Euler(0, yRotation, 0);
-        }
+
     }
 }

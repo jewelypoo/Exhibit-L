@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     public bool paused = false;
     public bool launched = false;
+    public bool mainMenuActive = true;
+    public bool levelSelectActive = false;
 
     private void Awake()
     {
