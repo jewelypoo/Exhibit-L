@@ -117,8 +117,6 @@ public class UIManager : MonoBehaviour
             SetMasterVolume();
             SetSFXVolume();
             SetMusicVolume();
-
-            //Time.timeScale = 0f;
         }
         fovSliderNumber.text = GameManager.Instance.GetFOV().ToString();
         fovSlider.value = GameManager.Instance.GetFOV();
@@ -260,8 +258,10 @@ public class UIManager : MonoBehaviour
 
     public void Retry()
     {
+        //print("retrying");
         if (Time.timeScale <= 0f)
         {
+            //print("timescale reset");
             Time.timeScale = 1f;
         }
         GameManager.Instance.levelSelectActive = false;
@@ -354,7 +354,7 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.mainMenuActive = false;
         GameManager.Instance.levelSelectActive = false;
         SceneManager.LoadScene(GameManager.Instance.GetLevelNumber());
-        //Debug.Log("loading scene" + GameManager.Instance.GetLevelNumber());
+        Debug.Log("loading scene" + GameManager.Instance.GetLevelNumber());
     }
 
     public void OpenMainMenu()
@@ -405,11 +405,13 @@ public class UIManager : MonoBehaviour
 
     public void LoadScene(int levelNumber)
     {
+        //print("loading scene");
         Time.timeScale = 1f;
         GameManager.Instance.mainMenuActive = false;
         GameManager.Instance.levelSelectActive = false;
         if (levelNumber == GameManager.Instance.GetLevelNumber())
         {
+            //print("loading this scene");
             levelSelect.SetActive(false);
             GameManager.Instance.levelSelectActive = false;
             Cursor.lockState = CursorLockMode.Locked;
