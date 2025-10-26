@@ -2,20 +2,19 @@ using System.Collections;
 using UnityEngine;
 /*
 Ian Iversen-Krampitz
-10/24/2025
+10/25/2025
 controls the main menu camera turn
 */
 public class MainMenuCamera : MonoBehaviour
 {
-    [SerializeField] private float cameraSpeed;
-    [SerializeField] private bool turnAround;
-    [SerializeField] private float maxRotation;
+    [SerializeField] private bool firstFlip = true;
+    [SerializeField] private bool canFlip = true;
     [SerializeField] private float cameraPauseTime;
+    [SerializeField] private float cameraSpeed;
     [SerializeField] private float defaultRotation;
-    public float rotation;
-    public float counter;
-    public bool firstFlip = true;
-    public bool canFlip = true;
+    [SerializeField] private float currentRotation;
+    [SerializeField] private float maxRotation;
+    [SerializeField] private float slowdownZone;
 
     void OnEnable()
     {
@@ -28,13 +27,18 @@ public class MainMenuCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        counter += Time.deltaTime;
-        //print(this.transform.rotation.y);
+        //a bunch of lerping nonsense to make the camera slow down near max rotation
+        float distanceToMax = Mathf.Abs(maxRotation) - Mathf.Abs(currentRotation);
+        float time = Mathf.InverseLerp(0f, slowdownZone, distanceToMax);
+        float easedSpeed = Mathf.Lerp(0.1f, 1f, Mathf.SmoothStep(0.5f, 1f, Mathf.Pow(time, 2f)));
+        float deltaY = cameraSpeed * easedSpeed * Time.deltaTime;
+
         //checks if max rotation is hit
-        if (counter < maxRotation)
+        if (Mathf.Abs(currentRotation) <= maxRotation)
         {
-            //rotates the camera
-            this.transform.Rotate(Vector3.up * cameraSpeed * Time.deltaTime);
+            //rotates the camera, adds to counter
+            this.transform.Rotate(0, deltaY, 0);
+            currentRotation += deltaY;
         }
         else
         {
@@ -51,7 +55,7 @@ public class MainMenuCamera : MonoBehaviour
     /// <returns></returns>
     public IEnumerator FlipCamera()
     {
-        //double rotation length so the camera goes all the way
+        //double rotation length so the camera goes all the way after first turn
         if (firstFlip)
         {
             maxRotation *= 2;
@@ -62,7 +66,7 @@ public class MainMenuCamera : MonoBehaviour
         cameraSpeed = 0;
         yield return new WaitForSeconds(cameraPauseTime);
         Debug.Log("flipped cam");
-        counter = 0f;
+        currentRotation = 0f;
         canFlip = true;
         cameraSpeed = tempCameraSpeed;
     }
