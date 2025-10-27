@@ -118,9 +118,14 @@ public class GameManager : MonoBehaviour
         sens = input;
     }
 
-    public void SetLevelComplete(int levelIndex)
+    public void SetLevelComplete(int levelIndex, bool passed)
     {
-        levelsComplete[levelIndex] = true;
+        levelsComplete[levelIndex] = passed;
+    }
+
+    public bool GetLevelsComplete(int index)
+    {
+        return levelsComplete[index];
     }
 
     public bool[] GetLevelsComplete()
@@ -157,4 +162,9 @@ public class GameManager : MonoBehaviour
     {
         return musicVolume;
     }
+
+    
+
+    
+
 }

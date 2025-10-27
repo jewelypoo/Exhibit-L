@@ -5,6 +5,7 @@ public class PlayerData : MonoBehaviour
     //[SerializeField] private int health = 3;
     [SerializeField] private GameObject endScreen;
     [SerializeField] private GameObject levelCompleteScreen;
+    [SerializeField] private bool[] levelsComplete;
     private UIManager uiManager;
 
 
@@ -30,5 +31,15 @@ public class PlayerData : MonoBehaviour
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    public void SetLevelComplete(int index, bool passed)
+    {
+        levelsComplete[index] = passed;
+    }
+
+    public bool GetLevelComplete(int index)
+    {
+        return levelsComplete[index];
     }
 }
