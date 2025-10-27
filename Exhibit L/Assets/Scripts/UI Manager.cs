@@ -360,6 +360,9 @@ public class UIManager : MonoBehaviour
     public void OpenMainMenu()
     {
         mainMenu.SetActive(true);
+        Time.timeScale = 1f;
+        camBrain.enabled = false;
+        areaScanCD.gameObject.SetActive(false);
         GameManager.Instance.mainMenuActive = true;
         if (settingMenu.activeSelf)
         {
@@ -374,6 +377,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenSettings()
     {
+        areaScanCD.gameObject.SetActive(false);
         settingMenu.SetActive(true);
         if (mainMenu.activeSelf)
         {
@@ -383,6 +387,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenLevelSelect()
     {
+        areaScanCD.gameObject.SetActive(false);
         levelSelect.SetActive(true);
         GameManager.Instance.levelSelectActive = true;
         if (mainMenu.activeSelf)
@@ -406,6 +411,7 @@ public class UIManager : MonoBehaviour
     public void LoadScene(int levelNumber)
     {
         //print("loading scene");
+        
         Time.timeScale = 1f;
         GameManager.Instance.mainMenuActive = false;
         GameManager.Instance.levelSelectActive = false;
@@ -420,6 +426,7 @@ public class UIManager : MonoBehaviour
             crosshair.SetActive(true);
             camBrain.enabled = true;
             areaScanBackground.gameObject.SetActive(true);
+            areaScanCD.gameObject.SetActive(true);
         }
         else
         {

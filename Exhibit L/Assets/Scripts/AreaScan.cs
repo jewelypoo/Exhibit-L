@@ -29,23 +29,25 @@ public class AreaScan : MonoBehaviour
 
     private void Update()
     {
-        if (timeActive < areaScanActiveTime && toggle)
+        if (!GameManager.Instance.mainMenuActive)
         {
-            timeActive += Time.deltaTime;
+            if (timeActive < areaScanActiveTime && toggle)
+            {
+                timeActive += Time.deltaTime;
+            }
+            else
+            {
+                toggle = false;
+                StartCoroutine(ResetToggle());
+                timeActive = 0f;
+            }
+
+            targetAlpha = (toggle) ? maxAlpha : 0f;
+
+            currentAlpha = Mathf.MoveTowards(currentAlpha, targetAlpha, fadeSpeed * Time.deltaTime);
+            highlightArt.SetFloat("_ColorIntensity", currentAlpha);
+            highlightEnemies.SetFloat("_ColorIntensity", currentAlpha);
         }
-        else
-        {
-            toggle = false;
-            StartCoroutine(ResetToggle());
-            timeActive = 0f;
-        }
-
-        targetAlpha = (toggle) ? maxAlpha : 0f;
-
-        currentAlpha = Mathf.MoveTowards(currentAlpha, targetAlpha, fadeSpeed * Time.deltaTime);
-        highlightArt.SetFloat("_ColorIntensity", currentAlpha);
-        highlightEnemies.SetFloat("_ColorIntensity", currentAlpha);
-
     }
 
     private IEnumerator ResetToggle()

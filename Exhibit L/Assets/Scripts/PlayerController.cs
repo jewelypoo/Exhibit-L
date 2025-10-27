@@ -122,14 +122,14 @@ public class PlayerController : MonoBehaviour
         {
             case true:
                 paused = false;
-                print("not paused");
+                //print("not paused");
                 GameManager.Instance.Pause(paused);
                 playerControls.Enable();
                 Time.timeScale = 1f;
                 break;
             case false:
                 paused = true;
-                print("paused");
+               //print("paused");
                 GameManager.Instance.Pause(paused);
                 playerControls.Disable();
                 Time.timeScale = 0f;
