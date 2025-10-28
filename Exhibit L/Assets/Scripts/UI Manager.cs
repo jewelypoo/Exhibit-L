@@ -465,6 +465,7 @@ public class UIManager : MonoBehaviour
         //print("loading scene");
         
         Time.timeScale = 1f;
+        timerTime = 0f;
         GameManager.Instance.mainMenuActive = false;
         GameManager.Instance.levelSelectActive = false;
         if (levelNumber == GameManager.Instance.GetLevelNumber())
