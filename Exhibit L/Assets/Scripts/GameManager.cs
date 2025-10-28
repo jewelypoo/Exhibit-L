@@ -32,6 +32,18 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        for (int index = 0; index < levelsComplete.Length; ++index)
+        {
+            if (index == 0)
+            {
+                levelsComplete[index] = true;
+            }
+            else
+            {
+                levelsComplete[index] = false;
+            }
+        }
     }
 
     public int GetEnemyCount()
