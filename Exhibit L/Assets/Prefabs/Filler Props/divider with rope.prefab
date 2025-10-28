@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7237117200959424659}
+  - component: {fileID: -2983258071926112433}
   m_Layer: 0
   m_Name: divider with rope
   m_TagString: Untagged
@@ -33,6 +34,27 @@ Transform:
   - {fileID: 5769077184467336010}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &-2983258071926112433
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503225020852592329}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.1573021, y: 0.87558866, z: 0.4057793}
+  m_Center: {x: -0.37321737, y: 0.5990766, z: -0.014624983}
 --- !u!1 &7970556595196050311
 GameObject:
   m_ObjectHideFlags: 0

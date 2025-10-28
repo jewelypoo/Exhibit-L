@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3375110989378491314}
   - component: {fileID: 2901224983138111184}
   - component: {fileID: -9120062699245368172}
+  - component: {fileID: 6361995647126421144}
   m_Layer: 0
   m_Name: Plant_pot_mdl
   m_TagString: Untagged
@@ -109,3 +110,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4986600582101413054, guid: 209af54ac758d4d4093b264c493be67d, type: 3}
+--- !u!65 &6361995647126421144
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294910174867390648}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 71.08211, y: 419.03296, z: 81.98554}
+  m_Center: {x: -3.9026847, y: 209.51648, z: 0.29283434}
