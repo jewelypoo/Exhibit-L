@@ -131,8 +131,12 @@ public class UIManager : MonoBehaviour
             levelSelect.SetActive(false);
             GameManager.Instance.levelSelectActive = false;
         }
-
         GameManager.Instance.ResetArtDestroyed();
+    }
+
+    private void Start()
+    {
+        GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber() - 1, true);
     }
 
     public void SetSensitivity()
@@ -390,17 +394,7 @@ public class UIManager : MonoBehaviour
                 }
                 return "F";
             default:
-                if (!GameManager.Instance.GetLevelsComplete(GameManager.Instance.GetLevelNumber()))
-                {
-                    //levelSelectButton.interactable = false;
-                    GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), false);
-                    //Debug.Log("Did not pass level");
-                }
-                else
-                {
-                    //levelSelectButton.interactable = true;
-                    //Debug.Log("Level already passed");
-                }
+                GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber() - 1, false);
                 return "F";
         }
         
@@ -464,8 +458,9 @@ public class UIManager : MonoBehaviour
         bool[] turnButtonsOn = GameManager.Instance.GetLevelsComplete();
         for (int index = 0; index < levelButtons.Length; ++index)
         {
+            //Debug.Log(index);
             levelButtons[index].interactable = turnButtonsOn[index];
-            Debug.Log("Level button interactible?: " + levelButtons[index] + ", turn button on index: " + turnButtonsOn[index]);
+            //Debug.Log("Level button interactible?: " + levelButtons[index] + ", turn button on index: " + turnButtonsOn[index]);
         }
     }
 

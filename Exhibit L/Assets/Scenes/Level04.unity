@@ -28877,9 +28877,14 @@ MonoBehaviour:
   bronzeTime: 0
   fov: 0
   sens: 0
-  levelsComplete: 
+  masterVolume: 0
+  musicVolume: 0
+  sfxVolume: 0
+  levelsComplete: 00000000
   paused: 0
   launched: 0
+  mainMenuActive: 1
+  levelSelectActive: 0
 --- !u!4 &1206169529
 Transform:
   m_ObjectHideFlags: 0

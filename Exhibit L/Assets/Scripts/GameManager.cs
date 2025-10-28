@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
 
         for (int index = 0; index < levelsComplete.Length; ++index)
         {
-            if (index == 0)
+            if (index == 0 || index == GetLevelNumber() - 1)
             {
                 levelsComplete[index] = true;
             }
