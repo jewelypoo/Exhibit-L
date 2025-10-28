@@ -220,10 +220,8 @@ public class UIManager : MonoBehaviour
         timer.text = " ";
         if (!gradeCalculated)
         {
-            Debug.Log("Scoring Player");
             endScreenGrade.text = "Grade: " + CalculateGrade();
             CalculateGrade();
-            Debug.Log("Grade calculated");
             gradeCalculated = true;
         }
         endScreenTimer.text = "Final time: " + roundedTimer + " seconds";
@@ -317,16 +315,16 @@ public class UIManager : MonoBehaviour
 
         if (roundedTimer < GameManager.Instance.GetTimeGoals(1))
         {
-            Debug.Log("Earned Gold");
+            //Debug.Log("Earned Gold");
         }
         else if (roundedTimer < GameManager.Instance.GetTimeGoals(2))
         {
-            Debug.Log("Earned Silver");
+            //Debug.Log("Earned Silver");
             score++;
         }
         else
         {
-            Debug.Log("Earned Bronze");
+            //Debug.Log("Earned Bronze");
             score += 2;
         }
 
@@ -339,34 +337,34 @@ public class UIManager : MonoBehaviour
             case 0:
                 levelSelectButton.interactable = true;
                 GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), true);
-                Debug.Log("Level passed");
+                //Debug.Log("Level passed");
                 return "S";
             case 1:
                 levelSelectButton.interactable = true;
                 GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), true);
-                Debug.Log("Level passed");
+                //Debug.Log("Level passed");
                 return "A";
             case 2:
                 levelSelectButton.interactable = true;
                 GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), true);
-                Debug.Log("Level passed");
+                //Debug.Log("Level passed");
                 return "B";
             case 3:
                 levelSelectButton.interactable = true;
                 GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), true);
-                Debug.Log("Level passed");
+                //Debug.Log("Level passed");
                 return "C";
             case 4:
                 if (!GameManager.Instance.GetLevelsComplete(GameManager.Instance.GetLevelNumber()))
                 {
                     levelSelectButton.interactable = false;
                     GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), false);
-                    Debug.Log("Did not pass level");
+                    //Debug.Log("Did not pass level");
                 }
                 else
                 {
                     levelSelectButton.interactable = true;
-                    Debug.Log("Level already passed");
+                    //Debug.Log("Level already passed");
                 }
                     return "D";
             case 5:
@@ -374,12 +372,12 @@ public class UIManager : MonoBehaviour
                 {
                     levelSelectButton.interactable = false;
                     GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), false);
-                    Debug.Log("Did not pass level");
+                    //Debug.Log("Did not pass level");
                 }
                 else
                 {
                     levelSelectButton.interactable = true;
-                    Debug.Log("Level already passed");
+                    //Debug.Log("Level already passed");
                 }
                 return "F";
             default:
@@ -387,12 +385,12 @@ public class UIManager : MonoBehaviour
                 {
                     levelSelectButton.interactable = false;
                     GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), false);
-                    Debug.Log("Did not pass level");
+                    //Debug.Log("Did not pass level");
                 }
                 else
                 {
                     levelSelectButton.interactable = true;
-                    Debug.Log("Level already passed");
+                    //Debug.Log("Level already passed");
                 }
                 return "F";
         }
