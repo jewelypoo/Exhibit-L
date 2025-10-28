@@ -214,7 +214,7 @@ public class UIManager : MonoBehaviour
 
     public void EndLevel()
     {
-        Debug.Log("Level end reached");
+        //Debug.Log("Level end reached");
         artDestroyedCounter.text = " ";
         enemyCount.text = " ";
         timer.text = " ";
@@ -332,45 +332,54 @@ public class UIManager : MonoBehaviour
 
         Debug.Log(score + " running scoring handler");
 
+        levelSelectButton.interactable = true;
+        Debug.Log("Level number: " + GameManager.Instance.GetLevelNumber());
+
+        foreach (bool result in GameManager.Instance.GetLevelsComplete())
+        {
+            Debug.Log("Level complete?: " + result);
+        }
+        //Debug.Log("Levels Complete:" + GameManager.Instance.GetLevelsComplete(GameManager.Instance.GetLevelNumber()));
+
         switch (score)
         {
             case 0:
-                levelSelectButton.interactable = true;
+                //levelSelectButton.interactable = true;
                 GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), true);
                 //Debug.Log("Level passed");
                 return "S";
             case 1:
-                levelSelectButton.interactable = true;
+                //levelSelectButton.interactable = true;
                 GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), true);
                 //Debug.Log("Level passed");
                 return "A";
             case 2:
-                levelSelectButton.interactable = true;
+                //levelSelectButton.interactable = true;
                 GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), true);
                 //Debug.Log("Level passed");
                 return "B";
             case 3:
-                levelSelectButton.interactable = true;
+                //levelSelectButton.interactable = true;
                 GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), true);
                 //Debug.Log("Level passed");
                 return "C";
             case 4:
                 if (!GameManager.Instance.GetLevelsComplete(GameManager.Instance.GetLevelNumber()))
                 {
-                    levelSelectButton.interactable = false;
+                    //levelSelectButton.interactable = false;
                     GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), false);
                     //Debug.Log("Did not pass level");
                 }
                 else
                 {
-                    levelSelectButton.interactable = true;
+                    //levelSelectButton.interactable = true;
                     //Debug.Log("Level already passed");
                 }
                     return "D";
             case 5:
                 if (!GameManager.Instance.GetLevelsComplete(GameManager.Instance.GetLevelNumber()))
                 {
-                    levelSelectButton.interactable = false;
+                    //levelSelectButton.interactable = false;
                     GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), false);
                     //Debug.Log("Did not pass level");
                 }
@@ -383,17 +392,18 @@ public class UIManager : MonoBehaviour
             default:
                 if (!GameManager.Instance.GetLevelsComplete(GameManager.Instance.GetLevelNumber()))
                 {
-                    levelSelectButton.interactable = false;
+                    //levelSelectButton.interactable = false;
                     GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), false);
                     //Debug.Log("Did not pass level");
                 }
                 else
                 {
-                    levelSelectButton.interactable = true;
+                    //levelSelectButton.interactable = true;
                     //Debug.Log("Level already passed");
                 }
                 return "F";
         }
+        
     }
 
     /// <summary>
@@ -448,13 +458,14 @@ public class UIManager : MonoBehaviour
         else if (levelCompleteScreen.activeSelf)
         {
             levelCompleteScreen.SetActive(false);
-            GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), true);
+            //GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), true);
         }
 
         bool[] turnButtonsOn = GameManager.Instance.GetLevelsComplete();
         for (int index = 0; index < levelButtons.Length; ++index)
         {
             levelButtons[index].interactable = turnButtonsOn[index];
+            Debug.Log("Level button interactible?: " + levelButtons[index] + ", turn button on index: " + turnButtonsOn[index]);
         }
     }
 
@@ -478,6 +489,7 @@ public class UIManager : MonoBehaviour
             camBrain.enabled = true;
             areaScanBackground.gameObject.SetActive(true);
             areaScanCD.gameObject.SetActive(true);
+            SceneManager.LoadScene(levelNumber - 1);
         }
         else
         {
