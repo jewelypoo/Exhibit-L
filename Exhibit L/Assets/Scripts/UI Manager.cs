@@ -376,7 +376,7 @@ public class UIManager : MonoBehaviour
                 }
                 else
                 {
-                    //levelSelectButton.interactable = true;
+                    levelSelectButton.interactable = true;
                     //Debug.Log("Level already passed");
                 }
                     return "D";
@@ -394,7 +394,7 @@ public class UIManager : MonoBehaviour
                 }
                 return "F";
             default:
-                GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber() - 1, false);
+                GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), false);
                 return "F";
         }
         
