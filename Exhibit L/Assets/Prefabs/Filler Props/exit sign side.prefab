@@ -56,9 +56,21 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 2dd6c28b70e54714fa58144e44197cab, type: 2}
+    - target: {fileID: -1491046612457559504, guid: 574ce3022fffb8543b6b1473b122afb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -732516274541220939, guid: 574ce3022fffb8543b6b1473b122afb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 574ce3022fffb8543b6b1473b122afb1, type: 3}
       propertyPath: m_Name
-      value: exit sign
+      value: exit sign side
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 574ce3022fffb8543b6b1473b122afb1, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
