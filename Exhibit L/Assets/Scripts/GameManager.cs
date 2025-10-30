@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour
                 levelsComplete[index] = false;
             }
         }
+
+        SetMasterVolume(masterVolume);
+        SetMusicVolume(musicVolume);
+        SetSFXVolume(sfxVolume);
     }
 
     public int GetEnemyCount()

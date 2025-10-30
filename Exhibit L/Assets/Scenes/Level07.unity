@@ -6126,7 +6126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedBakingSet: {fileID: 11400000, guid: 733d1167364e67b48a951b7010d41358, type: 2}
-  sceneGUID: 8cf56eb5aed010143a3d014a4c46bc06
+  sceneGUID: 783b3e9ee54f340c8ad528d8af8edddb
   obsoleteAsset: {fileID: 0}
   obsoleteCellSharedDataAsset: {fileID: 0}
   obsoleteCellSupportDataAsset: {fileID: 0}
@@ -8345,7 +8345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16a08ddce80c474c83634fe01d9b429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 4
+  level: 7
   enemies: 14
   goldTime: 16
   silverTimer: 20
@@ -8688,7 +8688,7 @@ MonoBehaviour:
   masterVolume: 0
   musicVolume: 0
   sfxVolume: 0
-  levelsComplete: 
+  levelsComplete: 000000000000
   paused: 0
   launched: 0
   mainMenuActive: 1

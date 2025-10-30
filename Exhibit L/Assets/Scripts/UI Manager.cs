@@ -79,64 +79,92 @@ public class UIManager : MonoBehaviour
         areaScanBackground.gameObject.SetActive(true);
         areaScanCD.text = "";
 
-        masterSlider.value = GameManager.Instance.GetMasterVolume();
-        sfxSlider.value = GameManager.Instance.GetSFXVolume();
-        musicSlider.value = GameManager.Instance.GetMusicVolume();
-        SetMasterVolume();
-        SetSFXVolume();
-        SetMusicVolume();
-
-        fovSlider.value = GameManager.Instance.GetFOV();
-        sensSlider.value = GameManager.Instance.GetSensitivity();
-
         
-
-        if (!GameManager.Instance.launched)
-        {
-            crosshair.SetActive(false);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            OpenMainMenu();
-            GameManager.Instance.launched = true;
-            camBrain.enabled = false;
-            GameManager.Instance.paused = true;
-
-            areaScanBackground.color = Color.white;
-            areaScanBackground.gameObject.SetActive(false);
-            areaScanCD.text = "";
-
-            fovSlider.value = 90;
-            SetFOV();
-
-            sensSlider.value = 1;
-            SetSensitivity();
-
-            masterSlider.value = 80f;
-            sfxSlider.value = 80f;
-            musicSlider.value = 80f;
-
-            SetMasterVolume();
-            SetSFXVolume();
-            SetMusicVolume();
-        }
-        fovSliderNumber.text = GameManager.Instance.GetFOV().ToString();
-        fovSlider.value = GameManager.Instance.GetFOV();
-        if (cam.Lens.FieldOfView != GameManager.Instance.GetFOV())
-        {
-            cam.Lens.FieldOfView = GameManager.Instance.GetFOV();
-        }
-        SetSensitivity();
-        if (levelSelect.activeSelf)
-        {
-            levelSelect.SetActive(false);
-            GameManager.Instance.levelSelectActive = false;
-        }
-        GameManager.Instance.ResetArtDestroyed();
     }
 
     private void Start()
     {
-        GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber() - 1, true);
+        Initialize();
+        StartCoroutine(InitDelay());
+    }
+
+    private void Initialize()
+    {
+        
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber() - 1, true);
+            masterSlider.value = GameManager.Instance.GetMasterVolume();
+            sfxSlider.value = GameManager.Instance.GetSFXVolume();
+            musicSlider.value = GameManager.Instance.GetMusicVolume();
+            SetMasterVolume();
+            SetSFXVolume();
+            SetMusicVolume();
+
+            fovSlider.value = GameManager.Instance.GetFOV();
+            sensSlider.value = GameManager.Instance.GetSensitivity();
+
+
+
+            if (!GameManager.Instance.launched)
+            {
+                crosshair.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                OpenMainMenu();
+                GameManager.Instance.launched = true;
+                camBrain.enabled = false;
+                GameManager.Instance.paused = true;
+
+                areaScanBackground.color = Color.white;
+                areaScanBackground.gameObject.SetActive(false);
+                areaScanCD.text = "";
+
+                fovSlider.value = 90;
+                SetFOV();
+
+                sensSlider.value = 1;
+                SetSensitivity();
+
+                masterSlider.value = 80f;
+                sfxSlider.value = 80f;
+                musicSlider.value = 80f;
+
+                SetMasterVolume();
+                SetSFXVolume();
+                SetMusicVolume();
+            }
+            fovSliderNumber.text = GameManager.Instance.GetFOV().ToString();
+            fovSlider.value = GameManager.Instance.GetFOV();
+            if (cam.Lens.FieldOfView != GameManager.Instance.GetFOV())
+            {
+                cam.Lens.FieldOfView = GameManager.Instance.GetFOV();
+            }
+            SetSensitivity();
+            if (levelSelect.activeSelf)
+            {
+                levelSelect.SetActive(false);
+                GameManager.Instance.levelSelectActive = false;
+            }
+            GameManager.Instance.ResetArtDestroyed();
+        }
+        else
+        {
+            StartCoroutine(InitDelay());
+        }
+    }
+
+    private IEnumerator InitDelay()
+    {
+        if (GameManager.Instance == null)
+        {
+            yield return new WaitForEndOfFrame();
+            Initialize();
+        }
+        else
+        {
+            yield return null;
+        }
     }
 
     public void SetSensitivity()
