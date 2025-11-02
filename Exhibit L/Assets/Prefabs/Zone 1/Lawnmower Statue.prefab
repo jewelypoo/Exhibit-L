@@ -52,6 +52,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lawnmower Statue
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 27a06202b1792ee47a7869137a46a162, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 27a06202b1792ee47a7869137a46a162, type: 3}
+      propertyPath: m_TagString
+      value: Art
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 27a06202b1792ee47a7869137a46a162, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
