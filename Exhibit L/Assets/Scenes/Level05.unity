@@ -243,6 +243,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5430226167084740202, guid: 49b80007f79bc4640b471bb381dd60c3, type: 3}
   m_PrefabInstance: {fileID: 8409454}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &13012761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5459238308244696139, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
+  m_PrefabInstance: {fileID: 1489063598}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &19141891
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1865,11 +1870,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8163444119794688267, guid: ee0cc0ccb585c4c40a7b3116cd79dc8b, type: 3}
   m_PrefabInstance: {fileID: 227796652}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &228003681 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5459238308244696139, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
-  m_PrefabInstance: {fileID: 1489063598}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &228082813
 PrefabInstance:
@@ -4165,6 +4165,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5430226167084740202, guid: 49b80007f79bc4640b471bb381dd60c3, type: 3}
   m_PrefabInstance: {fileID: 1646974571}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &646706277 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4026178193488265822, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
+  m_PrefabInstance: {fileID: 1489063598}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &661686856 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8163444119794688267, guid: ee0cc0ccb585c4c40a7b3116cd79dc8b, type: 3}
@@ -6131,7 +6136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializedBakingSet: {fileID: 11400000, guid: 733d1167364e67b48a951b7010d41358, type: 2}
-  sceneGUID: 8cf56eb5aed010143a3d014a4c46bc06
+  sceneGUID: ffefdc1ea432b40f59af348ef03e15ad
   obsoleteAsset: {fileID: 0}
   obsoleteCellSharedDataAsset: {fileID: 0}
   obsoleteCellSupportDataAsset: {fileID: 0}
@@ -8350,7 +8355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16a08ddce80c474c83634fe01d9b429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 5
+  level: 6
   enemies: 14
   goldTime: 16
   silverTimer: 20
@@ -8690,7 +8695,7 @@ MonoBehaviour:
   bronzeTime: 0
   fov: 0
   sens: 0
-  masterVolume: 0
+  masterVolume: 1
   musicVolume: 0
   sfxVolume: 0
   levelsComplete: 00000000000000
@@ -11614,11 +11619,11 @@ PrefabInstance:
     - target: {fileID: 5752932330989252847, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
       propertyPath: endScreen
       value: 
-      objectReference: {fileID: 228003681}
+      objectReference: {fileID: 13012761}
     - target: {fileID: 5752932330989252847, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
       propertyPath: levelCompleteScreen
       value: 
-      objectReference: {fileID: 1790101142}
+      objectReference: {fileID: 646706277}
     - target: {fileID: 8977588986100326474, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
       propertyPath: m_Name
       value: Player-Updated
@@ -12737,11 +12742,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8754763553727946718, guid: 308c0c0fc98d9e440873d099832bd301, type: 3}
   m_PrefabInstance: {fileID: 1784871741}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1790101142 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4026178193488265822, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
-  m_PrefabInstance: {fileID: 1489063598}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1794562219
 PrefabInstance:
