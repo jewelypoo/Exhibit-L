@@ -82,7 +82,7 @@ public class UIManager : MonoBehaviour
         areaScanCD.text = "";
 
         currentAlpha = 1f;
-        if (fadeScreen != null)
+        if (fadeScreen != null && !GameManager.Instance.launched)
         {
             fadeScreen.alpha = currentAlpha;
             if (!fadeScreen.gameObject.activeSelf)
@@ -90,7 +90,7 @@ public class UIManager : MonoBehaviour
                 fadeScreen.gameObject.SetActive(true);
             }
         }
-        
+
 
     }
 
@@ -254,8 +254,16 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        currentAlpha = Mathf.MoveTowards(currentAlpha, 0, 0.15f * Time.deltaTime);
-        fadeScreen.alpha = currentAlpha;
+        if (currentAlpha > 0)
+        {
+            currentAlpha = Mathf.MoveTowards(currentAlpha, 0, 0.15f * Time.deltaTime);
+            fadeScreen.alpha = currentAlpha;
+            if (currentAlpha <= 0.3)
+            {
+                currentAlpha = 0;
+            }
+        }
+        
     }
 
     public void EndLevel()
