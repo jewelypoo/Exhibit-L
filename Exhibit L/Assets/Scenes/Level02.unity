@@ -20680,6 +20680,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7190506654909251017, guid: 8dd94af90a8a6024e8c00d7c0ad330db, type: 3}
   m_PrefabInstance: {fileID: 794442709}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &794975375
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7385972123034242316, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_Name
+      value: Exit Door Holder (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
 --- !u!1001 &797721534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32554,6 +32611,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8163444119794688267, guid: f721250a05796b642916d82c73ef3ba4, type: 3}
   m_PrefabInstance: {fileID: 1267134750}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1268607621
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7385972123034242316, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_Name
+      value: Exit Door Holder
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -21
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067150554716119585, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0180bd6487e23624aade09f1f675efe9, type: 3}
 --- !u!1001 &1269627034
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52316,6 +52430,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1390975687}
+  - {fileID: 1579196827}
   - {fileID: 1489063598}
   - {fileID: 1206169529}
   - {fileID: 300324676}
@@ -52323,5 +52438,6 @@ SceneRoots:
   - {fileID: 1606634902}
   - {fileID: 1016306855}
   - {fileID: 943732060}
-  - {fileID: 1579196827}
   - {fileID: 1777917724}
+  - {fileID: 1268607621}
+  - {fileID: 794975375}
