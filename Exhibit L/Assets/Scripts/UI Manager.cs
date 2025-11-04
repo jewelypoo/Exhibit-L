@@ -50,6 +50,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private CinemachineBrain camBrain;
     [SerializeField] private CinemachineInputAxisController cineAxisController;
     [SerializeField] private Button[] levelButtons;
+    [SerializeField] private CanvasGroup fadeScreen;
 
     private bool showHitmarker = false;
     private bool gradeCalculated = false;
@@ -58,6 +59,7 @@ public class UIManager : MonoBehaviour
 
     private float timerTime;
     private float roundedTimer;
+    private float currentAlpha = 1f;
 
     public bool isPaused = false;
 
@@ -79,7 +81,24 @@ public class UIManager : MonoBehaviour
         areaScanBackground.gameObject.SetActive(true);
         areaScanCD.text = "";
 
-        
+        currentAlpha = 1f;
+        if (fadeScreen != null)
+        {
+            if (!GameManager.Instance.launched)
+            {
+                fadeScreen.alpha = currentAlpha;
+                if (!fadeScreen.gameObject.activeSelf)
+                {
+                    fadeScreen.gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                fadeScreen.gameObject.SetActive(false);
+            }
+        }
+
+
     }
 
     private void Start()
@@ -242,6 +261,16 @@ public class UIManager : MonoBehaviour
             }
         }
 
+        if (currentAlpha > 0 && fadeScreen.gameObject.activeSelf)
+        {
+            currentAlpha = Mathf.MoveTowards(currentAlpha, 0, 0.3f * Time.deltaTime);
+            fadeScreen.alpha = currentAlpha;
+            if (currentAlpha <= 0.3)
+            {
+                currentAlpha = 0;
+            }
+        }
+        
     }
 
     public void EndLevel()
