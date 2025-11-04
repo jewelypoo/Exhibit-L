@@ -84,7 +84,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        Initialize();
+        //Initialize();
         StartCoroutine(InitDelay());
     }
 
@@ -156,7 +156,7 @@ public class UIManager : MonoBehaviour
 
     private IEnumerator InitDelay()
     {
-        if (GameManager.Instance == null)
+        if (GameManager.Instance != null)
         {
             yield return new WaitForEndOfFrame();
             Initialize();
