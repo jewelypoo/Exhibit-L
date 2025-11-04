@@ -75,6 +75,7 @@ public class LasserBehavior : MonoBehaviour
         // Adjust scale based on raycast
         if (Physics.Raycast(cameraPos.position, cameraPos.forward, out RaycastHit hit, maxDistance, hitObjects))
         {
+            smokeParticle.transform.position = hit.point;
             if (hit.transform.CompareTag("Mirrror"))
             {
                 laserBounceDir = Vector3.Reflect(cameraPos.forward, hit.transform.forward);
