@@ -109,7 +109,7 @@ public class LasserBehavior : MonoBehaviour
                         }
                         if (GameManager.Instance.GetEnemyCount() <= 0)
                         {
-                            playerData.LevelComplete();
+                            //playerData.LevelComplete();
                         }
                         //Debug.Log("Enemy Hit");
                     }
@@ -129,7 +129,7 @@ public class LasserBehavior : MonoBehaviour
                 }
                 if (GameManager.Instance.GetEnemyCount() <= 0)
                 {
-                    playerData.LevelComplete();
+                    //playerData.LevelComplete();
                 }
                 //Debug.Log("Enemy Hit");
             }
@@ -189,7 +189,7 @@ public class LasserBehavior : MonoBehaviour
                         }
                         if (GameManager.Instance.GetEnemyCount() <= 0)
                         {
-                            playerData.LevelComplete();
+                            //playerData.LevelComplete();
                         }
                         //Debug.Log("Enemy Hit");
                     }
@@ -207,7 +207,7 @@ public class LasserBehavior : MonoBehaviour
                 }
                 if (GameManager.Instance.GetEnemyCount() <= 0)
                 {
-                    playerData.LevelComplete();
+                    //playerData.LevelComplete();
                 }
                 return hit.collider.gameObject;
                 //Debug.Log("Enemy Hit");
