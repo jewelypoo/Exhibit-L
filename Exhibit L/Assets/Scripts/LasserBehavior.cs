@@ -12,7 +12,7 @@ public class LasserBehavior : MonoBehaviour
     [SerializeField] private LayerMask hitObjects;
     [SerializeField] private GameObject laser;
     //[SerializeField] private GameObject laserChecker;
-    [SerializeField] private ParticleSystem fireParticle;
+    [SerializeField] private ParticleSystem dustParticle;
     [SerializeField] private ParticleSystem smokeParticle;
     [SerializeField] private float degreesDoubleCheckSteps = 2f;
 
@@ -92,6 +92,8 @@ public class LasserBehavior : MonoBehaviour
                         smokeParticle.Play();*/
                         StartCoroutine(uiManager.ShowHitmarker());
                         Destroy(bounceHit.collider.gameObject);
+                        dustParticle.transform.position = bounceHit.point;
+                        dustParticle.Play();
                     }
                     if (bounceHit.transform.CompareTag("Player"))
                     {
@@ -136,6 +138,8 @@ public class LasserBehavior : MonoBehaviour
             else if (hit.transform.CompareTag("Art"))
             {
                 Destroy(hit.collider.gameObject);
+                dustParticle.transform.position = hit.point;
+                dustParticle.Play();
 
                 GameManager.Instance.AddArtDestroyed(1);
                 StartCoroutine(uiManager.ShowHitmarker());
@@ -174,6 +178,8 @@ public class LasserBehavior : MonoBehaviour
                         smokeParticle.Play();*/
                         StartCoroutine(uiManager.ShowHitmarker());
                         Destroy(bounceHit.collider.gameObject);
+                        dustParticle.transform.position = hit.point;
+                        dustParticle.Play();
                     }
                     if (bounceHit.transform.CompareTag("Player"))
                     {
@@ -216,7 +222,10 @@ public class LasserBehavior : MonoBehaviour
             {
                 GameManager.Instance.AddArtDestroyed(1);
                 StartCoroutine(uiManager.ShowHitmarker());
+                dustParticle.transform.position = hit.transform.position;
+                dustParticle.Play();
                 return hit.collider.gameObject;
+                
             }
             else if (hit.transform.CompareTag("ChandelierChain"))
             {
