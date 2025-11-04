@@ -13,8 +13,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text enemyCount;
     [SerializeField] private TMP_Text timer;
     [SerializeField] private TMP_Text endScreenTimer;
-    [SerializeField] private TMP_Text artDestroyed;
-    [SerializeField] private TMP_Text artDestroyedCounter;
     [SerializeField] private TMP_Text endScreenGrade;
     [SerializeField] private GameObject crosshair;
     [SerializeField] private GameObject pauseScreen;
@@ -51,6 +49,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private CinemachineInputAxisController cineAxisController;
     [SerializeField] private Button[] levelButtons;
     [SerializeField] private CanvasGroup fadeScreen;
+    [SerializeField] private Image[] circles;
+    [SerializeField] private Image[] endScreenCircles;
 
     private bool showHitmarker = false;
     private bool gradeCalculated = false;
@@ -230,7 +230,7 @@ public class UIManager : MonoBehaviour
             }
             else
             {
-                artDestroyedCounter.text = "Art destroyed: " + GameManager.Instance.GetArtDestroyed();
+                UpdateCircles();
             }
         }
 
@@ -276,17 +276,15 @@ public class UIManager : MonoBehaviour
     public void EndLevel()
     {
         //Debug.Log("Level end reached");
-        artDestroyedCounter.text = " ";
         enemyCount.text = " ";
         timer.text = " ";
         if (!gradeCalculated)
         {
-            endScreenGrade.text = "Grade: " + CalculateGrade();
+            endScreenGrade.text = CalculateGrade();
             CalculateGrade();
             gradeCalculated = true;
         }
-        endScreenTimer.text = "Final time: " + roundedTimer + " seconds";
-        artDestroyed.text = "Art destroyed: " + GameManager.Instance.GetArtDestroyed();
+        endScreenTimer.text = "" + roundedTimer;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         crosshair.SetActive(false);
@@ -297,7 +295,6 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         Debug.Log("Game Over");
-        artDestroyedCounter.text = " ";
         enemyCount.text = " ";
         timer.text = " ";
 
@@ -586,5 +583,21 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.SetFOV((int)fovSlider.value);
     }
 
+    void UpdateCircles()
+    {
+        for (int i = 0; i < circles.Length && i < endScreenCircles.Length; i++)
+        {
+            if (i < GameManager.Instance.GetArtDestroyed())
+            {
+                circles[i].color = Color.red;
+                endScreenCircles[i].color = Color.red;
+            }
+            else
+            {
+                circles[i].color = Color.gray;
+                endScreenCircles[i].color = Color.gray;
+            }
+        }
+    }
 
 }
