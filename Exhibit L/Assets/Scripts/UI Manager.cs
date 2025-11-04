@@ -207,7 +207,7 @@ public class UIManager : MonoBehaviour
             enemyCount.text = "Enemies alive: " + GameManager.Instance.GetEnemyCount();
             if (GameManager.Instance.GetEnemyCount() <= 0)
             {
-                EndLevel();
+                //EndLevel();
             }
             else
             {
