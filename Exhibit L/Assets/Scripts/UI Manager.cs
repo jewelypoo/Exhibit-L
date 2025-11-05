@@ -214,12 +214,12 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.GetEnemyCount() > 0)
-        {
+        //if (GameManager.Instance.GetEnemyCount() > 0)
+        //{
             timerTime += Time.deltaTime;
             roundedTimer = Mathf.Round(timerTime * 100f) / 100f;
             timer.text = "" + roundedTimer;
-        }
+        //}
 
         if (enemyCount != null)
         {
