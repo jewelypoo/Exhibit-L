@@ -5638,7 +5638,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64512
   laser: {fileID: 8336225729181661434}
-  dustParticle: {fileID: 0}
+  dustParticle: {fileID: 6927984065119713483}
   smokeParticle: {fileID: 1562406341764027121}
   degreesDoubleCheckSteps: 3
   minCamDoubleCheckDistance: 10

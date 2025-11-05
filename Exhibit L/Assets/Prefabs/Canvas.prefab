@@ -3703,7 +3703,10 @@ MonoBehaviour:
   - {fileID: 2444529307855436055}
   - {fileID: 7415875896100482353}
   - {fileID: 6843472170091480615}
-  endScreenCircles: []
+  endScreenCircles:
+  - {fileID: 5617988905657921632}
+  - {fileID: 2355963944924589489}
+  - {fileID: 1020686810335466467}
   isPaused: 0
 --- !u!1 &2732801017066022774
 GameObject:
