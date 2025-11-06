@@ -227,6 +227,7 @@ public class UIManager : MonoBehaviour
             if (GameManager.Instance.GetEnemyCount() <= 0)
             {
                 //EndLevel();
+                UpdateCircles();
             }
             else
             {
