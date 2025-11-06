@@ -29536,8 +29536,8 @@ MonoBehaviour:
   level: 2
   enemies: 6
   goldTime: 16
-  silverTimer: 21
-  bronzeTime: 26
+  silverTimer: 25
+  bronzeTime: 32
 --- !u!4 &1164441048
 Transform:
   m_ObjectHideFlags: 0

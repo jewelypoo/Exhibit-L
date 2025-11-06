@@ -14410,7 +14410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16a08ddce80c474c83634fe01d9b429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
+  level: 7
   enemies: 3
   goldTime: 10
   silverTimer: 12

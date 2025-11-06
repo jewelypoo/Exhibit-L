@@ -29781,11 +29781,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16a08ddce80c474c83634fe01d9b429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 4
+  level: 3
   enemies: 6
-  goldTime: 16
-  silverTimer: 20
-  bronzeTime: 25
+  goldTime: 17
+  silverTimer: 31
+  bronzeTime: 40
 --- !u!4 &1164441048
 Transform:
   m_ObjectHideFlags: 0

@@ -14413,8 +14413,8 @@ MonoBehaviour:
   level: 1
   enemies: 3
   goldTime: 10
-  silverTimer: 12
-  bronzeTime: 14
+  silverTimer: 20
+  bronzeTime: 28
 --- !u!4 &1164441048
 Transform:
   m_ObjectHideFlags: 0
