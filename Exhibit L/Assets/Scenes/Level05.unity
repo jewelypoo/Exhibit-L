@@ -940,17 +940,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8163444119794688267, guid: ee0cc0ccb585c4c40a7b3116cd79dc8b, type: 3}
   m_PrefabInstance: {fileID: 228439679}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &248824134 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 375113607929533203, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
-  m_PrefabInstance: {fileID: 1769262153}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbce665c4883ced42961946562eb28ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &285227283
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4360,21 +4349,9 @@ PrefabInstance:
       propertyPath: hitmarkerSound
       value: 
       objectReference: {fileID: 1769262154}
-    - target: {fileID: 888502971874938137, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 248824134}
     - target: {fileID: 2726686037460088841, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
       propertyPath: m_Name
       value: Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 3136352437640920786, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026178193488265822, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4293823649106494302, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
       propertyPath: m_Pivot.x
@@ -4455,10 +4432,6 @@ PrefabInstance:
     - target: {fileID: 4293823649106494302, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4460217948521901969, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
-      propertyPath: m_text
-      value: 'Grade:'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
