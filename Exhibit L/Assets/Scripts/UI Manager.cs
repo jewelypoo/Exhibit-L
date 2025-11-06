@@ -82,6 +82,11 @@ public class UIManager : MonoBehaviour
         areaScanCD.text = "";
 
         currentAlpha = 1f;
+    }
+
+    private void Start()
+    {
+        //Initialize();
         if (fadeScreen != null)
         {
             if (!GameManager.Instance.launched)
@@ -97,13 +102,6 @@ public class UIManager : MonoBehaviour
                 fadeScreen.gameObject.SetActive(false);
             }
         }
-
-
-    }
-
-    private void Start()
-    {
-        //Initialize();
         StartCoroutine(InitDelay());
     }
 
