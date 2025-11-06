@@ -85,7 +85,11 @@ public class LasserBehavior : MonoBehaviour
                 MirrorBounce(hit.point);
 
             }
-            else if (hit.transform.CompareTag("Enemy"))
+            else if (laser.activeSelf)
+            {
+                laser.SetActive(false);
+            }
+            if (hit.transform.CompareTag("Enemy"))
             {
                 Destroy(hit.collider.gameObject);
 
@@ -137,8 +141,14 @@ public class LasserBehavior : MonoBehaviour
                 MirrorBounce(hit.point);
 
             }
-            else if (hit.transform.CompareTag("Enemy"))
+            else if (laser.activeSelf)
             {
+                laser.SetActive(false);
+            }
+            if (hit.transform.CompareTag("Enemy"))
+            {
+                Destroy(hit.collider.gameObject);
+
                 if (GameManager.Instance.GetEnemyCount() > 0)
                 {
                     GameManager.Instance.ReduceEnemyCount(1);
@@ -194,7 +204,7 @@ public class LasserBehavior : MonoBehaviour
                 smokeParticle.Play();*/
                 StartCoroutine(uiManager.ShowHitmarker());
                 Destroy(bounceHit.collider.gameObject);
-                dustParticle.transform.position = hitPoint;
+                dustParticle.transform.position = bounceHit.point;
                 dustParticle.Play();
             }
             if (bounceHit.transform.CompareTag("Player"))
@@ -203,6 +213,8 @@ public class LasserBehavior : MonoBehaviour
             }
             if (bounceHit.transform.CompareTag("Enemy"))
             {
+                Destroy(bounceHit.collider.gameObject);
+
                 if (GameManager.Instance.GetEnemyCount() > 0)
                 {
                     GameManager.Instance.ReduceEnemyCount(1);
@@ -215,7 +227,7 @@ public class LasserBehavior : MonoBehaviour
                 }
                 //Debug.Log("Enemy Hit");
             }
-            if (bounceHit.transform.CompareTag("Mirror"))
+            if (bounceHit.transform.CompareTag("Mirrror"))
             {
                 MirrorBounce(bounceHit.point);
             }
