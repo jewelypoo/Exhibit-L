@@ -82,41 +82,7 @@ public class LasserBehavior : MonoBehaviour
                 laser.SetActive(true);
                 laser.transform.position = hit.point;
                 laser.transform.forward = -laserBounceDir;
-                if (Physics.Raycast(hit.point, -laserBounceDir, out RaycastHit bounceHit, maxDistance, hitObjects))
-                {
-                    if (bounceHit.transform.CompareTag("Art"))
-                    {
-                        /*fireParticle.transform.position = hit.point;
-                        smokeParticle.transform.position = hit.point;
-                        fireParticle.Play();
-                        smokeParticle.Play();*/
-                        StartCoroutine(uiManager.ShowHitmarker());
-                        Destroy(bounceHit.collider.gameObject);
-                        dustParticle.transform.position = bounceHit.point;
-                        dustParticle.Play();
-                    }
-                    if (bounceHit.transform.CompareTag("Player"))
-                    {
-                        uiManager.GameOver();
-                    }
-                    if (bounceHit.transform.CompareTag("Enemy"))
-                    {
-                        Destroy(hit.collider.gameObject);
-
-                        if (GameManager.Instance.GetEnemyCount() > 0)
-                        {
-                            GameManager.Instance.ReduceEnemyCount(1);
-
-                            StartCoroutine(uiManager.ShowHitmarker());
-                        }
-                        if (GameManager.Instance.GetEnemyCount() <= 0)
-                        {
-                            //playerData.LevelComplete();
-                        }
-                        //Debug.Log("Enemy Hit");
-                    }
-                    //Debug.Log("Object hit: " + bounceHit.collider.tag);
-                }
+                MirrorBounce(hit.point);
 
             }
             else if (hit.transform.CompareTag("Enemy"))
@@ -168,39 +134,7 @@ public class LasserBehavior : MonoBehaviour
                 laser.SetActive(true);
                 laser.transform.position = hit.point;
                 laser.transform.forward = -laserBounceDir;
-                if (Physics.Raycast(hit.point, -laserBounceDir, out RaycastHit bounceHit, maxDistance, hitObjects))
-                {
-                    if (bounceHit.transform.CompareTag("Art"))
-                    {
-                        /*fireParticle.transform.position = hit.point;
-                        smokeParticle.transform.position = hit.point;
-                        fireParticle.Play();
-                        smokeParticle.Play();*/
-                        StartCoroutine(uiManager.ShowHitmarker());
-                        Destroy(bounceHit.collider.gameObject);
-                        dustParticle.transform.position = hit.point;
-                        dustParticle.Play();
-                    }
-                    if (bounceHit.transform.CompareTag("Player"))
-                    {
-                        uiManager.GameOver();
-                    }
-                    if (bounceHit.transform.CompareTag("Enemy"))
-                    {
-                        if (GameManager.Instance.GetEnemyCount() > 0)
-                        {
-                            GameManager.Instance.ReduceEnemyCount(1);
-
-                            StartCoroutine(uiManager.ShowHitmarker());
-                        }
-                        if (GameManager.Instance.GetEnemyCount() <= 0)
-                        {
-                            //playerData.LevelComplete();
-                        }
-                        //Debug.Log("Enemy Hit");
-                    }
-                    //Debug.Log("Object hit: " + bounceHit.collider.tag);
-                }
+                MirrorBounce(hit.point);
 
             }
             else if (hit.transform.CompareTag("Enemy"))
@@ -246,6 +180,47 @@ public class LasserBehavior : MonoBehaviour
     private void FixedUpdate()
     {
         Laser();
+    }
+
+    private void MirrorBounce(Vector3 hitPoint)
+    {
+        if (Physics.Raycast(hitPoint, -laserBounceDir, out RaycastHit bounceHit, maxDistance, hitObjects))
+        {
+            if (bounceHit.transform.CompareTag("Art"))
+            {
+                /*fireParticle.transform.position = hit.point;
+                smokeParticle.transform.position = hit.point;
+                fireParticle.Play();
+                smokeParticle.Play();*/
+                StartCoroutine(uiManager.ShowHitmarker());
+                Destroy(bounceHit.collider.gameObject);
+                dustParticle.transform.position = hitPoint;
+                dustParticle.Play();
+            }
+            if (bounceHit.transform.CompareTag("Player"))
+            {
+                uiManager.GameOver();
+            }
+            if (bounceHit.transform.CompareTag("Enemy"))
+            {
+                if (GameManager.Instance.GetEnemyCount() > 0)
+                {
+                    GameManager.Instance.ReduceEnemyCount(1);
+
+                    StartCoroutine(uiManager.ShowHitmarker());
+                }
+                if (GameManager.Instance.GetEnemyCount() <= 0)
+                {
+                    //playerData.LevelComplete();
+                }
+                //Debug.Log("Enemy Hit");
+            }
+            if (bounceHit.transform.CompareTag("Mirror"))
+            {
+                MirrorBounce(bounceHit.point);
+            }
+            //Debug.Log("Object hit: " + bounceHit.collider.tag);
+        }
     }
 
 }
