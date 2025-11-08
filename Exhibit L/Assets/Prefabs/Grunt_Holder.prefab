@@ -125,9 +125,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypointHolder: {fileID: 3867419300542125494}
-  speed: 4
-  waitTime: 3
-  turnSpeed: 90
+  speed: 7
+  waitTime: 0
+  turnSpeed: 200
 --- !u!1 &5930378242052645336
 GameObject:
   m_ObjectHideFlags: 0

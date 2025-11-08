@@ -3816,7 +3816,7 @@ MonoBehaviour:
   masterSlider: {fileID: 4849328488171886607}
   musicSlider: {fileID: 2593934758799671245}
   sfxSlider: {fileID: 4180345370280321791}
-  resumeButton: {fileID: 0}
+  resumeButton: {fileID: 8835813195126307280}
   levelSelectButton: {fileID: 1312643494867622173}
   mixer: {fileID: 24100000, guid: d1ecc4e443c76ab4a8415113ecb71db5, type: 2}
   cam: {fileID: 0}
@@ -7183,7 +7183,7 @@ GameObject:
   - component: {fileID: 6056600013900411280}
   - component: {fileID: 8835813195126307280}
   m_Layer: 5
-  m_Name: Level Select Button
+  m_Name: Resume Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7293,8 +7293,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 358432841354387377}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OpenLevelSelect
-        m_Mode: 1
+        m_MethodName: PauseScreen
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -7831,9 +7831,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Level Select
-
-'
+  m_text: Resume
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e3978073bc5220248b120dd7b9887e12, type: 2}
   m_sharedMaterial: {fileID: 1214496693329309054, guid: e3978073bc5220248b120dd7b9887e12, type: 2}
