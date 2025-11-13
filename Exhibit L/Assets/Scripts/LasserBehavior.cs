@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 /// <summary>
 /// Sharkey, Logan
@@ -22,9 +23,14 @@ public class LasserBehavior : MonoBehaviour
 
     [SerializeField] private float minCamDoubleCheckDistance;
 
-    private Vector3 laserBounceDir;
+    //private Vector3 laserBounceDir;
     private PlayerData playerData;
     private UIManager uiManager;
+
+    [SerializeField] private int maxMirrorBounces = 5;
+    private int currentMirrorBounces = 0;
+    private GameObject[] lasers;
+
 
     private void Awake()
     {
@@ -72,22 +78,21 @@ public class LasserBehavior : MonoBehaviour
 
     public void Laser()
     {
-        // Adjust scale based on raycast
+        
         if (Physics.Raycast(cameraPos.position, cameraPos.forward, out RaycastHit hit, maxDistance, hitObjects))
         {
             smokeParticle.transform.position = hit.point;
             if (hit.transform.CompareTag("Mirrror"))
             {
-                laserBounceDir = Vector3.Reflect(cameraPos.forward, hit.transform.forward);
-                laser.SetActive(true);
-                laser.transform.position = hit.point;
-                laser.transform.forward = -laserBounceDir;
-                MirrorBounce(hit.point);
+                Vector3 laserBounceDirTemp = Vector3.Reflect(cameraPos.forward, hit.normal);
+                
+                MirrorBounce(hit, laserBounceDirTemp);
 
             }
             else if (laser.activeSelf)
             {
                 laser.SetActive(false);
+                currentMirrorBounces = 0;
             }
             if (hit.transform.CompareTag("Enemy"))
             {
@@ -134,11 +139,8 @@ public class LasserBehavior : MonoBehaviour
         {
             if (hit.transform.CompareTag("Mirrror"))
             {
-                laserBounceDir = Vector3.Reflect(direction, hit.transform.forward);
-                laser.SetActive(true);
-                laser.transform.position = hit.point;
-                laser.transform.forward = -laserBounceDir;
-                MirrorBounce(hit.point);
+                Vector3 laserBounceDirTemp = Vector3.Reflect(direction, hit.normal);
+                MirrorBounce(hit, laserBounceDirTemp);
 
             }
             else if (laser.activeSelf)
@@ -192,47 +194,55 @@ public class LasserBehavior : MonoBehaviour
         Laser();
     }
 
-    private void MirrorBounce(Vector3 hitPoint)
+    private void MirrorBounce(RaycastHit hit, Vector3 laserBounceDir)
     {
-        if (Physics.Raycast(hitPoint, -laserBounceDir, out RaycastHit bounceHit, maxDistance, hitObjects))
+        if (currentMirrorBounces < maxMirrorBounces)
         {
-            if (bounceHit.transform.CompareTag("Art"))
+            laser.SetActive(true);
+            laser.transform.position = hit.point;
+            laser.transform.forward = -laserBounceDir;
+            if (Physics.Raycast(hit.point + (laserBounceDir * 0.01f), -laserBounceDir, out RaycastHit bounceHit, maxDistance, hitObjects))
             {
-                /*fireParticle.transform.position = hit.point;
-                smokeParticle.transform.position = hit.point;
-                fireParticle.Play();
-                smokeParticle.Play();*/
-                StartCoroutine(uiManager.ShowHitmarker());
-                Destroy(bounceHit.collider.gameObject);
-                dustParticle.transform.position = bounceHit.point;
-                dustParticle.Play();
-            }
-            if (bounceHit.transform.CompareTag("Player"))
-            {
-                uiManager.GameOver();
-            }
-            if (bounceHit.transform.CompareTag("Enemy"))
-            {
-                Destroy(bounceHit.collider.gameObject);
-
-                if (GameManager.Instance.GetEnemyCount() > 0)
+                if (bounceHit.transform.CompareTag("Art"))
                 {
-                    GameManager.Instance.ReduceEnemyCount(1);
-
+                    /*fireParticle.transform.position = hit.point;
+                    smokeParticle.transform.position = hit.point;
+                    fireParticle.Play();
+                    smokeParticle.Play();*/
                     StartCoroutine(uiManager.ShowHitmarker());
+                    Destroy(bounceHit.collider.gameObject);
+                    dustParticle.transform.position = bounceHit.point;
+                    dustParticle.Play();
                 }
-                if (GameManager.Instance.GetEnemyCount() <= 0)
+                if (bounceHit.transform.CompareTag("Player"))
                 {
-                    //playerData.LevelComplete();
+                    uiManager.GameOver();
                 }
-                //Debug.Log("Enemy Hit");
+                if (bounceHit.transform.CompareTag("Enemy"))
+                {
+                    Destroy(bounceHit.collider.gameObject);
+
+                    if (GameManager.Instance.GetEnemyCount() > 0)
+                    {
+                        GameManager.Instance.ReduceEnemyCount(1);
+
+                        StartCoroutine(uiManager.ShowHitmarker());
+                    }
+                    if (GameManager.Instance.GetEnemyCount() <= 0)
+                    {
+                        //playerData.LevelComplete();
+                    }
+                    //Debug.Log("Enemy Hit");
+                }
+                if (bounceHit.transform.CompareTag("Mirrror"))
+                {
+                    Vector3 laserBounceDirTemp = Vector3.Reflect(laserBounceDir, hit.normal);
+                    MirrorBounce(bounceHit, laserBounceDir);
+                }
+                //Debug.Log("Object hit: " + bounceHit.collider.tag);
             }
-            if (bounceHit.transform.CompareTag("Mirrror"))
-            {
-                MirrorBounce(bounceHit.point);
-            }
-            //Debug.Log("Object hit: " + bounceHit.collider.tag);
         }
+        currentMirrorBounces++;
     }
 
 }
