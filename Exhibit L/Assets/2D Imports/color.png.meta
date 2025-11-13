@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 0b73d1916039b344f8de48d45f3e345d
+guid: 72155ce22654e514dab520c309bf334a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,8 +37,8 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
+    wrapU: 0
+    wrapV: 0
     wrapW: 0
   nPOTScale: 0
   lightmap: 0
@@ -52,9 +52,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
-  textureType: 8
+  textureType: 0
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: decal-ezgif.com-gif-to-sprite-converter_0
+      name: color_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 859
-        height: 789
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,20 +125,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b04cd7cdd2e49694db47bb8bb431b96d
-      internalID: -1514600816
+      spriteID: 0178ed90574a7964f8f2786b85ae4381
+      internalID: -1366015538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decal-ezgif.com-gif-to-sprite-converter_1
+      name: color_1
       rect:
         serializedVersion: 2
-        x: 859
+        x: 128
         y: 0
-        width: 859
-        height: 789
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c8ebd6b719769041970e25ec3b7c0b3
-      internalID: 346177919
+      spriteID: e63a9e5cc210ee441ae59a124fde8025
+      internalID: 14454979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decal-ezgif.com-gif-to-sprite-converter_2
+      name: color_2
       rect:
         serializedVersion: 2
-        x: 1718
+        x: 256
         y: 0
-        width: 859
-        height: 789
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b7895fa2a20f964bbe8b0d1d212b127
-      internalID: 1746297135
+      spriteID: c790711046a50d445ba683b080a80697
+      internalID: 363544081
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decal-ezgif.com-gif-to-sprite-converter_3
+      name: color_3
       rect:
         serializedVersion: 2
-        x: 2577
+        x: 384
         y: 0
-        width: 859
-        height: 789
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,20 +191,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c634221cd48b0d4a96434a99efc4851
-      internalID: 2070917192
+      spriteID: 8a5bed4dc97c1b24c89bd38c1fcf2d2c
+      internalID: -479650279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: decal-ezgif.com-gif-to-sprite-converter_4
+      name: color_4
       rect:
         serializedVersion: 2
-        x: 3436
+        x: 512
         y: 0
-        width: 859
-        height: 789
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,8 +213,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4353d64ed2ec4d4bba4d0491c46c09e
-      internalID: -283696527
+      spriteID: 6947b6da602782846a23befe2155f044
+      internalID: -650469228
       vertices: []
       indices: 
       edges: []
@@ -223,7 +223,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 6b915e225f32dcb49a138b5dc22ba325
+    spriteID: dd3159d6bec7e2e45a3954bde689c75a
     internalID: 0
     vertices: []
     indices: 
@@ -233,11 +233,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      decal-ezgif.com-gif-to-sprite-converter_0: -1514600816
-      decal-ezgif.com-gif-to-sprite-converter_1: 346177919
-      decal-ezgif.com-gif-to-sprite-converter_2: 1746297135
-      decal-ezgif.com-gif-to-sprite-converter_3: 2070917192
-      decal-ezgif.com-gif-to-sprite-converter_4: -283696527
+      color_0: -1366015538
+      color_1: 14454979
+      color_2: 363544081
+      color_3: -479650279
+      color_4: -650469228
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

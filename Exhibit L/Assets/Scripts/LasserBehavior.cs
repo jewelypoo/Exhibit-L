@@ -29,7 +29,9 @@ public class LasserBehavior : MonoBehaviour
 
     [SerializeField] private int maxMirrorBounces = 5;
     private int currentMirrorBounces = 0;
-    private GameObject[] lasers;
+    public GameObject burnDecal;
+
+    
 
 
     private void Awake()
@@ -82,6 +84,15 @@ public class LasserBehavior : MonoBehaviour
         if (Physics.Raycast(cameraPos.position, cameraPos.forward, out RaycastHit hit, maxDistance, hitObjects))
         {
             smokeParticle.transform.position = hit.point;
+
+            Vector3 toCamera = (cameraPos.position - hit.point).normalized;
+            Quaternion lookRotation = Quaternion.Euler(90, -cameraPos.rotation.y, 0);
+            //lookRotation.x = 90;
+            Vector3 spawnPos = hit.point + hit.normal * 0.001f;
+
+            Instantiate(burnDecal, spawnPos, lookRotation);
+
+
             if (hit.transform.CompareTag("Mirrror"))
             {
                 Vector3 laserBounceDirTemp = Vector3.Reflect(cameraPos.forward, hit.normal);
@@ -137,6 +148,13 @@ public class LasserBehavior : MonoBehaviour
         // Adjust scale based on raycast
         if (Physics.Raycast(cameraPos.position, direction, out RaycastHit hit, maxDistance, hitObjects))
         {
+            Vector3 toCamera = (cameraPos.position - hit.point).normalized;
+            Quaternion lookRotation = Quaternion.Euler(90, -cameraPos.rotation.y, 0);
+            //lookRotation.x = 90;
+            Vector3 spawnPos = hit.point + hit.normal * 0.001f;
+
+            Instantiate(burnDecal, spawnPos, lookRotation);
+
             if (hit.transform.CompareTag("Mirrror"))
             {
                 Vector3 laserBounceDirTemp = Vector3.Reflect(direction, hit.normal);
