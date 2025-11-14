@@ -5640,8 +5640,10 @@ MonoBehaviour:
   laser: {fileID: 8336225729181661434}
   dustParticle: {fileID: 6927984065119713483}
   smokeParticle: {fileID: 1562406341764027121}
-  degreesDoubleCheckSteps: 3
-  minCamDoubleCheckDistance: 10
+  degreesDoubleCheckSteps: 1
+  minCamDoubleCheckDistance: 5
+  maxMirrorBounces: 1
+  burnDecal: {fileID: 3242688192864058623, guid: d468d2171edc280488f002df7027194e, type: 3}
 --- !u!114 &5752932330989252847
 MonoBehaviour:
   m_ObjectHideFlags: 0
