@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3521695953380543170}
   - component: {fileID: 2861439130836847673}
   - component: {fileID: 6297005762122129108}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ceiling_trim_corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -8,10 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 53717497296694339, guid: cf85bd934141e114ab60ec93633082e6, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2cfea5dd1ea821c4abe68ba8c7fea65c, type: 2}
     - target: {fileID: 236910332971036616, guid: cf85bd934141e114ab60ec93633082e6, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 473aa160332a58a42add279ff21d02ab, type: 2}
+    - target: {fileID: 1284813295861863677, guid: cf85bd934141e114ab60ec93633082e6, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2cfea5dd1ea821c4abe68ba8c7fea65c, type: 2}
     - target: {fileID: 1369798446546179239, guid: cf85bd934141e114ab60ec93633082e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -56,6 +64,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: exitwall zone 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5454035884653271290, guid: cf85bd934141e114ab60ec93633082e6, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2cfea5dd1ea821c4abe68ba8c7fea65c, type: 2}
+    - target: {fileID: 6060982186080671821, guid: cf85bd934141e114ab60ec93633082e6, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2cfea5dd1ea821c4abe68ba8c7fea65c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
