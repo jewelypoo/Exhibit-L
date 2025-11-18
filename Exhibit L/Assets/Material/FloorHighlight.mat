@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3188135758465026046
+--- !u!114 &-6228451700838121256
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DoorHighlight
-  m_Shader: {fileID: -6465566751694194690, guid: 9aadcc015d881944cb5c885238ffdc4c, type: 3}
+  m_Name: FloorHighlight
+  m_Shader: {fileID: -6465566751694194690, guid: 13aa2a5454a6f2a4c8eb67f4c88d01e6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -103,7 +103,7 @@ Material:
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _ColorIntensity: 0.7
+    - _ColorIntensity: 2
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -129,7 +129,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.41496396, g: 1, b: 0, a: 1}
+    - _BaseColor: {r: 0.19357534, g: 0.18640977, b: 0.5566038, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

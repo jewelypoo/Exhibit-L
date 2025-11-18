@@ -26,6 +26,7 @@ public class AreaScan : MonoBehaviour
         highlightArt.SetFloat("_ColorIntensity", currentAlpha);
         highlightEnemies.SetFloat("_ColorIntensity", currentAlpha);
         highlightDoors.SetFloat("_ColorIntensity", currentAlpha);
+        highlightFloors.SetFloat("_ColorIntensity", currentAlpha);
 
         uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
     }
@@ -51,6 +52,7 @@ public class AreaScan : MonoBehaviour
             highlightArt.SetFloat("_ColorIntensity", currentAlpha);
             highlightEnemies.SetFloat("_ColorIntensity", currentAlpha);
             highlightDoors.SetFloat("_ColorIntensity", currentAlpha);
+            highlightFloors.SetFloat("_ColorIntensity", currentAlpha);
     }
 
     private IEnumerator ResetToggle()
