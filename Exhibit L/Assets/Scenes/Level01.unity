@@ -23182,6 +23182,10 @@ PrefabInstance:
       propertyPath: levelCompleteScreen
       value: 
       objectReference: {fileID: 1489063599}
+    - target: {fileID: 6380464194031576211, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: highlightDoors
+      value: 
+      objectReference: {fileID: 2100000, guid: 39536398bd3829449841cbad828b27a4, type: 2}
     - target: {fileID: 6927984065119713483, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
       value: 30

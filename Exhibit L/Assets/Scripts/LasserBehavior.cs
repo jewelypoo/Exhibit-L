@@ -85,11 +85,12 @@ public class LasserBehavior : MonoBehaviour
         {
             smokeParticle.transform.position = hit.point;
 
-            Vector3 toCamera = (cameraPos.position - hit.point).normalized;
-            Quaternion lookRotation = Quaternion.Euler(-90, toCamera.y, 0);
-            //lookRotation.x = 90;
-            Vector3 spawnPos = hit.point + (hit.normal * 0.01f);
-            float yOffset = Random.Range(-.02f, .02f);
+            Vector3 hitNormal = hit.normal;
+            Quaternion lookRotation = Quaternion.LookRotation(-hitNormal);
+            lookRotation *= Quaternion.Euler(-90, 0, 0);
+
+            Vector3 spawnPos = hit.point + (-hitNormal * 0.01f); 
+            float yOffset = Random.Range(-0.02f, 0.02f);
             spawnPos.y += yOffset;
 
             Instantiate(burnDecal, spawnPos, lookRotation);

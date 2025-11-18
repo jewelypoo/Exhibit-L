@@ -61,6 +61,8 @@ public class UIManager : MonoBehaviour
     private float roundedTimer;
     private float currentAlpha = 1f;
 
+    private AreaScan areaScan;
+
     public bool isPaused = false;
 
     private void Awake()
@@ -82,6 +84,16 @@ public class UIManager : MonoBehaviour
         areaScanCD.text = "";
 
         currentAlpha = 1f;
+
+        areaScan = cam.GetComponentInParent<AreaScan>();
+        if (areaScanCD != null)
+        {
+            Debug.Log("Found area scan script");
+        }
+        else
+        {
+            Debug.Log("Didn't find area scan script");
+        }
     }
 
     private void Start()
@@ -537,7 +549,9 @@ public class UIManager : MonoBehaviour
             camBrain.enabled = true;
             areaScanBackground.gameObject.SetActive(true);
             areaScanCD.gameObject.SetActive(true);
+            areaScan.canToggle = true;
             SceneManager.LoadScene(levelNumber - 1);
+
         }
         else
         {
@@ -598,5 +612,6 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
 
 }
