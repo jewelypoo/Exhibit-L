@@ -5615,6 +5615,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   highlightArt: {fileID: 2100000, guid: d919b84ff4fc18e4fad8813591370e3e, type: 2}
   highlightEnemies: {fileID: 2100000, guid: 371fd3ac9852ac54c98b0e09c1e4d604, type: 2}
+  highlightDoors: {fileID: 2100000, guid: 39536398bd3829449841cbad828b27a4, type: 2}
+  highlightFloors: {fileID: 2100000, guid: 56b7d2bbfb0526f4e908963a06a4d763, type: 2}
   maxAlpha: 0.7
   toggle: 0
   canToggle: 0

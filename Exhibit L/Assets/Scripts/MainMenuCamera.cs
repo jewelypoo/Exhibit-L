@@ -15,7 +15,6 @@ public class MainMenuCamera : MonoBehaviour
     [SerializeField] private float currentRotation;
     [SerializeField] private float maxRotation;
     [SerializeField] private float slowdownZone;
-
     void OnEnable()
     {
         //resets to center camera when setting active
@@ -27,26 +26,26 @@ public class MainMenuCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //a bunch of lerping nonsense to make the camera slow down near max rotation
-        float distanceToMax = Mathf.Abs(maxRotation) - Mathf.Abs(currentRotation);
-        float time = Mathf.InverseLerp(0f, slowdownZone, distanceToMax);
-        float easedSpeed = Mathf.Lerp(0.1f, 1f, Mathf.SmoothStep(0.5f, 1f, Mathf.Pow(time, 2f)));
-        float deltaY = cameraSpeed * easedSpeed * Time.deltaTime;
+            //a bunch of lerping nonsense to make the camera slow down near max rotation
+            float distanceToMax = Mathf.Abs(maxRotation) - Mathf.Abs(currentRotation);
+            float time = Mathf.InverseLerp(0f, slowdownZone, distanceToMax);
+            float easedSpeed = Mathf.Lerp(0.1f, 1f, Mathf.SmoothStep(0.5f, 1f, Mathf.Pow(time, 2f)));
+            float deltaY = cameraSpeed * easedSpeed * Time.deltaTime;
 
-        //checks if max rotation is hit
-        if (Mathf.Abs(currentRotation) <= maxRotation)
-        {
-            //rotates the camera, adds to counter
-            this.transform.Rotate(0, deltaY, 0);
-            currentRotation += deltaY;
-        }
-        else
-        {
-            if (canFlip)
+            //checks if max rotation is hit
+            if (Mathf.Abs(currentRotation) <= maxRotation)
             {
-                StartCoroutine(FlipCamera());
-            }    
-        }       
+                //rotates the camera, adds to counter
+                this.transform.Rotate(0, deltaY, 0);
+                currentRotation += deltaY;
+            }
+            else
+            {
+                if (canFlip)
+                {
+                    StartCoroutine(FlipCamera());
+                }
+            }
     }
 
     /// <summary>

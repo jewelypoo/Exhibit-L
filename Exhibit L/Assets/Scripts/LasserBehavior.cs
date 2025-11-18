@@ -85,11 +85,12 @@ public class LasserBehavior : MonoBehaviour
         {
             smokeParticle.transform.position = hit.point;
 
-            Vector3 toCamera = (cameraPos.position - hit.point).normalized;
-            Quaternion lookRotation = Quaternion.Euler(-90, toCamera.y, 0);
-            //lookRotation.x = 90;
-            Vector3 spawnPos = hit.point + (hit.normal * 0.01f);
-            float yOffset = Random.Range(-.02f, .02f);
+            Vector3 hitNormal = hit.normal;
+            Quaternion lookRotation = Quaternion.LookRotation(-hitNormal);
+            lookRotation *= Quaternion.Euler(-90, 0, 0);
+
+            Vector3 spawnPos = hit.point + (-hitNormal * 0.01f); 
+            float yOffset = Random.Range(-0.02f, 0.02f);
             spawnPos.y += yOffset;
 
             Instantiate(burnDecal, spawnPos, lookRotation);
@@ -152,67 +153,72 @@ public class LasserBehavior : MonoBehaviour
         // Adjust scale based on raycast
         if (Physics.Raycast(cameraPos.position, direction, out RaycastHit hit, maxDistance, hitObjects))
         {
-            Vector3 toCamera = (cameraPos.position - hit.point).normalized;
-            Quaternion lookRotation = Quaternion.Euler(-90, toCamera.y, toCamera.z);
-            //lookRotation.x = 90;
-            Vector3 spawnPos = hit.point + (hit.normal * 0.01f);
-            float yOffset = Random.Range(-.02f, .02f);
-            spawnPos.y += yOffset;
-
-            Instantiate(burnDecal, spawnPos, lookRotation);
-
-            if (hit.transform.CompareTag("Mirrror"))
+            if (!hit.transform.CompareTag("Player"))
             {
-                laser.SetActive(true);
-                laser.transform.position = hit.point;
-                Vector3 laserBounceDirTemp = Vector3.Reflect(direction, hit.normal);
-                laser.transform.forward = laserBounceDirTemp;
-                MirrorBounce(hit, laserBounceDirTemp);
+                Vector3 hitNormal = hit.normal;
+                Quaternion lookRotation = Quaternion.LookRotation(-hitNormal);
+                lookRotation *= Quaternion.Euler(-90, 0, 0);
+
+                Vector3 spawnPos = hit.point + (-hitNormal * 0.01f);
+                float yOffset = Random.Range(-0.02f, 0.02f);
+                spawnPos.y += yOffset;
+
+                Instantiate(burnDecal, spawnPos, lookRotation);
+
+                if (hit.transform.CompareTag("Mirrror"))
+                {
+                    laser.SetActive(true);
+                    laser.transform.position = hit.point;
+                    Vector3 laserBounceDirTemp = Vector3.Reflect(direction, hit.normal);
+                    laser.transform.forward = laserBounceDirTemp;
+                    MirrorBounce(hit, laserBounceDirTemp);
+
+                }
+                else if (laser.activeSelf)
+                {
+                    laser.SetActive(false);
+                }
+                if (hit.transform.CompareTag("Enemy"))
+                {
+                    Destroy(hit.collider.gameObject);
+
+                    if (GameManager.Instance.GetEnemyCount() > 0)
+                    {
+                        GameManager.Instance.ReduceEnemyCount(1);
+
+                        StartCoroutine(uiManager.ShowHitmarker());
+                    }
+                    if (GameManager.Instance.GetEnemyCount() <= 0)
+                    {
+                        //playerData.LevelComplete();
+                    }
+                    return hit.collider.gameObject;
+                    //Debug.Log("Enemy Hit");
+                }
+                else if (hit.transform.CompareTag("Art"))
+                {
+                    GameManager.Instance.AddArtDestroyed(1);
+                    StartCoroutine(uiManager.ShowHitmarker());
+                    dustParticle.transform.position = hit.transform.position;
+                    dustParticle.Play();
+                    return hit.collider.gameObject;
+
+                }
+                else if (hit.transform.CompareTag("ChandelierChain"))
+                {
+                    hit.transform.parent.GetComponent<ChandelierBehavior>().DestroyChandelier();
+                    return hit.collider.gameObject;
+                    //Debug.Log("Chains hit!");
+                }
 
             }
-            else if (laser.activeSelf)
+            else
             {
                 laser.SetActive(false);
+                return null;
             }
-            if (hit.transform.CompareTag("Enemy"))
-            {
-                Destroy(hit.collider.gameObject);
-
-                if (GameManager.Instance.GetEnemyCount() > 0)
-                {
-                    GameManager.Instance.ReduceEnemyCount(1);
-
-                    StartCoroutine(uiManager.ShowHitmarker());
-                }
-                if (GameManager.Instance.GetEnemyCount() <= 0)
-                {
-                    //playerData.LevelComplete();
-                }
-                return hit.collider.gameObject;
-                //Debug.Log("Enemy Hit");
-            }
-            else if (hit.transform.CompareTag("Art"))
-            {
-                GameManager.Instance.AddArtDestroyed(1);
-                StartCoroutine(uiManager.ShowHitmarker());
-                dustParticle.transform.position = hit.transform.position;
-                dustParticle.Play();
-                return hit.collider.gameObject;
-                
-            }
-            else if (hit.transform.CompareTag("ChandelierChain"))
-            {
-                hit.transform.parent.GetComponent<ChandelierBehavior>().DestroyChandelier();
-                return hit.collider.gameObject;
-                //Debug.Log("Chains hit!");
-            }
-
         }
-        else
-        {
-            laser.SetActive(false);
-            return null;
-        }
+            
         return null;
     }
 

@@ -6,6 +6,8 @@ public class AreaScan : MonoBehaviour
 {
     public Material highlightArt;
     public Material highlightEnemies;
+    public Material highlightDoors;
+    public Material highlightFloors;
 
     private float currentAlpha = 0, fadeSpeed = 2f, targetAlpha = 0f;
     public float maxAlpha;
@@ -23,6 +25,8 @@ public class AreaScan : MonoBehaviour
     {
         highlightArt.SetFloat("_ColorIntensity", currentAlpha);
         highlightEnemies.SetFloat("_ColorIntensity", currentAlpha);
+        highlightDoors.SetFloat("_ColorIntensity", currentAlpha);
+        highlightFloors.SetFloat("_ColorIntensity", currentAlpha);
 
         uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
     }
@@ -32,9 +36,11 @@ public class AreaScan : MonoBehaviour
             if (timeActive < areaScanActiveTime && toggle)
             {
                 timeActive += Time.deltaTime;
+                canToggle = false;
             }
             else
             {
+                canToggle = false;
                 toggle = false;
                 StartCoroutine(ResetToggle());
                 timeActive = 0f;
@@ -45,6 +51,8 @@ public class AreaScan : MonoBehaviour
             currentAlpha = Mathf.MoveTowards(currentAlpha, targetAlpha, fadeSpeed * Time.deltaTime);
             highlightArt.SetFloat("_ColorIntensity", currentAlpha);
             highlightEnemies.SetFloat("_ColorIntensity", currentAlpha);
+            highlightDoors.SetFloat("_ColorIntensity", currentAlpha);
+            highlightFloors.SetFloat("_ColorIntensity", currentAlpha);
     }
 
     private IEnumerator ResetToggle()
@@ -56,7 +64,7 @@ public class AreaScan : MonoBehaviour
 
     public void ToggleAreaScan()
     {
-        if (!GameManager.Instance.paused && canToggle && GameManager.Instance.GetEnemyCount() > 0)
+        if (!GameManager.Instance.paused && canToggle)
         {
             toggle = true;
             canToggle = false;
