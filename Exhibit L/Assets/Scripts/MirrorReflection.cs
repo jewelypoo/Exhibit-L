@@ -19,6 +19,6 @@ public class MirrorReflection : MonoBehaviour
     public void LookDirection(Vector3 dir)
     {
         lookDir = dir;
-        Debug.Log("Mirror Reflection Direction changed to: " + dir);
+        //Debug.Log("Mirror Reflection Direction changed to: " + dir);
     }
 }
