@@ -133,6 +133,7 @@ public class LasserBehavior : MonoBehaviour
                 dustParticle.Play();
 
                 GameManager.Instance.AddArtDestroyed(1);
+                uiManager.UpdateCircles();
                 StartCoroutine(uiManager.ShowHitmarker());
             }
             else if (hit.transform.CompareTag("ChandelierChain"))
@@ -201,6 +202,7 @@ public class LasserBehavior : MonoBehaviour
                     StartCoroutine(uiManager.ShowHitmarker());
                     dustParticle.transform.position = hit.transform.position;
                     dustParticle.Play();
+                    uiManager.UpdateCircles();
                     return hit.collider.gameObject;
 
                 }
@@ -242,6 +244,7 @@ public class LasserBehavior : MonoBehaviour
                 Destroy(bounceHit.collider.gameObject);
                 dustParticle.transform.position = bounceHit.point;
                 dustParticle.Play();
+                uiManager.UpdateCircles(); 
             }
             if (bounceHit.transform.CompareTag("Player"))
             {

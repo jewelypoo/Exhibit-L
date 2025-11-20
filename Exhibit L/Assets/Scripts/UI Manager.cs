@@ -596,7 +596,7 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.SetFOV((int)fovSlider.value);
     }
 
-    void UpdateCircles()
+    public void UpdateCircles()
     {
         for (int i = 0; i < circles.Length && i < endScreenCircles.Length; i++)
         {
