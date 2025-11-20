@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 6903450611411558746}
   - component: {fileID: 8950166486607446712}
   - component: {fileID: 5977471670750411941}
+  - component: {fileID: 2361438510363528154}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -161,6 +162,18 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &2361438510363528154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5799717103585218832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4255d1b4ab3b3354a8980d64cf592cb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5903170190500334724
 GameObject:
   m_ObjectHideFlags: 0
@@ -562,6 +575,10 @@ PrefabInstance:
       propertyPath: Mirror
       value: 
       objectReference: {fileID: 5799717103585218832}
+    - target: {fileID: 6524690108335832791, guid: 22408c475b3aff5499aa594845f0729d, type: 3}
+      propertyPath: mirror
+      value: 
+      objectReference: {fileID: 6179636094549502259}
     - target: {fileID: 7557838037972146848, guid: 22408c475b3aff5499aa594845f0729d, type: 3}
       propertyPath: m_Name
       value: Mirror Trigger

@@ -31,7 +31,7 @@ public class LasserBehavior : MonoBehaviour
     private int currentMirrorBounces = 0;
     public GameObject burnDecal;
 
-    
+    public Vector3 camForward;
 
 
     private void Awake()
@@ -44,6 +44,7 @@ public class LasserBehavior : MonoBehaviour
     private void LateUpdate()
     {
         cameraRoation = cameraPos.rotation;
+        camForward = cameraPos.forward;
         cameraMagnitude = Quaternion.Angle(lastCameraRotation, cameraRoation);
 
         float steps = Mathf.CeilToInt(cameraMagnitude / degreesDoubleCheckSteps);
@@ -94,7 +95,6 @@ public class LasserBehavior : MonoBehaviour
             spawnPos.y += yOffset;
 
             Instantiate(burnDecal, spawnPos, lookRotation);
-
 
             if (hit.transform.CompareTag("Mirrror"))
             {
