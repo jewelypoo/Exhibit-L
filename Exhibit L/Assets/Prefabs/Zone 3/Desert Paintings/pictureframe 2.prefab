@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4126149342127930818, guid: 2d890621ebb80544e89ad88f82c72402, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4704144615912307776, guid: 2d890621ebb80544e89ad88f82c72402, type: 3}
       propertyPath: m_Name
       value: pictureframe 2
