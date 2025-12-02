@@ -40,6 +40,59 @@ Transform:
   - {fileID: 7493358325147231328}
   m_Father: {fileID: 7722844960085483970}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4972454875454420625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7158538227265380961}
+  - component: {fileID: 5371185908056464431}
+  m_Layer: 11
+  m_Name: collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7158538227265380961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4972454875454420625}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.14644665, y: -0.35355315, z: -0.3535536, w: 0.85355335}
+  m_LocalPosition: {x: -34.8, y: 145.1, z: -34.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7722844960085483970}
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: -45}
+--- !u!65 &5371185908056464431
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4972454875454420625}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 100, y: 12.46, z: 59.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &797690790203431629
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -481,6 +534,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 27a06202b1792ee47a7869137a46a162, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7158538227265380961}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 27a06202b1792ee47a7869137a46a162, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6911636952974566947}
