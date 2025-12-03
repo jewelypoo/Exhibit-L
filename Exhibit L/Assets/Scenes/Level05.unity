@@ -39566,7 +39566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 5
-  enemies: 5
+  enemies: 6
   goldTime: 18
   silverTimer: 34
   bronzeTime: 46
