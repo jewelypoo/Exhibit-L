@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+
     [SerializeField] private int enemyCount;
     [SerializeField] private int artDestroyed = 0;
     [SerializeField] private int goldTime, silverTimer, bronzeTime;
@@ -14,12 +15,24 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int sfxVolume;
     [SerializeField] private bool[] levelsComplete;
 
+    private Animator Door;
+
     private int currentLevel = 0;
 
     public bool paused = false;
     public bool launched = false;
     public bool mainMenuActive = true;
     public bool levelSelectActive = false;
+
+ 
+    private void Start()
+    {
+        Door = FindFirstObjectByType<Animator>();
+        if (Door == null )
+        {
+            Debug.Log("error: door not found");
+        }
+    }
 
     private void Awake()
     {
@@ -57,6 +70,20 @@ public class GameManager : MonoBehaviour
     public void ReduceEnemyCount(int amount)
     {
         enemyCount -= amount;
+        if (Door == null)
+            Door = FindObjectOfType<Animator>();
+
+        if (enemyCount <= 0)
+        {
+            if (Door != null)
+            {
+                Door.SetBool("Open", true);
+            }
+            else
+            {
+                Debug.LogError("Door Animator not found in scene!");
+            }
+        }
     }
 
     public int GetArtDestroyed()
@@ -101,13 +128,13 @@ public class GameManager : MonoBehaviour
         {
             case 1:
                 return goldTime;
-                
+
             case 2:
                 return silverTimer;
-                
+
             case 3:
                 return bronzeTime;
-                
+
             default:
                 return 0;
         }
@@ -178,8 +205,8 @@ public class GameManager : MonoBehaviour
         return musicVolume;
     }
 
-    
 
-    
+
+
 
 }
