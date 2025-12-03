@@ -338,6 +338,8 @@ public class UIManager : MonoBehaviour
         }
         GameManager.Instance.levelSelectActive = false;
         GameManager.Instance.mainMenuActive = false;
+        GameManager.Instance.paused = false;
+        PauseScreen(false);
         GameManager.Instance.ResetArtDestroyed();
         SceneManager.LoadScene(GameManager.Instance.GetLevelNumber() - 1);
         
@@ -345,7 +347,7 @@ public class UIManager : MonoBehaviour
 
     public void PauseScreen(bool activation)
     {
-        if (!endScreen.activeSelf && !endScreen.activeSelf && !levelSelect.activeSelf)
+        if (!endScreen.activeSelf && !levelSelect.activeSelf)
         {
             pauseScreen.SetActive(activation);
             resumeButton.enabled = activation;
