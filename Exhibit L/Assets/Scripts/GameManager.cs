@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
     {
         enemyCount -= amount;
         if (Door == null)
-            Door = FindObjectOfType<Animator>();
+            Door = FindFirstObjectByType<Animator>();
 
         if (enemyCount <= 0)
         {
