@@ -64,6 +64,7 @@ public class UIManager : MonoBehaviour
     private float currentAlpha = 1f;
 
     private AreaScan areaScan;
+    private PlayerController playerController;
 
     public bool isPaused = false;
 
@@ -96,6 +97,8 @@ public class UIManager : MonoBehaviour
         {
             Debug.Log("Didn't find area scan script");
         }
+        playerController = areaScan.gameObject.GetComponent<PlayerController>();
+
     }
 
     private void Start()
