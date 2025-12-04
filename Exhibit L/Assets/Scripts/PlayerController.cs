@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     public float currentSpeed;
     public bool paused = false;
 
+    private bool tutorialPause = false;
+
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
@@ -48,7 +50,6 @@ public class PlayerController : MonoBehaviour
             playerControls.Enable();
         }
     }
-
 
     // Update is called once per frame
     void Update()
@@ -75,6 +76,12 @@ public class PlayerController : MonoBehaviour
         else
         {
             playerControls.Disable();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && tutorialPause)
+        {
+            tutorialPause = false;
+            playerControls.Enable();
         }
       
     }
@@ -143,4 +150,15 @@ public class PlayerController : MonoBehaviour
     {
         playerControls.Disable();
     }
+
+    public void DisableMovementAndCamera()
+    {
+        if (!tutorialPause)
+        {
+            playerControls.Disable();
+            tutorialPause = true;
+        }
+    }
+
+
 }

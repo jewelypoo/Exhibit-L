@@ -15295,6 +15295,7 @@ MonoBehaviour:
   launched: 0
   mainMenuActive: 0
   levelSelectActive: 0
+  startLevelOne: 0
 --- !u!4 &1206169529
 Transform:
   m_ObjectHideFlags: 0
@@ -18655,6 +18656,10 @@ PrefabInstance:
       propertyPath: hitmarkerSound
       value: 
       objectReference: {fileID: 1769262154}
+    - target: {fileID: 358432841354387377, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
+      propertyPath: tutorialScreen1
+      value: 
+      objectReference: {fileID: 1611865037}
     - target: {fileID: 610459743344543190, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -21054,6 +21059,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f721250a05796b642916d82c73ef3ba4, type: 3}
+--- !u!1 &1611865037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 777664479270072713, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
+  m_PrefabInstance: {fileID: 1489063598}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1616843139
 PrefabInstance:
   m_ObjectHideFlags: 0
