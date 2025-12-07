@@ -31041,6 +31041,7 @@ MonoBehaviour:
   launched: 0
   mainMenuActive: 1
   levelSelectActive: 0
+  startLevelOne: 0
 --- !u!4 &1206169529
 Transform:
   m_ObjectHideFlags: 0
@@ -43111,7 +43112,8 @@ PrefabInstance:
       value: exitwall Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3097647418673590385, guid: cf85bd934141e114ab60ec93633082e6, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf85bd934141e114ab60ec93633082e6, type: 3}
