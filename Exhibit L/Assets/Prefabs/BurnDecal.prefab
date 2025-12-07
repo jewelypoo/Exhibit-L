@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de94eb59febe0804886cd98c6f02ec53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalFrames: 7
+  totalFrames: 5
   fps: 3.5
   destroyOnEnd: 1
   targetRenderer: {fileID: 0}

@@ -5765,6 +5765,9 @@ MonoBehaviour:
   dustParticle: {fileID: 6927984065119713483}
   smokeParticle: {fileID: 1562406341764027121}
   degreesDoubleCheckSteps: 0.7
+  volumeSensitivity: 0.004
+  minAngularSpeed: 1
+  volumeLerpSpeed: 7
   minCamDoubleCheckDistance: 2
   maxMirrorBounces: 1
   burnDecal: {fileID: 3242688192864058623, guid: d468d2171edc280488f002df7027194e, type: 3}

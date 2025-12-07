@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Security;
 using TMPro;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
@@ -51,6 +52,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private CanvasGroup fadeScreen;
     [SerializeField] private Image[] circles;
     [SerializeField] private Image[] endScreenCircles;
+    [SerializeField] private GameObject tutorialScreen1;
 
     private bool showHitmarker = false;
     private bool gradeCalculated = false;
@@ -62,6 +64,7 @@ public class UIManager : MonoBehaviour
     private float currentAlpha = 1f;
 
     private AreaScan areaScan;
+    private PlayerController playerController;
 
     public bool isPaused = false;
 
@@ -94,6 +97,8 @@ public class UIManager : MonoBehaviour
         {
             Debug.Log("Didn't find area scan script");
         }
+        playerController = areaScan.gameObject.GetComponent<PlayerController>();
+
     }
 
     private void Start()
@@ -133,7 +138,7 @@ public class UIManager : MonoBehaviour
             fovSlider.value = GameManager.Instance.GetFOV();
             sensSlider.value = GameManager.Instance.GetSensitivity();
 
-
+            
 
             if (!GameManager.Instance.launched)
             {
@@ -174,6 +179,7 @@ public class UIManager : MonoBehaviour
             {
                 levelSelect.SetActive(false);
                 GameManager.Instance.levelSelectActive = false;
+                
             }
             GameManager.Instance.ResetArtDestroyed();
         }
@@ -279,6 +285,14 @@ public class UIManager : MonoBehaviour
             if (currentAlpha <= 0.3)
             {
                 currentAlpha = 0;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E)) 
+        { 
+            if (tutorialScreen1.activeSelf)
+            {
+                tutorialScreen1.SetActive(false);
             }
         }
         
@@ -557,6 +571,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
+            
             SceneManager.LoadScene(levelNumber - 1);
         } 
             

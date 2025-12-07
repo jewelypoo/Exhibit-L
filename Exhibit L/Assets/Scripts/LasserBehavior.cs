@@ -17,6 +17,15 @@ public class LasserBehavior : MonoBehaviour
     [SerializeField] private ParticleSystem smokeParticle;
     [SerializeField] private float degreesDoubleCheckSteps = 2f;
 
+    // audio stuff here
+    [SerializeField] private float volumeSensitivity = 0.02f;
+    [SerializeField] private float minAngularSpeed = 5f;
+    [SerializeField] private float volumeLerpSpeed = 5f;
+    private AudioSource musicSource;
+    private AudioSource laserSfxSource;
+    private AudioSource laserMovingSfxSource;
+    private AudioSource laserImpactSfxSource;
+
     private float cameraMagnitude;
     private Quaternion lastCameraRotation;
     private Quaternion cameraRoation;
@@ -39,12 +48,25 @@ public class LasserBehavior : MonoBehaviour
         laser.SetActive(false);
         playerData = GetComponent<PlayerData>();
         uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+
+        var audioManager = LaserAudioManager.Instance;
+        if (audioManager != null)
+        {
+            musicSource = audioManager.music;
+            laserSfxSource = audioManager.laserSfx;
+            laserMovingSfxSource = audioManager.laserMovingSfx;
+            laserImpactSfxSource = audioManager.laserImpactSfx;
+        }
     }
 
     private void LateUpdate()
     {
         cameraRoation = cameraPos.rotation;
         camForward = cameraPos.forward;
+
+        float angularSpeed = cameraMagnitude / Mathf.Max(Time.deltaTime, 0.0001f);
+        UpdateCameraMoveSound(angularSpeed);
+
         cameraMagnitude = Quaternion.Angle(lastCameraRotation, cameraRoation);
 
         float steps = Mathf.CeilToInt(cameraMagnitude / degreesDoubleCheckSteps);
@@ -81,20 +103,27 @@ public class LasserBehavior : MonoBehaviour
 
     public void Laser()
     {
-        
+
         if (Physics.Raycast(cameraPos.position, cameraPos.forward, out RaycastHit hit, maxDistance, hitObjects))
         {
             smokeParticle.transform.position = hit.point;
+            if (laserImpactSfxSource != null) // have the laser impact audio play at hit point
+            {
+                laserImpactSfxSource.transform.position = hit.point;
+            }
 
-            Vector3 hitNormal = hit.normal;
+                Vector3 hitNormal = hit.normal;
             Quaternion lookRotation = Quaternion.LookRotation(-hitNormal);
             lookRotation *= Quaternion.Euler(-90, 0, 0);
 
-            Vector3 spawnPos = hit.point + (-hitNormal * 0.01f); 
+            Vector3 spawnPos = hit.point + (-hitNormal * 0.01f);
             float yOffset = Random.Range(-0.02f, 0.02f);
             spawnPos.y += yOffset;
 
-            Instantiate(burnDecal, spawnPos, lookRotation);
+            if (hit.transform.CompareTag("Untagged"))
+            {
+                Instantiate(burnDecal, spawnPos, lookRotation);
+            }
 
             if (hit.transform.CompareTag("Mirrror"))
             {
@@ -273,5 +302,21 @@ public class LasserBehavior : MonoBehaviour
             }
             //Debug.Log("Object hit: " + bounceHit.collider.tag);
         }
+    }
+
+    private void UpdateCameraMoveSound(float angularSpeed)
+    {
+        if (laserMovingSfxSource == null) return;
+
+        if (angularSpeed < minAngularSpeed)
+        {
+            laserMovingSfxSource.volume = Mathf.Lerp(laserMovingSfxSource.volume, 0f, Time.deltaTime * volumeLerpSpeed);
+            return;
+        }
+
+        float targetVolume = Mathf.Clamp01(angularSpeed * volumeSensitivity);
+
+        laserMovingSfxSource.volume = Mathf.Lerp(laserMovingSfxSource.volume, targetVolume, Time.deltaTime * volumeLerpSpeed
+        );
     }
 }
