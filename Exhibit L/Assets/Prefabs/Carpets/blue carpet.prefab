@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: blue carpet
       objectReference: {fileID: 0}
+    - target: {fileID: 3474488660308874057, guid: eaac96c3c18febc42821138c38628aee, type: 3}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 4286315976651508211, guid: eaac96c3c18febc42821138c38628aee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

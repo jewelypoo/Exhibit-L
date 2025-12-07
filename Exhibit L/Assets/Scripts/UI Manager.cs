@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Security;
 using TMPro;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
@@ -51,6 +52,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private CanvasGroup fadeScreen;
     [SerializeField] private Image[] circles;
     [SerializeField] private Image[] endScreenCircles;
+    [SerializeField] private GameObject tutorialScreen1;
 
     private bool showHitmarker = false;
     private bool gradeCalculated = false;
@@ -62,6 +64,7 @@ public class UIManager : MonoBehaviour
     private float currentAlpha = 1f;
 
     private AreaScan areaScan;
+    private PlayerController playerController;
 
     public bool isPaused = false;
 
@@ -94,6 +97,8 @@ public class UIManager : MonoBehaviour
         {
             Debug.Log("Didn't find area scan script");
         }
+        playerController = areaScan.gameObject.GetComponent<PlayerController>();
+
     }
 
     private void Start()
@@ -133,7 +138,7 @@ public class UIManager : MonoBehaviour
             fovSlider.value = GameManager.Instance.GetFOV();
             sensSlider.value = GameManager.Instance.GetSensitivity();
 
-
+            
 
             if (!GameManager.Instance.launched)
             {
@@ -174,6 +179,7 @@ public class UIManager : MonoBehaviour
             {
                 levelSelect.SetActive(false);
                 GameManager.Instance.levelSelectActive = false;
+                
             }
             GameManager.Instance.ResetArtDestroyed();
         }
@@ -281,6 +287,14 @@ public class UIManager : MonoBehaviour
                 currentAlpha = 0;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.E)) 
+        { 
+            if (tutorialScreen1.activeSelf)
+            {
+                tutorialScreen1.SetActive(false);
+            }
+        }
         
     }
 
@@ -338,6 +352,8 @@ public class UIManager : MonoBehaviour
         }
         GameManager.Instance.levelSelectActive = false;
         GameManager.Instance.mainMenuActive = false;
+        GameManager.Instance.paused = false;
+        PauseScreen(false);
         GameManager.Instance.ResetArtDestroyed();
         SceneManager.LoadScene(GameManager.Instance.GetLevelNumber() - 1);
         
@@ -345,7 +361,7 @@ public class UIManager : MonoBehaviour
 
     public void PauseScreen(bool activation)
     {
-        if (!endScreen.activeSelf && !endScreen.activeSelf && !levelSelect.activeSelf)
+        if (!endScreen.activeSelf && !levelSelect.activeSelf)
         {
             pauseScreen.SetActive(activation);
             resumeButton.enabled = activation;
@@ -555,6 +571,7 @@ public class UIManager : MonoBehaviour
         }
         else
         {
+            
             SceneManager.LoadScene(levelNumber - 1);
         } 
             

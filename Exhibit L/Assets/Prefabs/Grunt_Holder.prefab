@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5548347697227307824}
   - component: {fileID: 995599152793907164}
   - component: {fileID: 2431270964617829779}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: robot_gib_2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 400786261170057103}
   - component: {fileID: 8861789174098202640}
   - component: {fileID: 3383375690104910213}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: robot_gib_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8606087453018461284}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Grunt_Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -443,7 +443,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8353307417259684664}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3867419300542125494}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Waypoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,9 +545,69 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7842949738397571514, guid: 555e7ef16dda97a45b0f3a7e24c698df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -5030167447162214476, guid: 555e7ef16dda97a45b0f3a7e24c698df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -4819223349682164798, guid: 555e7ef16dda97a45b0f3a7e24c698df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -4615986849728910481, guid: 555e7ef16dda97a45b0f3a7e24c698df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -3317748655635603097, guid: 555e7ef16dda97a45b0f3a7e24c698df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -2533699122350530639, guid: 555e7ef16dda97a45b0f3a7e24c698df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -2107840825348978238, guid: 555e7ef16dda97a45b0f3a7e24c698df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -1938739698864007457, guid: 555e7ef16dda97a45b0f3a7e24c698df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -176351348264114841, guid: 555e7ef16dda97a45b0f3a7e24c698df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 710772331683357415, guid: 555e7ef16dda97a45b0f3a7e24c698df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 555e7ef16dda97a45b0f3a7e24c698df, type: 3}
       propertyPath: m_Name
       value: roamer
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 555e7ef16dda97a45b0f3a7e24c698df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007453928535299615, guid: 555e7ef16dda97a45b0f3a7e24c698df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057321542620313954, guid: 555e7ef16dda97a45b0f3a7e24c698df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5788943703175087018, guid: 555e7ef16dda97a45b0f3a7e24c698df, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6238488448613115114, guid: 555e7ef16dda97a45b0f3a7e24c698df, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -567,13 +627,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8606087453018461284}
     m_Modifications:
+    - target: {fileID: 4538943562338533109, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 4990884377861567780, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
       propertyPath: m_Name
       value: robot gibs
       objectReference: {fileID: 0}
     - target: {fileID: 4990884377861567780, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990884377861567780, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5169580840115433659, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5623023730764312478, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
       propertyPath: m_LocalScale.x
@@ -626,6 +698,18 @@ PrefabInstance:
     - target: {fileID: 5623023730764312478, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6220758971676957287, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191064476126481117, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146897360559455646, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
