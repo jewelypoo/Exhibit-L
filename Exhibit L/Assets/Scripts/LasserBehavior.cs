@@ -17,6 +17,11 @@ public class LasserBehavior : MonoBehaviour
     [SerializeField] private ParticleSystem smokeParticle;
     [SerializeField] private float degreesDoubleCheckSteps = 2f;
 
+    [SerializeField] private AudioSource cameraMoveAudio;
+    [SerializeField] private float volumeSensitivity = 0.02f;
+    [SerializeField] private float minAngularSpeed = 5f;
+    [SerializeField] private float volumeLerpSpeed = 5f;
+
     private float cameraMagnitude;
     private Quaternion lastCameraRotation;
     private Quaternion cameraRoation;
@@ -45,6 +50,10 @@ public class LasserBehavior : MonoBehaviour
     {
         cameraRoation = cameraPos.rotation;
         camForward = cameraPos.forward;
+
+        float angularSpeed = cameraMagnitude / Mathf.Max(Time.deltaTime, 0.0001f);
+        UpdateCameraMoveSound(angularSpeed);
+
         cameraMagnitude = Quaternion.Angle(lastCameraRotation, cameraRoation);
 
         float steps = Mathf.CeilToInt(cameraMagnitude / degreesDoubleCheckSteps);
@@ -276,5 +285,22 @@ public class LasserBehavior : MonoBehaviour
             }
             //Debug.Log("Object hit: " + bounceHit.collider.tag);
         }
+    }
+
+    private void UpdateCameraMoveSound(float angularSpeed)
+    {
+        if (cameraMoveAudio == null) return;
+
+        if (angularSpeed < minAngularSpeed)
+        {
+            cameraMoveAudio.volume = Mathf.Lerp(cameraMoveAudio.volume, 0f, Time.deltaTime * volumeLerpSpeed);
+            return;
+        }
+
+        float targetVolume = Mathf.Clamp01(angularSpeed * volumeSensitivity);
+
+        // Smooth volume so it doesn't jitter
+        cameraMoveAudio.volume = Mathf.Lerp(cameraMoveAudio.volume, targetVolume, Time.deltaTime * volumeLerpSpeed
+        );
     }
 }
