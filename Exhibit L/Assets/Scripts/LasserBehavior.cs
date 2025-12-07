@@ -17,10 +17,14 @@ public class LasserBehavior : MonoBehaviour
     [SerializeField] private ParticleSystem smokeParticle;
     [SerializeField] private float degreesDoubleCheckSteps = 2f;
 
-    [SerializeField] private AudioSource cameraMoveAudio;
+    // audio stuff here
     [SerializeField] private float volumeSensitivity = 0.02f;
     [SerializeField] private float minAngularSpeed = 5f;
     [SerializeField] private float volumeLerpSpeed = 5f;
+    private AudioSource musicSource;
+    private AudioSource laserSfxSource;
+    private AudioSource laserMovingSfxSource;
+    private AudioSource laserImpactSfxSource;
 
     private float cameraMagnitude;
     private Quaternion lastCameraRotation;
@@ -44,6 +48,15 @@ public class LasserBehavior : MonoBehaviour
         laser.SetActive(false);
         playerData = GetComponent<PlayerData>();
         uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+
+        var audioManager = LaserAudioManager.Instance;
+        if (audioManager != null)
+        {
+            musicSource = audioManager.music;
+            laserSfxSource = audioManager.laserSfx;
+            laserMovingSfxSource = audioManager.laserMovingSfx;
+            laserImpactSfxSource = audioManager.laserImpactSfx;
+        }
     }
 
     private void LateUpdate()
@@ -94,8 +107,12 @@ public class LasserBehavior : MonoBehaviour
         if (Physics.Raycast(cameraPos.position, cameraPos.forward, out RaycastHit hit, maxDistance, hitObjects))
         {
             smokeParticle.transform.position = hit.point;
+            if (laserImpactSfxSource != null) // have the laser impact audio play at hit point
+            {
+                laserImpactSfxSource.transform.position = hit.point;
+            }
 
-            Vector3 hitNormal = hit.normal;
+                Vector3 hitNormal = hit.normal;
             Quaternion lookRotation = Quaternion.LookRotation(-hitNormal);
             lookRotation *= Quaternion.Euler(-90, 0, 0);
 
@@ -289,18 +306,17 @@ public class LasserBehavior : MonoBehaviour
 
     private void UpdateCameraMoveSound(float angularSpeed)
     {
-        if (cameraMoveAudio == null) return;
+        if (laserMovingSfxSource == null) return;
 
         if (angularSpeed < minAngularSpeed)
         {
-            cameraMoveAudio.volume = Mathf.Lerp(cameraMoveAudio.volume, 0f, Time.deltaTime * volumeLerpSpeed);
+            laserMovingSfxSource.volume = Mathf.Lerp(laserMovingSfxSource.volume, 0f, Time.deltaTime * volumeLerpSpeed);
             return;
         }
 
         float targetVolume = Mathf.Clamp01(angularSpeed * volumeSensitivity);
 
-        // Smooth volume so it doesn't jitter
-        cameraMoveAudio.volume = Mathf.Lerp(cameraMoveAudio.volume, targetVolume, Time.deltaTime * volumeLerpSpeed
+        laserMovingSfxSource.volume = Mathf.Lerp(laserMovingSfxSource.volume, targetVolume, Time.deltaTime * volumeLerpSpeed
         );
     }
 }
