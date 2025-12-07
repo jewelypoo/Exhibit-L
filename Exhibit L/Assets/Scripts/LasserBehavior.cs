@@ -81,7 +81,7 @@ public class LasserBehavior : MonoBehaviour
 
     public void Laser()
     {
-        
+
         if (Physics.Raycast(cameraPos.position, cameraPos.forward, out RaycastHit hit, maxDistance, hitObjects))
         {
             smokeParticle.transform.position = hit.point;
@@ -90,11 +90,14 @@ public class LasserBehavior : MonoBehaviour
             Quaternion lookRotation = Quaternion.LookRotation(-hitNormal);
             lookRotation *= Quaternion.Euler(-90, 0, 0);
 
-            Vector3 spawnPos = hit.point + (-hitNormal * 0.01f); 
+            Vector3 spawnPos = hit.point + (-hitNormal * 0.01f);
             float yOffset = Random.Range(-0.02f, 0.02f);
             spawnPos.y += yOffset;
 
-            Instantiate(burnDecal, spawnPos, lookRotation);
+            if (hit.transform.CompareTag("Untagged"))
+            {
+                Instantiate(burnDecal, spawnPos, lookRotation);
+            }
 
             if (hit.transform.CompareTag("Mirrror"))
             {
