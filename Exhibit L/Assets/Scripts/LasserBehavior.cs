@@ -18,9 +18,17 @@ public class LasserBehavior : MonoBehaviour
     [SerializeField] private float degreesDoubleCheckSteps = 2f;
 
     // audio stuff here
+    [SerializeField] private AudioOneShot audioPrefab;
+    [SerializeField] private AudioClip[] artClips;
+    [SerializeField] private AudioClip[] statueClips;
+    [SerializeField] private AudioClip[] enemyClips;
+    [SerializeField] private AudioClip[] chainClips;
+    [SerializeField] private float minPitch = 0.9f;
+    [SerializeField] private float maxPitch = 1.1f;
     [SerializeField] private float volumeSensitivity = 0.02f;
     [SerializeField] private float minAngularSpeed = 5f;
     [SerializeField] private float volumeLerpSpeed = 5f;
+    [SerializeField] private float maxLaserMovingVolume = 1f;
     private AudioSource musicSource;
     private AudioSource laserSfxSource;
     private AudioSource laserMovingSfxSource;
@@ -49,6 +57,7 @@ public class LasserBehavior : MonoBehaviour
         playerData = GetComponent<PlayerData>();
         uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
 
+        // other sound setup
         var audioManager = LaserAudioManager.Instance;
         if (audioManager != null)
         {
@@ -157,6 +166,15 @@ public class LasserBehavior : MonoBehaviour
             }
             else if (hit.transform.CompareTag("Art"))
             {
+                //create audio prefab
+                bool statue = hit.transform.GetComponent<StatueMarker>() != null;
+
+                if (statue)
+                    PlayImpactAudio(hit.point, statueClips);
+                else
+                    PlayImpactAudio(hit.point, artClips);
+
+                //then destroy
                 Destroy(hit.collider.gameObject);
                 dustParticle.transform.position = hit.point;
                 dustParticle.Play();
@@ -227,6 +245,13 @@ public class LasserBehavior : MonoBehaviour
                 }
                 else if (hit.transform.CompareTag("Art"))
                 {
+                    //create audio prefab
+                    bool statue = hit.transform.GetComponent<StatueMarker>() != null;
+
+                    if (statue)
+                        PlayImpactAudio(hit.point, statueClips);
+                    else
+                        PlayImpactAudio(hit.point, artClips);
                     GameManager.Instance.AddArtDestroyed(1);
                     StartCoroutine(uiManager.ShowHitmarker());
                     dustParticle.transform.position = hit.transform.position;
@@ -306,17 +331,27 @@ public class LasserBehavior : MonoBehaviour
 
     private void UpdateCameraMoveSound(float angularSpeed)
     {
-        if (laserMovingSfxSource == null) return;
+        if (!laserMovingSfxSource) return;
 
-        if (angularSpeed < minAngularSpeed)
+        float targetVolume = 0f;
+
+        if (angularSpeed >= minAngularSpeed)
         {
-            laserMovingSfxSource.volume = Mathf.Lerp(laserMovingSfxSource.volume, 0f, Time.deltaTime * volumeLerpSpeed);
-            return;
+            targetVolume = Mathf.Clamp01(angularSpeed * volumeSensitivity);
+            targetVolume *= maxLaserMovingVolume;
         }
 
-        float targetVolume = Mathf.Clamp01(angularSpeed * volumeSensitivity);
+        laserMovingSfxSource.volume = Mathf.Lerp(laserMovingSfxSource.volume, targetVolume, Time.deltaTime * volumeLerpSpeed);
+    }
 
-        laserMovingSfxSource.volume = Mathf.Lerp(laserMovingSfxSource.volume, targetVolume, Time.deltaTime * volumeLerpSpeed
-        );
+    private void PlayImpactAudio(Vector3 position, AudioClip[] list)
+    {
+        if (list == null || list.Length == 0) return;
+
+        AudioClip clip = list[Random.Range(0, list.Length)];
+        float pitch = Random.Range(minPitch, maxPitch);
+
+        AudioOneShot audio = Instantiate(audioPrefab, position, Quaternion.identity);
+        audio.PlayClip(clip, pitch);
     }
 }

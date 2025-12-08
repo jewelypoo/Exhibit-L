@@ -11,10 +11,8 @@ public class LaserAudioManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("LaserAudioManager Awake on " + gameObject.name + " in scene " + gameObject.scene.name);
         if (Instance != null && Instance != this)
         {
-            Debug.Log("LaserAudioManager Awake on " + gameObject.name + " in scene " + gameObject.scene.name);
             Destroy(gameObject);
             return;
         }
@@ -25,7 +23,6 @@ public class LaserAudioManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Audio will begin now!");
         double startTime = AudioSettings.dspTime + 0.1f;
 
         if (music != null)

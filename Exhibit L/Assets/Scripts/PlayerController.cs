@@ -17,6 +17,16 @@ public class PlayerController : MonoBehaviour
     [Header("Character Controller")]
     [SerializeField] private CharacterController characterController;
 
+    [Header("Footsteps")]
+    [SerializeField] private AudioSource footstepSource;
+    [SerializeField] private AudioClip[] footstepClips;
+    [SerializeField] private float stepInterval = 0.5f;
+    [SerializeField] private float minPitch = 0.9f;
+    [SerializeField] private float maxPitch = 1.1f;
+    [SerializeField] private float minSpeedForSteps = 1f;
+
+    private float stepTimer = 0f;
+
     private bool grounded = true;
     private float horizontalInput;
     private float verticalInput;
@@ -72,6 +82,21 @@ public class PlayerController : MonoBehaviour
             characterController.Move(velocity * Time.deltaTime);
 
             currentSpeed = currentMoveVelocity.magnitude;
+
+            if (grounded && currentSpeed > minSpeedForSteps && !paused)
+            {
+                stepTimer -= Time.deltaTime;
+
+                if (stepTimer <= 0f)
+                {
+                    PlayFootstep();
+                    stepTimer = stepInterval;
+                }
+            }
+            else
+            {
+                stepTimer = 0f;
+            }
         }
         else
         {
@@ -158,6 +183,18 @@ public class PlayerController : MonoBehaviour
             playerControls.Disable();
             tutorialPause = true;
         }
+    }
+
+    private void PlayFootstep()
+    {
+        if (footstepSource == null) return;
+        if (footstepClips == null || footstepClips.Length == 0) return;
+
+        AudioClip clip = footstepClips[Random.Range(0, footstepClips.Length)];
+
+        footstepSource.pitch = Random.Range(minPitch, maxPitch);
+
+        footstepSource.PlayOneShot(clip);
     }
 
 
