@@ -95,7 +95,15 @@ public class LasserBehavior : MonoBehaviour
                 GameObject hitObj = LaserDoubleCheck(rayDir);
                 if (hitObj != null)
                 {
-                    Destroy(hitObj);
+                    if (hitObj.GetComponent<DestructionHandler>() != null)
+                    {
+                        hitObj.GetComponent<DestructionHandler>().StartDestruction();
+                    }
+                    else
+                    {
+                        Debug.Log("No gibs to spawn");
+                        Destroy(hitObj);
+                    }
                     break;
                 }
 
@@ -121,7 +129,7 @@ public class LasserBehavior : MonoBehaviour
                 laserImpactSfxSource.transform.position = hit.point;
             }
 
-                Vector3 hitNormal = hit.normal;
+            Vector3 hitNormal = hit.normal;
             Quaternion lookRotation = Quaternion.LookRotation(-hitNormal);
             lookRotation *= Quaternion.Euler(-90, 0, 0);
 
@@ -151,7 +159,8 @@ public class LasserBehavior : MonoBehaviour
             if (hit.transform.CompareTag("Enemy"))
             {
                 PlayImpactAudio(hit.point, enemyClips);
-                Destroy(hit.collider.gameObject);
+                hit.transform.GetComponent<DestructionHandler>().StartDestruction();
+                //Destroy(hit.collider.gameObject);
 
                 if (GameManager.Instance.GetEnemyCount() > 0)
                 {
@@ -176,7 +185,8 @@ public class LasserBehavior : MonoBehaviour
                     PlayImpactAudio(hit.point, artClips);
 
                 //then destroy
-                Destroy(hit.collider.gameObject);
+                //Destroy(hit.collider.gameObject);
+                hit.transform.GetComponent<DestructionHandler>().StartDestruction();
                 dustParticle.transform.position = hit.point;
                 dustParticle.Play();
 
@@ -230,7 +240,8 @@ public class LasserBehavior : MonoBehaviour
                 if (hit.transform.CompareTag("Enemy"))
                 {
                     PlayImpactAudio(hit.point, enemyClips);
-                    Destroy(hit.collider.gameObject);
+                    hit.transform.GetComponent<DestructionHandler>().StartDestruction();
+                    //Destroy(hit.collider.gameObject);
 
                     if (GameManager.Instance.GetEnemyCount() > 0)
                     {

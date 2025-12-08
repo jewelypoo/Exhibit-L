@@ -18,7 +18,7 @@ public class PlayerData : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Somthing is inside me O.o");
+        //Debug.Log("Somthing is inside me O.o");
         if (collision.transform.CompareTag("Enemy") || collision.transform.CompareTag("ShieldEnemy"))
         {
             uiManager.GameOver();
