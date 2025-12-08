@@ -108,8 +108,6 @@ public class LasserBehavior : MonoBehaviour
                 }
 
             }
-
-
         }
     }
 
@@ -158,7 +156,7 @@ public class LasserBehavior : MonoBehaviour
             }
             if (hit.transform.CompareTag("Enemy"))
             {
-                PlayImpactAudio(hit.point, enemyClips);
+                GameManager.Instance.PlayImpactAudio(hit.point, enemyClips, minPitch, maxPitch);
                 hit.transform.GetComponent<DestructionHandler>().StartDestruction();
                 //Destroy(hit.collider.gameObject);
 
@@ -180,9 +178,9 @@ public class LasserBehavior : MonoBehaviour
                 bool statue = hit.transform.GetComponent<StatueMarker>() != null;
 
                 if (statue)
-                    PlayImpactAudio(hit.point, statueClips);
+                    GameManager.Instance.PlayImpactAudio(hit.point, statueClips, minPitch, maxPitch);
                 else
-                    PlayImpactAudio(hit.point, artClips);
+                    GameManager.Instance.PlayImpactAudio(hit.point, artClips, minPitch, maxPitch);
 
                 //then destroy
                 //Destroy(hit.collider.gameObject);
@@ -239,7 +237,7 @@ public class LasserBehavior : MonoBehaviour
                 }
                 if (hit.transform.CompareTag("Enemy"))
                 {
-                    PlayImpactAudio(hit.point, enemyClips);
+                    GameManager.Instance.PlayImpactAudio(hit.point, enemyClips, minPitch, maxPitch);
                     hit.transform.GetComponent<DestructionHandler>().StartDestruction();
                     //Destroy(hit.collider.gameObject);
 
@@ -262,9 +260,9 @@ public class LasserBehavior : MonoBehaviour
                     bool statue = hit.transform.GetComponent<StatueMarker>() != null;
 
                     if (statue)
-                        PlayImpactAudio(hit.point, statueClips);
+                        GameManager.Instance.PlayImpactAudio(hit.point, statueClips, minPitch, maxPitch);
                     else
-                        PlayImpactAudio(hit.point, artClips);
+                        GameManager.Instance.PlayImpactAudio(hit.point, artClips, minPitch, maxPitch);
                     GameManager.Instance.AddArtDestroyed(1);
                     StartCoroutine(uiManager.ShowHitmarker());
                     dustParticle.transform.position = hit.transform.position;
@@ -310,9 +308,9 @@ public class LasserBehavior : MonoBehaviour
                 bool statue = bounceHit.transform.GetComponent<StatueMarker>() != null;
 
                 if (statue)
-                    PlayImpactAudio(bounceHit.point, statueClips);
+                    GameManager.Instance.PlayImpactAudio(bounceHit.point, statueClips, minPitch, maxPitch);
                 else
-                    PlayImpactAudio(bounceHit.point, artClips);
+                    GameManager.Instance.PlayImpactAudio(bounceHit.point, artClips, minPitch, maxPitch);
                 StartCoroutine(uiManager.ShowHitmarker());
                 Destroy(bounceHit.collider.gameObject);
                 dustParticle.transform.position = bounceHit.point;
@@ -325,7 +323,7 @@ public class LasserBehavior : MonoBehaviour
             }
             if (bounceHit.transform.CompareTag("Enemy"))
             {
-                PlayImpactAudio(bounceHit.point, enemyClips);
+                GameManager.Instance.PlayImpactAudio(bounceHit.point, enemyClips, minPitch, maxPitch);
                 Destroy(bounceHit.collider.gameObject);
 
                 if (GameManager.Instance.GetEnemyCount() > 0)
@@ -362,16 +360,5 @@ public class LasserBehavior : MonoBehaviour
         }
 
         laserMovingSfxSource.volume = Mathf.Lerp(laserMovingSfxSource.volume, targetVolume, Time.deltaTime * volumeLerpSpeed);
-    }
-
-    private void PlayImpactAudio(Vector3 position, AudioClip[] list)
-    {
-        if (list == null || list.Length == 0) return;
-
-        AudioClip clip = list[Random.Range(0, list.Length)];
-        float pitch = Random.Range(minPitch, maxPitch);
-
-        AudioOneShot audio = Instantiate(audioPrefab, position, Quaternion.identity);
-        audio.PlayClip(clip, pitch);
     }
 }
