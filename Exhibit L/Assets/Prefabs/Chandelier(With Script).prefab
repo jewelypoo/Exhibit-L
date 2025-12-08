@@ -1493,7 +1493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chandChains: {fileID: 3923156531684625138}
   chandObj: {fileID: 3113650931808544167}
-  fallenChandLifetime: 5
+  fallenChandLifetime: 2
 --- !u!1 &8749295704432646635
 GameObject:
   m_ObjectHideFlags: 0

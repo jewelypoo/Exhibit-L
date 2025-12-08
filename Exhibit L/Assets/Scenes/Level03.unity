@@ -3925,6 +3925,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1810997069}
     m_Modifications:
+    - target: {fileID: 4972454875454420625, guid: 6392d420686c4274e9ed1941ebaae29d, type: 3}
+      propertyPath: m_TagString
+      value: Art
+      objectReference: {fileID: 0}
+    - target: {fileID: 5371185908056464431, guid: 6392d420686c4274e9ed1941ebaae29d, type: 3}
+      propertyPath: m_Size.y
+      value: 17.99
+      objectReference: {fileID: 0}
     - target: {fileID: 6946483835282389880, guid: 6392d420686c4274e9ed1941ebaae29d, type: 3}
       propertyPath: m_Name
       value: Lawnmower Statue
@@ -30531,7 +30539,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8660251240092407565, guid: 2b0ae10eab251b7489eb0b51ea5ef4c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.5
+      value: 27.5
       objectReference: {fileID: 0}
     - target: {fileID: 8660251240092407565, guid: 2b0ae10eab251b7489eb0b51ea5ef4c7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30539,7 +30547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8660251240092407565, guid: 2b0ae10eab251b7489eb0b51ea5ef4c7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8660251240092407565, guid: 2b0ae10eab251b7489eb0b51ea5ef4c7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -43318,7 +43326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6750408670794109863, guid: 157eec18caab5f142974fbf77566c6db, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.000011
+      value: 19.000013
       objectReference: {fileID: 0}
     - target: {fileID: 6750408670794109863, guid: 157eec18caab5f142974fbf77566c6db, type: 3}
       propertyPath: m_LocalPosition.y
@@ -43326,11 +43334,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6750408670794109863, guid: 157eec18caab5f142974fbf77566c6db, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.999997
+      value: -11.999997
       objectReference: {fileID: 0}
     - target: {fileID: 6750408670794109863, guid: 157eec18caab5f142974fbf77566c6db, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.0000006705522
+      value: -0.00000058114523
       objectReference: {fileID: 0}
     - target: {fileID: 6750408670794109863, guid: 157eec18caab5f142974fbf77566c6db, type: 3}
       propertyPath: m_LocalRotation.x

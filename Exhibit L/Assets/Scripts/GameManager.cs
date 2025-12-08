@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int musicVolume;
     [SerializeField] private int sfxVolume;
     [SerializeField] private bool[] levelsComplete;
+    [SerializeField] public AudioOneShot audioPrefab;
 
     private Animator Door;
 
@@ -206,8 +207,14 @@ public class GameManager : MonoBehaviour
         return musicVolume;
     }
 
+    public void PlayImpactAudio(Vector3 position, AudioClip[] list, float minPitch, float maxPitch)
+    {
+        if (list == null || list.Length == 0) return;
 
+        AudioClip clip = list[Random.Range(0, list.Length)];
+        float pitch = Random.Range(minPitch, maxPitch);
 
-
-
+        AudioOneShot audio = Instantiate(audioPrefab, position, Quaternion.identity);
+        audio.PlayClip(clip, pitch);
+    }
 }

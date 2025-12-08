@@ -542,6 +542,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb27e4ca4549ea48be3496f0fa11055, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyClips:
+  - {fileID: 8300000, guid: 30111d198ab59b349bb622cf7a20c959, type: 3}
 --- !u!65 &8851785099603696526
 BoxCollider:
   m_ObjectHideFlags: 0

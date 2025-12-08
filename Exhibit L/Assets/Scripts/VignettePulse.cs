@@ -23,11 +23,7 @@ public class VignettePulse : MonoBehaviour
     {
         if (vignette == null) return;
 
-        vignette.intensity.value = Mathf.MoveTowards(
-            vignette.intensity.value,
-            target,
-            speed * Time.deltaTime
-        );
+        vignette.intensity.value = Mathf.MoveTowards(vignette.intensity.value, target, speed * Time.deltaTime);
 
         if (Mathf.Approximately(vignette.intensity.value, target))
         {
