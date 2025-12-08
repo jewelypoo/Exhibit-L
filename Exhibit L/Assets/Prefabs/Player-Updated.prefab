@@ -5384,7 +5384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4265123292030752476}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.2064497, z: 0, w: 0.9784572}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5432,7 +5432,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: 7c4359bad45fef44c8036a8595a5fab6, type: 2}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
@@ -5473,7 +5473,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -5991,7 +5991,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7286322733839703471}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.2064497, z: -0, w: 0.9784572}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6070,7 +6070,7 @@ MonoBehaviour:
   ReferenceFrame: 0
   RecenterTarget: 0
   PanAxis:
-    Value: 0
+    Value: -23.828753
     Center: 0
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -6128,7 +6128,7 @@ MonoBehaviour:
         LegacyInput: 
         LegacyGain: 1
         CancelDeltaTime: 0
-      InputValue: 0
+      InputValue: -0
       Driver:
         AccelTime: 0
         DecelTime: 0
