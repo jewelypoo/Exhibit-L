@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     public float currentSpeed;
     public bool paused = false;
 
-    private bool tutorialPause = false;
+    public bool tutorialPause = false;
 
     private void Awake()
     {
@@ -167,22 +167,11 @@ public class PlayerController : MonoBehaviour
                 Time.timeScale = 0f;
                 break;
         }
-            
-        
     }
 
     private void OnDisable()
     {
         playerControls.Disable();
-    }
-
-    public void DisableMovementAndCamera()
-    {
-        if (!tutorialPause)
-        {
-            playerControls.Disable();
-            tutorialPause = true;
-        }
     }
 
     private void PlayFootstep()
