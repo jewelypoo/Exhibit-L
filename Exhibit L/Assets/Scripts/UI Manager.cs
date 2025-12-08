@@ -298,13 +298,7 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E)) 
-        { 
-            if (tutorialScreen1.activeSelf)
-            {
-                tutorialScreen1.SetActive(false);
-            }
-        }
+        
         
     }
 
@@ -393,16 +387,19 @@ public class UIManager : MonoBehaviour
     {
         if (!endScreen.activeSelf && !levelSelect.activeSelf)
         {
-            //LaserAudioManager.Instance.PauseAllSFX();
-            Debug.Log("Pausing SFX because player has paused");
+            if (!playerController.tutorialPause)
+            {
+                //LaserAudioManager.Instance.PauseAllSFX();
+                Debug.Log("Pausing SFX because player has paused");
 
-            pauseScreen.SetActive(activation);
-            resumeButton.enabled = activation;
-            resumeButton.interactable = activation;
+                pauseScreen.SetActive(activation);
+                resumeButton.enabled = activation;
+                resumeButton.interactable = activation;
 
-            if (activation) Cursor.lockState = CursorLockMode.None;
-            else Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = activation;
+                if (activation) Cursor.lockState = CursorLockMode.None;
+                else Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = activation;
+            }
         }
     }
 
