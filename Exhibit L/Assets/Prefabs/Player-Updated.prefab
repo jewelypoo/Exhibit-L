@@ -5047,7 +5047,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508641960963675921}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &7869227396487397631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5889,6 +5889,7 @@ MonoBehaviour:
   minSpeedForSteps: 1
   currentSpeed: 0
   paused: 0
+  tutorialPause: 0
 --- !u!114 &3042499552967795045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6040,6 +6041,7 @@ MonoBehaviour:
   laser: {fileID: 8336225729181661434}
   dustParticle: {fileID: 6927984065119713483}
   smokeParticle: {fileID: 1562406341764027121}
+  explosionParticlePrefab: {fileID: 3313346484095911155, guid: 03d21fae777b06440891375c99bd53ad, type: 3}
   degreesDoubleCheckSteps: 0.7
   audioPrefab: {fileID: 3628519874715289630, guid: b05df56a6ad336c4499d3be217c5f8c9, type: 3}
   artClips:

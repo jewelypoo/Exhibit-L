@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4074800775661082328}
   - component: {fileID: 3845822706729372195}
   - component: {fileID: 8295963952162099944}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: robot_gib_1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 6511316756975378217}
   - component: {fileID: 5653619013630361723}
   - component: {fileID: 6266162217642956086}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: robot_gib_2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,13 +290,25 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4538943562338533109, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 4990884377861567780, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
       propertyPath: m_Name
       value: robot gibs
       objectReference: {fileID: 0}
     - target: {fileID: 4990884377861567780, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4990884377861567780, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5169580840115433659, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
+      propertyPath: m_Layer
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5619998103087252606, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
       propertyPath: m_Convex
@@ -354,6 +366,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6220758971676957287, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7191064476126481117, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 7633357196330493055, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
       propertyPath: m_Convex
       value: 1
@@ -361,6 +381,10 @@ PrefabInstance:
     - target: {fileID: 8372270302374917393, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
       propertyPath: m_Convex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146897360559455646, guid: bdbe9dcf9effc3040bbd99a6f94e30db, type: 3}
+      propertyPath: m_Layer
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -467,6 +491,10 @@ PrefabInstance:
     - target: {fileID: -4819223349682164798, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
       propertyPath: m_Layer
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -4819223349682164798, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4615986849728910481, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}
       propertyPath: m_Layer
@@ -639,11 +667,13 @@ MonoBehaviour:
   - {fileID: 6189969602256344933}
   - {fileID: 7829917259233548864}
   mainGib: {fileID: 6276351067185107706}
+  GibLifetime: 3
   mRenderer: {fileID: 0}
   bCollider: {fileID: 0}
-  GibLifetime: 3
+  extraCollider: {fileID: 0}
   Grunt: 1
   GruntBody: {fileID: 7438346190836866958}
+  enemyRoamer: {fileID: 0}
 --- !u!4 &6750408670794109863 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5341b4334340d004f862c5a6ce6fe08b, type: 3}

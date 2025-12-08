@@ -17468,6 +17468,7 @@ MonoBehaviour:
   musicVolume: 0
   sfxVolume: 0
   levelsComplete: 01000000000000
+  audioPrefab: {fileID: 3628519874715289630, guid: b05df56a6ad336c4499d3be217c5f8c9, type: 3}
   paused: 0
   launched: 0
   mainMenuActive: 0
@@ -26700,6 +26701,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1508641960963675921, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2975786825998060751, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 3042499552967795045, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -26708,6 +26717,26 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1489063601}
+    - target: {fileID: 3116237200862903116, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3440781564985209029, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463677674994361064, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4265123292030752476, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4726079410298853114, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 5666710074988253926, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -26756,13 +26785,29 @@ PrefabInstance:
       propertyPath: levelCompleteScreen
       value: 
       objectReference: {fileID: 1489063599}
-    - target: {fileID: 6367646559901112977, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
-      propertyPath: m_Enabled
-      value: 0
+    - target: {fileID: 7286322733839703471, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 7602028295138035341, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8012335189065254938, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8336225729181661434, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8977588986100326474, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
       propertyPath: m_Name
       value: Player-Updated
+      objectReference: {fileID: 0}
+    - target: {fileID: 8977588986100326474, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: m_Layer
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

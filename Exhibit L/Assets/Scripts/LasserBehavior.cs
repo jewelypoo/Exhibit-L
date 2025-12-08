@@ -15,6 +15,7 @@ public class LasserBehavior : MonoBehaviour
     //[SerializeField] private GameObject laserChecker;
     [SerializeField] private ParticleSystem dustParticle;
     [SerializeField] private ParticleSystem smokeParticle;
+    [SerializeField] private GameObject explosionParticlePrefab;
     [SerializeField] private float degreesDoubleCheckSteps = 2f;
 
     // audio stuff here
@@ -157,6 +158,7 @@ public class LasserBehavior : MonoBehaviour
             if (hit.transform.CompareTag("Enemy"))
             {
                 GameManager.Instance.PlayImpactAudio(hit.point, enemyClips, minPitch, maxPitch);
+                Instantiate(explosionParticlePrefab, hit.point, Quaternion.identity);
                 hit.transform.GetComponent<DestructionHandler>().StartDestruction();
                 //Destroy(hit.collider.gameObject);
 
@@ -238,6 +240,7 @@ public class LasserBehavior : MonoBehaviour
                 if (hit.transform.CompareTag("Enemy"))
                 {
                     GameManager.Instance.PlayImpactAudio(hit.point, enemyClips, minPitch, maxPitch);
+                    Instantiate(explosionParticlePrefab, hit.point, Quaternion.identity);
                     hit.transform.GetComponent<DestructionHandler>().StartDestruction();
                     //Destroy(hit.collider.gameObject);
 
@@ -324,6 +327,7 @@ public class LasserBehavior : MonoBehaviour
             if (bounceHit.transform.CompareTag("Enemy"))
             {
                 GameManager.Instance.PlayImpactAudio(bounceHit.point, enemyClips, minPitch, maxPitch);
+                Instantiate(explosionParticlePrefab, bounceHit.point, Quaternion.identity);
                 Destroy(bounceHit.collider.gameObject);
 
                 if (GameManager.Instance.GetEnemyCount() > 0)
