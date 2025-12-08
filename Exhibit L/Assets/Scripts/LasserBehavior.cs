@@ -150,6 +150,7 @@ public class LasserBehavior : MonoBehaviour
             }
             if (hit.transform.CompareTag("Enemy"))
             {
+                PlayImpactAudio(hit.point, enemyClips);
                 Destroy(hit.collider.gameObject);
 
                 if (GameManager.Instance.GetEnemyCount() > 0)
@@ -228,6 +229,7 @@ public class LasserBehavior : MonoBehaviour
                 }
                 if (hit.transform.CompareTag("Enemy"))
                 {
+                    PlayImpactAudio(hit.point, enemyClips);
                     Destroy(hit.collider.gameObject);
 
                     if (GameManager.Instance.GetEnemyCount() > 0)
@@ -294,6 +296,12 @@ public class LasserBehavior : MonoBehaviour
                 smokeParticle.transform.position = hit.point;
                 fireParticle.Play();
                 smokeParticle.Play();*/
+                bool statue = bounceHit.transform.GetComponent<StatueMarker>() != null;
+
+                if (statue)
+                    PlayImpactAudio(bounceHit.point, statueClips);
+                else
+                    PlayImpactAudio(bounceHit.point, artClips);
                 StartCoroutine(uiManager.ShowHitmarker());
                 Destroy(bounceHit.collider.gameObject);
                 dustParticle.transform.position = bounceHit.point;
@@ -306,6 +314,7 @@ public class LasserBehavior : MonoBehaviour
             }
             if (bounceHit.transform.CompareTag("Enemy"))
             {
+                PlayImpactAudio(bounceHit.point, enemyClips);
                 Destroy(bounceHit.collider.gameObject);
 
                 if (GameManager.Instance.GetEnemyCount() > 0)

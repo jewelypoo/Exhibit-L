@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text timer;
     [SerializeField] private TMP_Text endScreenTimer;
     [SerializeField] private TMP_Text endScreenGrade;
+    [SerializeField] private TMP_Text endScreenTitle;
     [SerializeField] private GameObject crosshair;
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject mainMenu;
@@ -45,6 +46,9 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private AudioMixer mixer;
 
+    [SerializeField] private AudioSource win;
+    [SerializeField] private AudioSource lose;
+
     [SerializeField] private CinemachineCamera cam;
     [SerializeField] private CinemachineBrain camBrain;
     [SerializeField] private CinemachineInputAxisController cineAxisController;
@@ -62,6 +66,8 @@ public class UIManager : MonoBehaviour
     private float timerTime;
     private float roundedTimer;
     private float currentAlpha = 1f;
+
+    private bool hasLost = false;
 
     private AreaScan areaScan;
     private PlayerController playerController;
@@ -242,7 +248,6 @@ public class UIManager : MonoBehaviour
             enemyCount.text = "Enemies alive: " + GameManager.Instance.GetEnemyCount();
             if (GameManager.Instance.GetEnemyCount() <= 0)
             {
-                //EndLevel();
                 UpdateCircles();
             }
             else
@@ -250,6 +255,11 @@ public class UIManager : MonoBehaviour
                 UpdateCircles();
             }
         }
+
+        //if (GameManager.Instance.GetArtDestroyed() >= 3)
+        //{
+        //    EndLevel();
+        //}
 
         if (GameManager.Instance.paused == true)
         {
@@ -300,7 +310,9 @@ public class UIManager : MonoBehaviour
 
     public void EndLevel()
     {
-        //Debug.Log("Level end reached");
+        LaserAudioManager.Instance.PauseAllSFX();
+        Debug.Log("Pausing SFX because end of level");
+
         enemyCount.text = " ";
         timer.text = " ";
         if (!gradeCalculated)
@@ -309,7 +321,18 @@ public class UIManager : MonoBehaviour
             CalculateGrade();
             gradeCalculated = true;
         }
-        endScreenTimer.text = "" + roundedTimer;
+        if (hasLost)
+        {
+            lose.Play();
+            endScreenTitle.text = "You Failed...";
+            hasLost = false;
+        } else
+        {
+            win.Play();
+            endScreenTitle.text = "Level Completed!";
+            return;
+        }
+            endScreenTimer.text = "" + roundedTimer;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         crosshair.SetActive(false);
@@ -319,6 +342,10 @@ public class UIManager : MonoBehaviour
 
     public void GameOver()
     {
+        LaserAudioManager.Instance.PauseAllSFX();
+        Debug.Log("Pausing SFX because game over");
+        lose.Play(); // play game over sound
+
         Debug.Log("Game Over");
         enemyCount.text = " ";
         timer.text = " ";
@@ -350,6 +377,9 @@ public class UIManager : MonoBehaviour
             //print("timescale reset");
             Time.timeScale = 1f;
         }
+        LaserAudioManager.Instance.ResumeAllSFX();
+        Debug.Log("Resuming SFX because retry");
+
         GameManager.Instance.levelSelectActive = false;
         GameManager.Instance.mainMenuActive = false;
         GameManager.Instance.paused = false;
@@ -363,6 +393,9 @@ public class UIManager : MonoBehaviour
     {
         if (!endScreen.activeSelf && !levelSelect.activeSelf)
         {
+            //LaserAudioManager.Instance.PauseAllSFX();
+            Debug.Log("Pausing SFX because player has paused");
+
             pauseScreen.SetActive(activation);
             resumeButton.enabled = activation;
             resumeButton.interactable = activation;
@@ -432,21 +465,25 @@ public class UIManager : MonoBehaviour
                 //levelSelectButton.interactable = true;
                 GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), true);
                 //Debug.Log("Level passed");
+                hasLost = false;
                 return "S";
             case 1:
                 //levelSelectButton.interactable = true;
                 GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), true);
                 //Debug.Log("Level passed");
+                hasLost = false;
                 return "A";
             case 2:
                 //levelSelectButton.interactable = true;
                 GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), true);
                 //Debug.Log("Level passed");
+                hasLost = false;
                 return "B";
             case 3:
                 //levelSelectButton.interactable = true;
                 GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), true);
                 //Debug.Log("Level passed");
+                hasLost = false;
                 return "C";
             case 4:
                 if (!GameManager.Instance.GetLevelsComplete(GameManager.Instance.GetLevelNumber()))
@@ -460,7 +497,8 @@ public class UIManager : MonoBehaviour
                     levelSelectButton.interactable = true;
                     //Debug.Log("Level already passed");
                 }
-                    return "D";
+                hasLost = true;
+                return "D";
             case 5:
                 if (!GameManager.Instance.GetLevelsComplete(GameManager.Instance.GetLevelNumber()))
                 {
@@ -473,9 +511,11 @@ public class UIManager : MonoBehaviour
                     levelSelectButton.interactable = true;
                     //Debug.Log("Level already passed");
                 }
+                hasLost = true;
                 return "F";
             default:
                 GameManager.Instance.SetLevelComplete(GameManager.Instance.GetLevelNumber(), false);
+                hasLost = true;
                 return "F";
         }
         
@@ -495,6 +535,9 @@ public class UIManager : MonoBehaviour
     public void OpenMainMenu()
     {
         mainMenu.SetActive(true);
+        LaserAudioManager.Instance.PauseAllSFX();
+        Debug.Log("Pausing SFX because player has opened main menu");
+
         Time.timeScale = 1f;
         camBrain.enabled = false;
         areaScanCD.gameObject.SetActive(false);
@@ -548,7 +591,10 @@ public class UIManager : MonoBehaviour
     public void LoadScene(int levelNumber)
     {
         //print("loading scene");
-        
+        LaserAudioManager.Instance.StartSFX();
+        LaserAudioManager.Instance.ResumeAllSFX();
+        Debug.Log("Resuming SFX because loading scene");
+
         Time.timeScale = 1f;
         timerTime = 0f;
         GameManager.Instance.mainMenuActive = false;

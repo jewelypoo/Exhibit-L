@@ -21,7 +21,7 @@ public class LaserAudioManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
+    public void StartSFX()
     {
         double startTime = AudioSettings.dspTime + 0.1f;
 
@@ -37,4 +37,21 @@ public class LaserAudioManager : MonoBehaviour
         if (laserImpactSfx != null)
             laserImpactSfx.PlayScheduled(startTime);
     }
+    public void PauseAllSFX()
+    {
+        if (music) music.Pause();
+        if (laserSfx) laserSfx.Pause();
+        if (laserMovingSfx) laserMovingSfx.Pause();
+        if (laserImpactSfx) laserImpactSfx.Pause();
+    }
+
+    public void ResumeAllSFX()
+    {
+        if (music) music.UnPause();
+        if (laserSfx) laserSfx.UnPause();
+        if (laserMovingSfx) laserMovingSfx.UnPause();
+        if (laserImpactSfx) laserImpactSfx.UnPause();
+    }
 }
+
+
