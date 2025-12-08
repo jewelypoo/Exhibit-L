@@ -13589,6 +13589,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5546278312830643051, guid: 9db0da0d95eb26c4dbe76cb7134f4f2a, type: 3}
   m_PrefabInstance: {fileID: 1070400386}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1070630161 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4051528727916750432, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+  m_PrefabInstance: {fileID: 1769262153}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1071672563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19150,10 +19155,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 4026178193488265822, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 3031021145848791636, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
+      propertyPath: mainCam
+      value: 
+      objectReference: {fileID: 2030905238}
+    - target: {fileID: 3031021145848791636, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
+      propertyPath: pixelCam
+      value: 
+      objectReference: {fileID: 1070630161}
     - target: {fileID: 4293823649106494302, guid: a78a071e3dd8bca44b77b8f0c1a3d6a6, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -23750,6 +23759,10 @@ PrefabInstance:
       propertyPath: levelCompleteScreen
       value: 
       objectReference: {fileID: 1489063599}
+    - target: {fileID: 6367646559901112977, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8977588986100326474, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
       propertyPath: m_Name
       value: Player-Updated
@@ -27160,6 +27173,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ece51f2901e7445ab60da3685d6b5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!20 &2030905238 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1291549670892941122, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+  m_PrefabInstance: {fileID: 1769262153}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2033156078
 PrefabInstance:
   m_ObjectHideFlags: 0
