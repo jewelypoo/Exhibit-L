@@ -70,11 +70,13 @@ MonoBehaviour:
   - {fileID: 3885461917798472725}
   - {fileID: 7454531395624735162}
   mainGib: {fileID: 6935945253259832837}
+  GibLifetime: 3
   mRenderer: {fileID: 0}
   bCollider: {fileID: 0}
-  GibLifetime: 3
+  extraCollider: {fileID: 0}
   Grunt: 1
   GruntBody: {fileID: 4361809873181300841}
+  enemyRoamer: {fileID: 0}
 --- !u!65 &1049910803457147186
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -138,7 +140,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7249624220735487007}
-  m_Layer: 11
+  m_Layer: 18
   m_Name: statue gibs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8062226200207349162, guid: 8b113e24063d34a46b0094d9850b1a16, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 8341996986347458409, guid: 8b113e24063d34a46b0094d9850b1a16, type: 3}
       propertyPath: m_Convex
@@ -257,7 +259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1085210238368127356, guid: 62eb1e2e4f8013c42a3c8d5f3f547953, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6770152390074004302, guid: 62eb1e2e4f8013c42a3c8d5f3f547953, type: 3}
       propertyPath: m_LocalPosition.x
@@ -388,7 +390,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8203128861206234920, guid: e6aeef8e23b9de94586c433ebd27784d, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -419,7 +421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4665606005516285059, guid: 62958e3666326114682316a288e15b5b, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5741001438075815005, guid: 62958e3666326114682316a288e15b5b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -494,7 +496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4665606005516285059, guid: 62958e3666326114682316a288e15b5b, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5741001438075815005, guid: 62958e3666326114682316a288e15b5b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -687,7 +689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4665606005516285059, guid: 62958e3666326114682316a288e15b5b, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5741001438075815005, guid: 62958e3666326114682316a288e15b5b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -818,7 +820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9044667178223783653, guid: e25d2e6a5a0462b44ac46d1e5b6a4818, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -849,7 +851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1085210238368127356, guid: 62eb1e2e4f8013c42a3c8d5f3f547953, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6770152390074004302, guid: 62eb1e2e4f8013c42a3c8d5f3f547953, type: 3}
       propertyPath: m_LocalPosition.x

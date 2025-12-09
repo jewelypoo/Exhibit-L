@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6923961229128390251}
-  m_Layer: 11
+  m_Layer: 18
   m_Name: Statue Gibs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,6 +308,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: statue_gib_5 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8062226200207349162, guid: 8b113e24063d34a46b0094d9850b1a16, type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -381,6 +385,10 @@ PrefabInstance:
     - target: {fileID: 8203128861206234920, guid: e6aeef8e23b9de94586c433ebd27784d, type: 3}
       propertyPath: m_Name
       value: statue_gib_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203128861206234920, guid: e6aeef8e23b9de94586c433ebd27784d, type: 3}
+      propertyPath: m_Layer
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -456,6 +464,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: statue_gib_5
       objectReference: {fileID: 0}
+    - target: {fileID: 8062226200207349162, guid: 8b113e24063d34a46b0094d9850b1a16, type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -477,6 +489,10 @@ PrefabInstance:
     - target: {fileID: 1085210238368127356, guid: 62eb1e2e4f8013c42a3c8d5f3f547953, type: 3}
       propertyPath: m_Name
       value: statue_gib_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085210238368127356, guid: 62eb1e2e4f8013c42a3c8d5f3f547953, type: 3}
+      propertyPath: m_Layer
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6770152390074004302, guid: 62eb1e2e4f8013c42a3c8d5f3f547953, type: 3}
       propertyPath: m_LocalScale.x
@@ -552,6 +568,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: statue_gib_4
       objectReference: {fileID: 0}
+    - target: {fileID: 4665606005516285059, guid: 62958e3666326114682316a288e15b5b, type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 5741001438075815005, guid: 62958e3666326114682316a288e15b5b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 99
@@ -613,6 +633,10 @@ PrefabInstance:
     - target: {fileID: 1085210238368127356, guid: 62eb1e2e4f8013c42a3c8d5f3f547953, type: 3}
       propertyPath: m_Name
       value: statue_gib_3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085210238368127356, guid: 62eb1e2e4f8013c42a3c8d5f3f547953, type: 3}
+      propertyPath: m_Layer
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6770152390074004302, guid: 62eb1e2e4f8013c42a3c8d5f3f547953, type: 3}
       propertyPath: m_LocalScale.x
@@ -739,6 +763,10 @@ PrefabInstance:
     - target: {fileID: 9044667178223783653, guid: e25d2e6a5a0462b44ac46d1e5b6a4818, type: 3}
       propertyPath: m_Name
       value: statue_gib_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044667178223783653, guid: e25d2e6a5a0462b44ac46d1e5b6a4818, type: 3}
+      propertyPath: m_Layer
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
