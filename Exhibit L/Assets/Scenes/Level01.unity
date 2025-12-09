@@ -3570,8 +3570,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Destroy all the robots '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e3978073bc5220248b120dd7b9887e12, type: 2}
-  m_sharedMaterial: {fileID: 1214496693329309054, guid: e3978073bc5220248b120dd7b9887e12, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5ca89799b20c434bb0e9db0a2909322, type: 2}
+  m_sharedMaterial: {fileID: 6086027553087143952, guid: c5ca89799b20c434bb0e9db0a2909322, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -9939,8 +9939,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Run to the exit door before it's too late!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e3978073bc5220248b120dd7b9887e12, type: 2}
-  m_sharedMaterial: {fileID: 1214496693329309054, guid: e3978073bc5220248b120dd7b9887e12, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5ca89799b20c434bb0e9db0a2909322, type: 2}
+  m_sharedMaterial: {fileID: 6086027553087143952, guid: c5ca89799b20c434bb0e9db0a2909322, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -17351,8 +17351,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Don't destroy the art/statues!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e3978073bc5220248b120dd7b9887e12, type: 2}
-  m_sharedMaterial: {fileID: 1214496693329309054, guid: e3978073bc5220248b120dd7b9887e12, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5ca89799b20c434bb0e9db0a2909322, type: 2}
+  m_sharedMaterial: {fileID: 6086027553087143952, guid: c5ca89799b20c434bb0e9db0a2909322, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -20386,8 +20386,8 @@ MonoBehaviour:
 
     Area Scan ability'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e3978073bc5220248b120dd7b9887e12, type: 2}
-  m_sharedMaterial: {fileID: 1214496693329309054, guid: e3978073bc5220248b120dd7b9887e12, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5ca89799b20c434bb0e9db0a2909322, type: 2}
+  m_sharedMaterial: {fileID: 6086027553087143952, guid: c5ca89799b20c434bb0e9db0a2909322, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -20898,7 +20898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1467239487
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23438,8 +23438,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '"E" to continue'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e3978073bc5220248b120dd7b9887e12, type: 2}
-  m_sharedMaterial: {fileID: 1214496693329309054, guid: e3978073bc5220248b120dd7b9887e12, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5ca89799b20c434bb0e9db0a2909322, type: 2}
+  m_sharedMaterial: {fileID: 6086027553087143952, guid: c5ca89799b20c434bb0e9db0a2909322, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23463,8 +23463,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -24646,8 +24646,8 @@ MonoBehaviour:
 
     and the Exit Door'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e3978073bc5220248b120dd7b9887e12, type: 2}
-  m_sharedMaterial: {fileID: 1214496693329309054, guid: e3978073bc5220248b120dd7b9887e12, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5ca89799b20c434bb0e9db0a2909322, type: 2}
+  m_sharedMaterial: {fileID: 6086027553087143952, guid: c5ca89799b20c434bb0e9db0a2909322, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -30183,8 +30183,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '"E" to continue'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e3978073bc5220248b120dd7b9887e12, type: 2}
-  m_sharedMaterial: {fileID: 1214496693329309054, guid: e3978073bc5220248b120dd7b9887e12, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c5ca89799b20c434bb0e9db0a2909322, type: 2}
+  m_sharedMaterial: {fileID: 6086027553087143952, guid: c5ca89799b20c434bb0e9db0a2909322, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -30208,8 +30208,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
