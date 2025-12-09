@@ -45,7 +45,7 @@ public class LasserBehavior : MonoBehaviour
     private PlayerData playerData;
     private UIManager uiManager;
 
-    [SerializeField] private int maxMirrorBounces = 5;
+    //[SerializeField] private int maxMirrorBounces = 5;
     private int currentMirrorBounces = 0;
     public GameObject burnDecal;
 
