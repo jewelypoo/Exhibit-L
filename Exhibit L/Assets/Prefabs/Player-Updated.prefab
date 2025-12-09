@@ -4967,7 +4967,7 @@ GameObject:
   - component: {fileID: 4051528727916750432}
   - component: {fileID: 6367646559901112977}
   - component: {fileID: 7869227396487397631}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: PixelCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5101,7 +5101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 926148369967398168}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: CameraPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5137,7 +5137,7 @@ GameObject:
   - component: {fileID: 1598384723668505570}
   - component: {fileID: 1819787599074292690}
   - component: {fileID: 7197900743346694154}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5245,7 +5245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4973852642754978531}
   - component: {fileID: 8000506906658170457}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: HitmarkerSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5374,7 +5374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2646160443492249811}
   - component: {fileID: 9116005314535737746}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: FootstepsSFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5506,7 +5506,7 @@ GameObject:
   - component: {fileID: 1912598399894084530}
   - component: {fileID: 774370626423460177}
   - component: {fileID: 3305727102497485836}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Cinemachine Brain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5673,7 +5673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7439721879703241224}
   - component: {fileID: 4828901048117381793}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5759,6 +5759,7 @@ GameObject:
   - component: {fileID: 1991813510438668601}
   - component: {fileID: 5752932330989252847}
   - component: {fileID: 4348935081466847065}
+  - component: {fileID: 7941358482736019387}
   m_Layer: 14
   m_Name: Player
   m_TagString: Player
@@ -6016,6 +6017,7 @@ MonoBehaviour:
   highlightEnemies: {fileID: 2100000, guid: 371fd3ac9852ac54c98b0e09c1e4d604, type: 2}
   highlightDoors: {fileID: 2100000, guid: 39536398bd3829449841cbad828b27a4, type: 2}
   highlightFloors: {fileID: 2100000, guid: 56b7d2bbfb0526f4e908963a06a4d763, type: 2}
+  ping: {fileID: 7941358482736019387}
   maxAlpha: 0.7
   toggle: 0
   canToggle: 0
@@ -6058,7 +6060,7 @@ MonoBehaviour:
   volumeSensitivity: 0.004
   minAngularSpeed: 1
   volumeLerpSpeed: 7
-  maxLaserMovingVolume: 0.5
+  maxLaserMovingVolume: 0.6
   minCamDoubleCheckDistance: 2
   maxMirrorBounces: 1
   burnDecal: {fileID: 3242688192864058623, guid: d468d2171edc280488f002df7027194e, type: 3}
@@ -6102,6 +6104,103 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &7941358482736019387
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7096987315642373673}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -2528899312381535495, guid: d1ecc4e443c76ab4a8415113ecb71db5, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 3f1c87969d2fd5c44a87147b77d35fc4, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.693
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7286322733839703471
 GameObject:
   m_ObjectHideFlags: 0
@@ -6115,7 +6214,7 @@ GameObject:
   - component: {fileID: 3779751390140370013}
   - component: {fileID: 1036424532220550622}
   - component: {fileID: 8763368552468623310}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: FP Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6284,7 +6383,7 @@ GameObject:
   - component: {fileID: 323167753252695957}
   - component: {fileID: 7545588158738398278}
   - component: {fileID: 6493251704468076180}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Laser Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11118,7 +11217,7 @@ GameObject:
   - component: {fileID: 4849452515327276668}
   - component: {fileID: 6927984065119713483}
   - component: {fileID: 4455831010121473122}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Dust Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16007,7 +16106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6148898409088827908}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Laser Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16039,7 +16138,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5666710074988253926}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Player-Updated
   m_TagString: Player
   m_Icon: {fileID: 0}

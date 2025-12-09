@@ -9,6 +9,8 @@ public class AreaScan : MonoBehaviour
     public Material highlightDoors;
     public Material highlightFloors;
 
+    [SerializeField] private AudioSource ping;
+
     private float currentAlpha = 0, fadeSpeed = 2f, targetAlpha = 0f;
     public float maxAlpha;
 
@@ -66,6 +68,7 @@ public class AreaScan : MonoBehaviour
     {
         if (!GameManager.Instance.paused && canToggle)
         {
+            ping.Play();
             toggle = true;
             canToggle = false;
             uiManager.BeginAreaScanCD(areaScanActiveTime + toggleDelay);
