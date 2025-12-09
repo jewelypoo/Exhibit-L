@@ -8034,7 +8034,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: ac50ef6b9e8b13a498f3e3efefed90f4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.405
+  m_Volume: 0.373
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -8131,7 +8131,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: fef687095cb2fde4aa969b15538db86d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.354
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -8140,7 +8140,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 0
-  MaxDistance: 20
+  MaxDistance: 24
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -8160,7 +8160,7 @@ AudioSource:
       outWeight: 0.07514451
     - serializedVersion: 3
       time: 1
-      value: 0.017028809
+      value: 0.06820679
       inSlope: -0.0984094
       outSlope: -0.0984094
       tangentMode: 0
@@ -8325,7 +8325,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: b05620e40bcc65d46afb09e0aeaac9d4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.302
+  m_Volume: 0.358
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -26704,6 +26704,10 @@ PrefabInstance:
     - target: {fileID: 1508641960963675921, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
       propertyPath: m_Layer
       value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1991813510438668601, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: maxLaserMovingVolume
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 2975786825998060751, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
       propertyPath: m_Layer
