@@ -314,6 +314,7 @@ public class LasserBehavior : MonoBehaviour
                     GameManager.Instance.PlayImpactAudio(bounceHit.point, statueClips, minPitch, maxPitch);
                 else
                     GameManager.Instance.PlayImpactAudio(bounceHit.point, artClips, minPitch, maxPitch);
+                GameManager.Instance.AddArtDestroyed(1);
                 StartCoroutine(uiManager.ShowHitmarker());
                 Destroy(bounceHit.collider.gameObject);
                 dustParticle.transform.position = bounceHit.point;
