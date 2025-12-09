@@ -23,6 +23,7 @@ public class TutorialTrigger : MonoBehaviour
                 tutorialPanel.SetActive(false);
                 playerController.Pause();
                 playerController.tutorialPause = false;
+                Destroy(this.gameObject);
             }
         }
     }
