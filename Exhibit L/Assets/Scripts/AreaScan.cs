@@ -66,7 +66,7 @@ public class AreaScan : MonoBehaviour
 
     public void ToggleAreaScan()
     {
-        if (!GameManager.Instance.paused && canToggle)
+        if (!GameManager.Instance.paused && canToggle && !uiManager.mainMenu.activeSelf)
         {
             toggle = true;
             canToggle = false;

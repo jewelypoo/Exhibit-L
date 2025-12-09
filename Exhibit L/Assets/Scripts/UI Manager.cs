@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text endScreenTitle;
     [SerializeField] private GameObject crosshair;
     [SerializeField] private GameObject pauseScreen;
-    [SerializeField] private GameObject mainMenu;
+    [SerializeField] public GameObject mainMenu;
     [SerializeField] private GameObject mainMenuBackground;
     [SerializeField] private GameObject settingMenu;
     [SerializeField] private GameObject levelSelect;
