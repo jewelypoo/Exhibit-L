@@ -9,6 +9,10 @@ public class StatueMarker : MonoBehaviour
         {
             Vector3 hitPoint = collision.contacts[0].point;
 
+            DestructionHandler handler = GetComponentInChildren<DestructionHandler>();
+
+            handler.StartDestruction();
+
             GameManager.Instance.AddArtDestroyed(1);
 
             GameManager.Instance.PlayImpactAudio(hitPoint, statueClips, 0.9f, 1.1f);

@@ -11,6 +11,9 @@ public class Enemy : MonoBehaviour
 
             GameManager.Instance.ReduceEnemyCount(1);
 
+            DestructionHandler handler = GetComponentInChildren<DestructionHandler>();
+            handler.StartDestruction();
+
             GameManager.Instance.PlayImpactAudio(hitPoint, enemyClips, 0.9f, 1.1f);
 
             Destroy(gameObject);
