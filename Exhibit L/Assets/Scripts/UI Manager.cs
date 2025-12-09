@@ -323,10 +323,9 @@ public class UIManager : MonoBehaviour
         } else
         {
             win.Play();
-            endScreenTitle.text = "Level Completed!";
-            return;
+            endScreenTitle.text = "Level Complete!";
         }
-            endScreenTimer.text = "" + roundedTimer;
+        endScreenTimer.text = "" + roundedTimer;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         crosshair.SetActive(false);
