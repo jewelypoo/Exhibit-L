@@ -10097,7 +10097,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "DESIGNER\n \nPRODUCER\n\nPROGRAMMER\n\n3D & 2D ARTISTS\n\n\nSOUND DESIGN"
+  m_text: "DESIGNER\n \nPRODUCER\n\nPROGRAMMER\n\n3D & 2D ARTISTS\n\n\nSOUND DESIGN
+    HELP"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5ca89799b20c434bb0e9db0a2909322, type: 2}
   m_sharedMaterial: {fileID: 6086027553087143952, guid: c5ca89799b20c434bb0e9db0a2909322, type: 2}
@@ -14406,7 +14407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &5988010148954403794
 RectTransform:
   m_ObjectHideFlags: 0
