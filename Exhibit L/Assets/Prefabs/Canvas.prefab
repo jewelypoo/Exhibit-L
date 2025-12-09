@@ -4688,8 +4688,10 @@ MonoBehaviour:
   endScreen: {fileID: 5459238308244696139}
   hitmarker: {fileID: 3099220121049538545}
   hitmarkerSound: {fileID: 0}
-  areaScanBackground: {fileID: 8773208730179036397}
+  areaScanImage: {fileID: 8773208730179036397}
   areaScanCD: {fileID: 7575500889593635011}
+  openEye: {fileID: 21300000, guid: 2d173790433eeb34b98919d01f4c0257, type: 3}
+  closedEye: {fileID: 21300000, guid: a6ceb56861e974542a5831e5aa53840a, type: 3}
   fovSliderNumber: {fileID: 8804407571817390038}
   fovSlider: {fileID: 7492403351578986374}
   sensNumber: {fileID: 5492950890808681188}
@@ -14407,7 +14409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5988010148954403794
 RectTransform:
   m_ObjectHideFlags: 0

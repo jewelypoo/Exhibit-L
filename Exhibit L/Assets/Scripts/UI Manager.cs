@@ -26,8 +26,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject endScreen;
     [SerializeField] private Image hitmarker;
     [SerializeField] private AudioSource hitmarkerSound;
-    [SerializeField] private Image areaScanBackground;
+    [SerializeField] private Image areaScanImage;
     [SerializeField] private TMP_Text areaScanCD;
+
+    [SerializeField] private Sprite openEye;
+    [SerializeField] private Sprite closedEye;
 
     [SerializeField] private TMP_Text fovSliderNumber;
     [SerializeField] private Slider fovSlider;
@@ -88,8 +91,8 @@ public class UIManager : MonoBehaviour
         gradeCalculated = false;
         cineAxisController = cam.GetComponent<CinemachineInputAxisController>();
 
-        areaScanBackground.color = Color.white;
-        areaScanBackground.gameObject.SetActive(true);
+        
+        areaScanImage.gameObject.SetActive(true);
         areaScanCD.text = "";
 
         currentAlpha = 1f;
@@ -156,8 +159,7 @@ public class UIManager : MonoBehaviour
                 camBrain.enabled = false;
                 GameManager.Instance.paused = true;
 
-                areaScanBackground.color = Color.white;
-                areaScanBackground.gameObject.SetActive(false);
+                areaScanImage.gameObject.SetActive(false);
                 areaScanCD.text = "";
 
                 fovSlider.value = 90;
@@ -283,7 +285,7 @@ public class UIManager : MonoBehaviour
             if (areaScanCDSeconds <= 1)
             {
                 areaScanCDStarted = false;
-                areaScanBackground.color = Color.white;
+                areaScanImage.sprite = closedEye;
                 areaScanCD.text = "";
             }
         }
@@ -329,7 +331,7 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         crosshair.SetActive(false);
-        areaScanBackground.gameObject.SetActive(false);
+        areaScanImage.gameObject.SetActive(false);
         areaScanCD.text = "";
     }
 
@@ -350,7 +352,7 @@ public class UIManager : MonoBehaviour
         Debug.Log("Cursor Visible");
 
         crosshair.SetActive(false);
-        areaScanBackground.gameObject.SetActive(false);
+        areaScanImage.gameObject.SetActive(false);
         areaScanCD.text = "";
         Time.timeScale = 0f;
 
@@ -611,7 +613,7 @@ public class UIManager : MonoBehaviour
             GameManager.Instance.paused = false;
             crosshair.SetActive(true);
             camBrain.enabled = true;
-            areaScanBackground.gameObject.SetActive(true);
+            areaScanImage.gameObject.SetActive(true);
             areaScanCD.gameObject.SetActive(true);
             areaScan.canToggle = true;
             SceneManager.LoadScene(levelNumber - 1);
@@ -629,7 +631,8 @@ public class UIManager : MonoBehaviour
     {
         areaScanCDSeconds = seconds;
         areaScanCDStarted = true;
-        areaScanBackground.color = Color.gray;
+        areaScanImage.sprite = openEye;
+        //areaScanBackground.color = Color.gray;
     }
 
     public void SetMasterVolume()
