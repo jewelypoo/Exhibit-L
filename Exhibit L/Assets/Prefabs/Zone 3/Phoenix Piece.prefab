@@ -128,6 +128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad0f8a0c26318e46af66595d68644e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statueClips:
+  - {fileID: 8300000, guid: 71e8da7df1bebcf40989e2021806e747, type: 3}
+  - {fileID: 8300000, guid: 8c29cbfacdd28ff4fa4c034e773d28ad, type: 3}
+  - {fileID: 8300000, guid: 0459e7eb46f585f4a9438e764391d00e, type: 3}
 --- !u!1001 &811113500622399416
 PrefabInstance:
   m_ObjectHideFlags: 0

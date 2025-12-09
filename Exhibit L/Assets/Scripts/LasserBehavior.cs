@@ -288,7 +288,6 @@ public class LasserBehavior : MonoBehaviour
                 return null;
             }
         }
-            
         return null;
     }
 
