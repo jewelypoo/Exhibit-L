@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject levelSelect;
     [SerializeField] private GameObject levelCompleteScreen;
     [SerializeField] private GameObject endScreen;
+    [SerializeField] private GameObject creditsScreen;
     [SerializeField] private Image hitmarker;
     [SerializeField] private AudioSource hitmarkerSound;
     [SerializeField] private Image areaScanImage;
@@ -94,6 +95,8 @@ public class UIManager : MonoBehaviour
         
         areaScanImage.gameObject.SetActive(true);
         areaScanCD.text = "";
+
+        creditsScreen.SetActive(false);
 
         currentAlpha = 1f;
 
@@ -662,6 +665,11 @@ public class UIManager : MonoBehaviour
         fovSliderNumber.text = fovSlider.value.ToString();
         cam.Lens.FieldOfView = fovSlider.value;
         GameManager.Instance.SetFOV((int)fovSlider.value);
+    }
+
+    public void ToggleCredits()
+    {
+        creditsScreen.SetActive(!creditsScreen.activeSelf);
     }
 
     public void UpdateCircles()

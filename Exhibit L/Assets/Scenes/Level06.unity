@@ -43403,10 +43403,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 6
-  enemies: 7
-  goldTime: 10
-  silverTimer: 12
-  bronzeTime: 14
+  enemies: 8
+  goldTime: 27
+  silverTimer: 30
+  bronzeTime: 33
 --- !u!4 &1164441048
 Transform:
   m_ObjectHideFlags: 0
@@ -65058,6 +65058,22 @@ PrefabInstance:
     - target: {fileID: 4348935081466847065, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
       propertyPath: m_SlopeLimit
       value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503177823020988296, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503177823020988296, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503177823020988296, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.92305976
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503177823020988296, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.3846566
       objectReference: {fileID: 0}
     - target: {fileID: 5666710074988253926, guid: fb82ec7f4e7753c4a89668929b470248, type: 3}
       propertyPath: m_LocalPosition.x

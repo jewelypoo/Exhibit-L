@@ -4686,6 +4686,7 @@ MonoBehaviour:
   levelSelect: {fileID: 1375471270866963482}
   levelCompleteScreen: {fileID: 4026178193488265822}
   endScreen: {fileID: 5459238308244696139}
+  creditsScreen: {fileID: 8476617748918140148}
   hitmarker: {fileID: 3099220121049538545}
   hitmarkerSound: {fileID: 0}
   areaScanImage: {fileID: 8773208730179036397}
