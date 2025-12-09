@@ -383,6 +383,12 @@ public class UIManager : MonoBehaviour
         
     }
 
+    public void Resume(bool activation)
+    {
+        PauseScreen(activation);
+        playerController.Pause();
+    }
+
     public void PauseScreen(bool activation)
     {
         if (!endScreen.activeSelf && !levelSelect.activeSelf)
