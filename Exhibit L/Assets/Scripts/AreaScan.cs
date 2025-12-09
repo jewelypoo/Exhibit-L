@@ -68,10 +68,10 @@ public class AreaScan : MonoBehaviour
     {
         if (!GameManager.Instance.paused && canToggle)
         {
-            ping.Play();
             toggle = true;
             canToggle = false;
             uiManager.BeginAreaScanCD(areaScanActiveTime + toggleDelay);
+            ping.Play();
         }
     }
 
