@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameManager.Instance.mainMenuActive && !GameManager.Instance.levelSelectActive)
+        if (!GameManager.Instance.mainMenuActive && !GameManager.Instance.levelSelectActive && !GameManager.Instance.settingsActive && !GameManager.Instance.creditsActive)
         {
             playerControls.Enable();
             grounded = characterController.isGrounded;

@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public bool launched = false;
     public bool mainMenuActive = true;
     public bool levelSelectActive = false;
+    public bool settingsActive = false;
+    public bool creditsActive = false;
     public bool startLevelOne = false;
 
  

@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] public GameObject mainMenu;
     [SerializeField] private GameObject mainMenuBackground;
-    [SerializeField] private GameObject settingMenu;
+    [SerializeField] public GameObject settingMenu;
     [SerializeField] private GameObject levelSelect;
     [SerializeField] private GameObject levelCompleteScreen;
     [SerializeField] private GameObject endScreen;
@@ -103,11 +103,11 @@ public class UIManager : MonoBehaviour
         areaScan = cam.GetComponentInParent<AreaScan>();
         if (areaScanCD != null)
         {
-            Debug.Log("Found area scan script");
+            //Debug.Log("Found area scan script");
         }
         else
         {
-            Debug.Log("Didn't find area scan script");
+            //Debug.Log("Didn't find area scan script");
         }
         playerController = areaScan.gameObject.GetComponent<PlayerController>();
 
@@ -400,7 +400,7 @@ public class UIManager : MonoBehaviour
             if (!playerController.tutorialPause)
             {
                 //LaserAudioManager.Instance.PauseAllSFX();
-                Debug.Log("Pausing SFX because player has paused");
+                //Debug.Log("Pausing SFX because player has paused");
 
                 pauseScreen.SetActive(activation);
                 resumeButton.enabled = activation;
@@ -552,6 +552,7 @@ public class UIManager : MonoBehaviour
         if (settingMenu.activeSelf)
         {
             settingMenu.SetActive(false);
+            GameManager.Instance.settingsActive = false;
         }
         else if (levelSelect.activeSelf)
         {
@@ -564,6 +565,7 @@ public class UIManager : MonoBehaviour
     {
         areaScanCD.gameObject.SetActive(false);
         settingMenu.SetActive(true);
+        GameManager.Instance.settingsActive = true;
         if (mainMenu.activeSelf)
         {
             mainMenu.SetActive(false);
@@ -669,6 +671,7 @@ public class UIManager : MonoBehaviour
 
     public void ToggleCredits()
     {
+        GameManager.Instance.creditsActive = !GameManager.Instance.creditsActive;
         creditsScreen.SetActive(!creditsScreen.activeSelf);
     }
 

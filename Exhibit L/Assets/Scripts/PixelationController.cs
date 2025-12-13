@@ -3,8 +3,8 @@ using UnityEngine;
 public class PixelationController : MonoBehaviour
 {
     public RenderTexture pixelRT;
-    public int baseWidth = 320;
-    public int baseHeight = 180;
+    private int baseWidth;
+    private int baseHeight;
 
     public Camera mainCam;
     public Camera pixelCam; // Secondary camera
@@ -15,6 +15,7 @@ public class PixelationController : MonoBehaviour
 
     private void Start()
     {
+        GetMonitorRes();
         ApplyState();
     }
 
@@ -26,11 +27,17 @@ public class PixelationController : MonoBehaviour
             pixelCam.transform.position = mainCam.transform.position;
             pixelCam.transform.rotation = mainCam.transform.rotation;
         }
+        if (baseWidth != Screen.width || baseHeight != Screen.height)
+        {
+            print("resolution changed");
+            GetMonitorRes();
+            ApplyState();
+        }
     }
     public void SetPixelationLevel(int level)
     {
         pixelationLevel = Mathf.Clamp(level, 1, 10);
-        Debug.Log("PIXEL ON");
+        //Debug.Log("PIXEL ON");
         pixelationEnabled = true;
         ApplyState();
     }
@@ -38,7 +45,7 @@ public class PixelationController : MonoBehaviour
     public void TogglePixelation(bool enabled)
     {
         pixelationEnabled = enabled;
-        Debug.Log("PIXEL start");
+        //Debug.Log("PIXEL start");
 
         ApplyState();
     }
@@ -57,6 +64,14 @@ public class PixelationController : MonoBehaviour
         else
         {
             mainCam.targetTexture = null;
+            mainCam.ResetProjectionMatrix();
         }
+    }
+    public void GetMonitorRes()
+    {
+        baseWidth = Screen.width;
+        //print(baseWidth);
+        baseHeight = Screen.height;
+        //print(baseHeight);
     }
 }

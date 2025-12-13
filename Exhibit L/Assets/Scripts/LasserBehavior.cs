@@ -46,7 +46,7 @@ public class LasserBehavior : MonoBehaviour
     private UIManager uiManager;
 
     //[SerializeField] private int maxMirrorBounces = 5;
-    private int currentMirrorBounces = 0;
+    //private int currentMirrorBounces = 0;
     public GameObject burnDecal;
 
     public Vector3 camForward;
@@ -153,7 +153,7 @@ public class LasserBehavior : MonoBehaviour
             else if (laser.activeSelf)
             {
                 laser.SetActive(false);
-                currentMirrorBounces = 0;
+                //currentMirrorBounces = 0;
             }
             if (hit.transform.CompareTag("Enemy"))
             {

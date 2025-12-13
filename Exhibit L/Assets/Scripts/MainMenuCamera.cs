@@ -15,12 +15,24 @@ public class MainMenuCamera : MonoBehaviour
     [SerializeField] private float currentRotation;
     [SerializeField] private float maxRotation;
     [SerializeField] private float slowdownZone;
+
+    public Camera renderCamera;
+    public RenderTexture renderTexture;
+
     void OnEnable()
     {
         //resets to center camera when setting active
         Vector3 tempRotation = this.transform.eulerAngles;
         tempRotation.y = defaultRotation;
         this.transform.eulerAngles = tempRotation;
+        if (renderCamera != null)
+        {
+            CheckAspect();
+        }
+        else
+        {
+            Debug.LogError("no camera");
+        }
     }
 
     // Update is called once per frame
@@ -68,5 +80,20 @@ public class MainMenuCamera : MonoBehaviour
         currentRotation = 0f;
         canFlip = true;
         cameraSpeed = tempCameraSpeed;
+    }
+
+    public void CheckAspect()
+    {
+        renderTexture.Release();
+
+        renderTexture.width = Screen.width / 2;
+        renderTexture.height = Screen.height / 2;
+
+        renderTexture.Create();
+        renderCamera.targetTexture = renderTexture;
+
+        renderCamera.aspect = (float)renderTexture.width / renderTexture.height;
+        renderCamera.ResetProjectionMatrix();
+
     }
 }

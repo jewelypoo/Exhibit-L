@@ -33,7 +33,7 @@ public class PlayerSprites : MonoBehaviour
         else
         {
             rend.material.mainTextureOffset = new Vector2(0f, 0f);
-            print("static sprite");
+            //print("static sprite");
         }
 
     }
@@ -45,12 +45,12 @@ public class PlayerSprites : MonoBehaviour
         if (flipSprite)
         {
             rend.material.mainTextureOffset = new Vector2(.25f, 0f);
-            print("sprite 1");
+            //print("sprite 1");
         }
         else
         {
             rend.material.mainTextureOffset = new Vector2(.5f, 0f);
-            print("sprite 2");
+            //print("sprite 2");
         }
         yield return new WaitForSeconds(spriteTime);
         canFlip = true;
