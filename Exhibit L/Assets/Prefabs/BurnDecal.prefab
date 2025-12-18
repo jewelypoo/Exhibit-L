@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2202327011445624726}
   - component: {fileID: 7158719099864771223}
   - component: {fileID: 5692500342083915722}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BurnDecal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
